@@ -6,7 +6,7 @@
 <section>
     <input type="text" bind:value={text} on:input={updateResults}/>
     {#each shift_results as result,i}
-        <p>偏移:{i} <span>{result}</span></p>
+        <p>偏移:{i} <code>{result}</code></p>
     {/each}
 </section>
 
@@ -34,7 +34,7 @@
 </script>
 
 <style>
-    input, span {
+    input {
         font-family: var(--font-mono), monospace;
     }
 </style>
