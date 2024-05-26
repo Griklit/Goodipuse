@@ -1,4 +1,5 @@
-<script></script>
+<script>
+</script>
 
 <svelte:head>
 	<title>Doodipus</title>
@@ -6,6 +7,7 @@
 </svelte:head>
 
 <section>
+	<div>12311232131223</div>
 </section>
 
 <style>
