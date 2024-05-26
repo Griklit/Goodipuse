@@ -7,6 +7,7 @@
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/caesar">Caesar</a>
+        <a href="/base64">Base64</a>
     </nav>
     <main>
         <slot/>
