@@ -4,20 +4,22 @@
     --font-text: "Microsoft YaHei UI", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
     font-family: var(--font-text), serif;
-    color: black;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 0.875rem;
 }
 
 body {
     place-items: center;
     min-width: 480px;
     min-height: 240px;
-    margin: 0;
-    padding: 0;
 }
 
 a, b, i, p, span, input, h1, h2, h3, h4, h5, h6 {
     text-rendering: auto;
     text-align: justify;
+    line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {

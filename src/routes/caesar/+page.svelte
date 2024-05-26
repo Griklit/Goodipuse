@@ -44,6 +44,7 @@
 <style>
     input {
         font-family: var(--font-mono), monospace;
+        width: 100%;
     }
 
     div.shifts {
@@ -59,7 +60,8 @@
     }
 
     div.shift-value {
-        width: 3rem;
-        text-align: left;
+        width: 1.2rem;
+        text-align: right;
+        margin-right: 1rem;
     }
 </style>
