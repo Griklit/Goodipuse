@@ -5,8 +5,8 @@
 
 <section>
     <input type="text" bind:value={text} on:keydown={updateResults}/>
-    {#each shift_results as result}
-        <p>{result}</p>
+    {#each shift_results as result,i}
+        <p>偏移:{i} <span>{result}</span></p>
     {/each}
 </section>
 
@@ -32,3 +32,9 @@
         shift_results = Array.from({length: 26}, (_, i) => caesar(text, i));
     }
 </script>
+
+<style>
+    input, span {
+        font-family: var(--font-mono), monospace;
+    }
+</style>
