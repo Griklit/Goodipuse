@@ -7,7 +7,7 @@
 </svelte:head>
 
 <section>
-	<div>12311232131223</div>
+	你好
 </section>
 
 <style>

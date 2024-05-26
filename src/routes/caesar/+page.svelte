@@ -4,7 +4,7 @@
 </svelte:head>
 
 <section>
-    <input type="text" bind:value={text} on:keydown={updateResults}/>
+    <input type="text" bind:value={text} on:input={updateResults}/>
     {#each shift_results as result,i}
         <p>偏移:{i} <span>{result}</span></p>
     {/each}
