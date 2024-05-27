@@ -1,13 +1,14 @@
 <script>
     import './styles.css';
     import {page} from '$app/stores';
+    import { _ } from 'svelte-i18n';
 </script>
 
 <div class="app">
     <nav>
-        <a class:selected={$page.url.pathname === '/'} href="/">Home</a>
-        <a class:selected={$page.url.pathname === '/caesar'} href="/caesar">Caesar</a>
-        <a class:selected={$page.url.pathname === '/base64/image'} href="/base64/image">Base64-Image</a>
+        <a class:selected={$page.url.pathname === '/'} href="/">{$_('page.layout.home.title')}</a>
+        <a class:selected={$page.url.pathname === '/caesar'} href="/caesar">{$_('page.layout.caesar.title')}</a>
+        <a class:selected={$page.url.pathname === '/base64/image'} href="/base64/image">{$_('page.layout.base64.image.title')}</a>
     </nav>
     <main>
         <slot/>

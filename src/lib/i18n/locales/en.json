@@ -1,0 +1,17 @@
+{
+  "page": {
+    "layout": {
+      "home": {
+        "title": "Home"
+      },
+      "caesar": {
+        "title": "Caesar"
+      },
+      "base64": {
+        "image": {
+          "title": "Base64 Image"
+        }
+      }
+    }
+  }
+}
