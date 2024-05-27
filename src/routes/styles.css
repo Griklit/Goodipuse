@@ -13,10 +13,9 @@
 
 body {
     place-items: center;
-    min-width: 480px;
-    min-height: 240px;
     margin: 0;
     padding: 0;
+    background-color: #F7F8FC;
 }
 
 a, b, i, p, span, input, h1, h2, h3, h4, h5, h6 {

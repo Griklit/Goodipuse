@@ -1,13 +1,12 @@
 <script>
     import './styles.css';
     import {page} from '$app/stores';
-    import { _ } from 'svelte-i18n';
 </script>
 
 <div class="app">
     <nav>
         <a class:selected={$page.url.pathname === '/'} href="/">{$_('page.layout.home.title')}</a>
-        <a class:selected={$page.url.pathname === '/caesar'} href="/caesar">{$_('page.layout.caesar.title')}</a>
+        <a class:selected={$page.url.pathname === '/classical/caesar'} href="/classical/caesar">{$_('page.layout.caesar.title')}</a>
         <a class:selected={$page.url.pathname === '/base64/image'} href="/base64/image">{$_('page.layout.base64.image.title')}</a>
     </nav>
     <main>
@@ -26,7 +25,7 @@
   nav {
     display: flex;
     flex-direction: column;
-    flex: 0 0 15%;
+    flex: 0 0 12%;
     min-width: 12rem;
     place-items: center;
     gap: 1rem 0;
