@@ -86,9 +86,9 @@
     }
 
     div.shift-value {
-        width: 2.5rem;
+        width: 1.5rem;
         text-align: center;
-        margin-right: 1rem;
+        margin-right: 0.5rem;
     }
 
 </style>
