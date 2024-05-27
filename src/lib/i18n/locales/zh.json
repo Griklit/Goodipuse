@@ -1,15 +1,18 @@
 {
   "title": "鹅狄浦斯",
+  "description": "什么动物早上听起来像鹅，中午看起来像鹅，晚上尝起来像鹅？",
   "page": {
     "layout": {
       "home": {
         "title": "主页"
       },
       "classical/caesar": {
-        "title": "凯撒密码"
+        "title": "凯撒密码",
+        "description": "凯撒密码是一种古典加密技术，它是一种替换加密的技术，明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。"
       },
       "base64/image": {
-        "title": "Base64图片"
+        "title": "Base64图片",
+        "description": "Base64是一种基于64个可打印字符来表示二进制数据的方法。"
       }
     }
   }

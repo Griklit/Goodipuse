@@ -1,6 +1,6 @@
 <svelte:head>
-    <title>{$_('title')+' | '+$_('page.layout.classical/caesar.title')}</title>
-    <meta name="description" content="About this app"/>
+    <title>{$_('title') + ' | ' + $_('page.layout.classical/caesar.title')}</title>
+    <meta name="description" content={$_('page.layout.classical/caesar.description')}/>
 </svelte:head>
 
 <section>

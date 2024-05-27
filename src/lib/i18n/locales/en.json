@@ -1,15 +1,18 @@
 {
   "title": "Goodipuse",
+  "description": "What animal sounds like a goose in the morning, looks like a goose at noon, and tastes like a goose at night?",
   "page": {
     "layout": {
       "home": {
         "title": "Home"
       },
       "classical/caesar": {
-        "title": "Caesar"
+        "title": "Caesar",
+        "description": "Caesar cipher is a substitution cipher where each letter in the plaintext is shifted a certain number of places down the alphabet."
       },
       "base64/image": {
-        "title": "Base64 Image"
+        "title": "Base64 Image",
+        "description": "Base64 is a group of similar binary-to-text encoding schemes that represent binary data in an ASCII string format by translating it into a radix-64 representation."
       }
     }
   }

@@ -1,6 +1,6 @@
 <svelte:head>
     <title>{$_('title')}</title>
-    <meta name="description" content="Svelte demo app"/>
+    <meta name="description" content={$_('description')}/>
 </svelte:head>
 
 <section>
