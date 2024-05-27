@@ -4,7 +4,7 @@
 </svelte:head>
 
 <section>
-    你好
+    <h1>{$_('description')}</h1>
 </section>
 
 <script lang="ts">
