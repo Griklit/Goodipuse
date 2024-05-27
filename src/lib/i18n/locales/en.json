@@ -1,16 +1,15 @@
 {
+  "title": "Goodipuse",
   "page": {
     "layout": {
       "home": {
         "title": "Home"
       },
-      "caesar": {
+      "classical/caesar": {
         "title": "Caesar"
       },
-      "base64": {
-        "image": {
-          "title": "Base64 Image"
-        }
+      "base64/image": {
+        "title": "Base64 Image"
       }
     }
   }

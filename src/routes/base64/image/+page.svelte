@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>Base64</title>
+    <title>{$_('title') + ' | ' + $_('page.layout.base64/image.title')}</title>
     <meta name="description" content="About this app"/>
 </svelte:head>
 
@@ -14,6 +14,8 @@
 </section>
 
 <script lang="ts">
+    import {_} from 'svelte-i18n';
+
     let decodedText: string = '';
     let encodedText: string = '';
 

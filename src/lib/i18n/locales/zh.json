@@ -1,16 +1,15 @@
 {
+  "title": "鹅狄浦斯",
   "page": {
     "layout": {
       "home": {
         "title": "主页"
       },
-      "caesar": {
+      "classical/caesar": {
         "title": "凯撒密码"
       },
-      "base64": {
-        "image": {
-          "title": "Base64图片"
-        }
+      "base64/image": {
+        "title": "Base64图片"
       }
     }
   }

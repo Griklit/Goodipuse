@@ -7,8 +7,8 @@
 <div class="app">
     <nav>
         <a class:selected={$page.url.pathname === '/'} href="/">{$_('page.layout.home.title')}</a>
-        <a class:selected={$page.url.pathname === '/classical/caesar'} href="/classical/caesar">{$_('page.layout.caesar.title')}</a>
-        <a class:selected={$page.url.pathname === '/base64/image'} href="/base64/image">{$_('page.layout.base64.image.title')}</a>
+        <a class:selected={$page.url.pathname === '/classical/caesar'} href="/classical/caesar">{$_('page.layout.classical/caesar.title')}</a>
+        <a class:selected={$page.url.pathname === '/base64/image'} href="/base64/image">{$_('page.layout.base64/image.title')}</a>
     </nav>
     <main>
         <slot/>

@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>凯撒加密</title>
+    <title>{$_('title')+' | '+$_('page.layout.classical/caesar.title')}</title>
     <meta name="description" content="About this app"/>
 </svelte:head>
 
@@ -20,6 +20,8 @@
 </section>
 
 <script lang="ts">
+    import {_} from 'svelte-i18n';
+
     let holder = 'Hello, World!'
     let rotateNumber: boolean = false;
     let text: string | null = null;
