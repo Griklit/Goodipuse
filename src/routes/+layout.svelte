@@ -15,35 +15,37 @@
 </div>
 
 <style>
-    .app {
-        display: flex;
-        flex-direction: row;
-        height: 100vh;
-        width: 100vw;
-    }
+  .app {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+  }
 
-    nav {
-        display: flex;
-        flex-direction: column;
-        width: 15%;
-        place-items: center;
-        gap: 1rem 0;
-        padding: 2rem 0;
-        background: #f0f0f0;
-    }
+  nav {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 15%;
+    min-width: 12rem;
+    place-items: center;
+    gap: 1rem 0;
+    padding: 2rem 0;
+    background: #f0f0f0;
+  }
 
-    main {
-        padding: 2rem;
-        width: 85%;
-        overflow: scroll;
-    }
+  main {
+    padding: 2rem;
+    flex: 1;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
 
-    a {
-        text-decoration: none;
-        color: black;
-    }
+  a {
+    text-decoration: none;
+    color: black;
+  }
 
-    a.selected {
-        font-weight: bold;
-    }
+  a.selected {
+    font-weight: bold;
+  }
 </style>
