@@ -1,6 +1,7 @@
 <script>
     import './styles.css';
     import {page} from '$app/stores';
+    import { _ } from 'svelte-i18n';
 </script>
 
 <div class="app">
