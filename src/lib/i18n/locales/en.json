@@ -8,11 +8,15 @@
     }
   },
   "module": {
-    "classical/caesar": {
+    "substitution/custom": {
+      "title": "Custom Substitution",
+      "description": ""
+    },
+    "substitution/caesar": {
       "title": "Caesar",
       "description": "Caesar cipher is a substitution cipher where each letter in the plaintext is shifted a certain number of places down the alphabet."
     },
-    "classical/a1z26": {
+    "substitution/a1z26": {
       "title": "A1Z26",
       "description": "A1Z26 is a simple cipher where each letter in the plaintext is replaced by its position in the alphabet."
     },
