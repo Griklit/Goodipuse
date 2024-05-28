@@ -1,7 +1,7 @@
 <a class="card" href={"/external-software/" + filename}>
     <h1>{title}</h1>
     {#if url !== null}
-        <a class="url" href={url} target="_blank">🔗</a>
+        <a class="url" href={url} target="_blank">⇱</a>
     {/if}
     <p class="desc">{description}</p>
 </a>
@@ -38,12 +38,18 @@
         background-color: #efefef;
     }
 
-    p.desc {
-        text-indent: 2em;
-        width: 100%;
-    }
 
     a.url {
         align-self: end;
+    }
+
+    a.url:hover {
+        color: blue;
+        text-decoration: underline;
+    }
+
+    p.desc {
+        text-indent: 2em;
+        width: 100%;
     }
 </style>
