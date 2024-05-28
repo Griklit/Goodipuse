@@ -8,10 +8,12 @@
     <nav>
         <a class:selected={$page.url.pathname === '/'} href="/">
             {$_('page.home.title')}</a>
-        <a class:selected={$page.url.pathname === '/classical/caesar'} href="/classical/caesar">
-            {$_('module.classical/caesar.title')}</a>
-        <a class:selected={$page.url.pathname==='/classical/a1z26'} href="/classical/a1z26">
-            {$_('module.classical/a1z26.title')}</a>
+        <a class:selected={$page.url.pathname === '/substitution/custom'} href="/substitution/custom">
+            {$_('module.substitution/custom.title')}</a>
+        <a class:selected={$page.url.pathname === '/substitution/caesar'} href="/substitution/caesar">
+            {$_('module.substitution/caesar.title')}</a>
+        <a class:selected={$page.url.pathname==='/substitution/a1z26'} href="/substitution/a1z26">
+            {$_('module.substitution/a1z26.title')}</a>
         <a class:selected={$page.url.pathname === '/base64/image'} href="/base64/image">
             {$_('module.base64/image.title')}</a>
         <a class:selected={$page.url.pathname==='/external/software'} href="/external/software">

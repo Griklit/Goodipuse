@@ -8,11 +8,15 @@
     }
   },
   "module": {
-    "classical/caesar": {
+    "substitution/custom": {
+      "title": "自定义替换密码",
+      "description": "经典替换密码"
+    },
+    "substitution/caesar": {
       "title": "凯撒密码",
       "description": "凯撒密码是一种古典加密技术，它是一种替换加密的技术，明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。"
     },
-    "classical/a1z26": {
+    "substitution/a1z26": {
       "title": "A1Z26",
       "description": "A1Z26是一种古典加密技术，它是一种替换加密的技术，明文中的所有字母都被替换成它们在字母表中的位置。"
     },
