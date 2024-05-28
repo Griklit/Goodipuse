@@ -6,17 +6,6 @@
 <section>
     <Card filename="Stegsolve.jar" description="图片隐写工具" url="http://www.caesum.com/handbook/stego.htm"/>
     <Card filename="斯托夫文件格式分析器.7z"/>
-    <Card filename="Test.null"/>
-    <Card filename="Test.null"/>
-    <Card filename="Test.null"/>
-    <Card filename="Test.null"/>
-    <Card filename="Test.null"/>
-    <Card filename="Test.null"/>
-    <Card filename="Test.null"/>
-    <Card filename="Test.null"/>
-    <Card filename="Test.null"/>
-    <Card filename="Test.null"/>
-    <Card filename="Test.null"/>
 </section>
 
 <script>
