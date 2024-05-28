@@ -4,7 +4,7 @@
 </svelte:head>
 
 <section>
-    <h1>{$_('description')}</h1>
+    <h1>{$_('page.home.description')}</h1>
 </section>
 
 <script lang="ts">

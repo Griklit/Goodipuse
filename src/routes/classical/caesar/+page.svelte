@@ -1,6 +1,6 @@
 <svelte:head>
-    <title>{$_('title') + ' | ' + $_('page.layout.classical/caesar.title')}</title>
-    <meta name="description" content={$_('page.layout.classical/caesar.description')}/>
+    <title>{$_('title') + ' | ' + $_('module.classical/caesar.title')}</title>
+    <meta name="description" content={$_('module.classical/caesar.description')}/>
 </svelte:head>
 
 <section>
