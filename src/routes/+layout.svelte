@@ -6,32 +6,24 @@
 
 <div class="app">
     <nav>
-        <!--
-        <a class:selected={$page.url.pathname === '/'} href="/">
-            {$_('page.home.title')}</a>
-        <a class:selected={$page.url.pathname === '/substitution/custom'} href="/substitution/custom">
-            {$_('module.substitution/custom.title')}</a>
-        <a class:selected={$page.url.pathname === '/substitution/caesar'} href="/substitution/caesar">
-            {$_('module.substitution/caesar.title')}</a>
-        <a class:selected={$page.url.pathname==='/substitution/a1z26'} href="/substitution/a1z26">
-            {$_('module.substitution/a1z26.title')}</a>
-        <a class:selected={$page.url.pathname === '/base64/image'} href="/base64/image">
-            {$_('module.base64/image.title')}</a>
-        <a class:selected={$page.url.pathname==='/external/software'} href="/external/software">
-            {$_('module.external/software.title')}</a>-->
         <a href="/" style="width: 90%">
             <div class="navigate-card" class:selected={$page.url.pathname === '/'}>
                 <div style="margin: auto">{$_('page.home.title')}</div>
             </div>
         </a>
-        <a href="/classical/caesar" style="width: 90%">
-            <div class="navigate-card" class:selected={$page.url.pathname === '/classical/caesar'}>
-                <div style="margin: auto">{$_('module.classical/caesar.title')}</div>
+        <a href="/substitution/caesar" style="width: 90%">
+            <div class="navigate-card" class:selected={$page.url.pathname === '/substitution/caesar'}>
+                <div style="margin: auto">{$_('module.substitution/caesar.title')}</div>
             </div>
         </a>
-        <a href="/classical/a1z26" style="width: 90%">
-            <div class="navigate-card" class:selected={$page.url.pathname === '/classical/a1z26'}>
-                <div style="margin: auto">{$_('module.classical/a1z26.title')}</div>
+        <a href="/substitution/a1z26" style="width: 90%">
+            <div class="navigate-card" class:selected={$page.url.pathname === '/substitution/a1z26'}>
+                <div style="margin: auto">{$_('module.substitution/a1z26.title')}</div>
+            </div>
+        </a>
+        <a href="/substitution/custom" style="width: 90%">
+            <div class="navigate-card" class:selected={$page.url.pathname === '/substitution/custom'}>
+                <div style="margin: auto">{$_('module.substitution/custom.title')}</div>
             </div>
         </a>
         <a href="/base64/image" style="width: 90%">
