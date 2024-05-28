@@ -1,9 +1,9 @@
 <a class="card" href={"/external-software/" + filename}>
     <h1>{title}</h1>
-    <p>{description}</p>
     {#if url !== null}
-        <a class="url" href={url} target="_blank">{url}</a>
+        <a class="url" href={url} target="_blank">🔗</a>
     {/if}
+    <p class="desc">{description}</p>
 </a>
 
 <script lang="ts">
@@ -14,27 +14,36 @@
 </script>
 
 <style>
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
     a.card {
-        padding: 1rem;
+        padding: 1rem 1.6rem;
         display: flex;
         max-width: 32rem;
         flex-direction: row;
         flex-wrap: wrap;
         background-color: white;
         border-radius: 1rem;
-        color: black;
-        text-decoration: none;
+        gap: 0.75rem 0.624rem;
     }
 
-    a:hover {
-        background-color: #afafaf;
+    h1 {
+        font-size: 2rem;
     }
 
-    p {
-        align-self: end;
+    a.card:hover {
+        background-color: #efefef;
+    }
+
+    p.desc {
+        text-indent: 2em;
+        width: 100%;
     }
 
     a.url {
-        color: blue;
+        align-self: end;
     }
 </style>
