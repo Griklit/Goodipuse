@@ -15,6 +15,10 @@
     "base64/image": {
       "title": "Base64图片",
       "description": "Base64是一种基于64个可打印字符来表示二进制数据的方法。"
+    },
+    "external/software": {
+      "title": "外部软件",
+      "description": "不在本网站上运行的第三方工具程序。"
     }
   }
 }

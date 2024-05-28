@@ -7,14 +7,13 @@
 <div class="app">
     <nav>
         <a class:selected={$page.url.pathname === '/'} href="/">
-            {$_('page.home.title')}
-        </a>
+            {$_('page.home.title')}</a>
         <a class:selected={$page.url.pathname === '/classical/caesar'} href="/classical/caesar">
-            {$_('module.classical/caesar.title')}
-        </a>
+            {$_('module.classical/caesar.title')}</a>
         <a class:selected={$page.url.pathname === '/base64/image'} href="/base64/image">
-            {$_('module.base64/image.title')}
-        </a>
+            {$_('module.base64/image.title')}</a>
+        <a class:selected={$page.url.pathname==='/external/software'} href="/external/software">
+            {$_('module.external/software.title')}</a>
     </nav>
     <main>
         <slot/>
