@@ -1,47 +1,30 @@
-<script>
-    import './styles.css';
-    import {page} from '$app/stores';
-    import {_} from 'svelte-i18n';
-</script>
-
 <div class="app">
     <nav>
-        <a href="/" style="width: 90%">
-            <div class="navigate-card" class:selected={$page.url.pathname === '/'}>
-                <div style="margin: auto">{$_('page.home.title')}</div>
-            </div>
-        </a>
-        <a href="/substitution/caesar" style="width: 90%">
-            <div class="navigate-card" class:selected={$page.url.pathname === '/substitution/caesar'}>
-                <div style="margin: auto">{$_('module.substitution/caesar.title')}</div>
-            </div>
-        </a>
-        <a href="/substitution/a1z26" style="width: 90%">
-            <div class="navigate-card" class:selected={$page.url.pathname === '/substitution/a1z26'}>
-                <div style="margin: auto">{$_('module.substitution/a1z26.title')}</div>
-            </div>
-        </a>
-        <a href="/substitution/custom" style="width: 90%">
-            <div class="navigate-card" class:selected={$page.url.pathname === '/substitution/custom'}>
-                <div style="margin: auto">{$_('module.substitution/custom.title')}</div>
-            </div>
-        </a>
-        <a href="/base64/image" style="width: 90%">
-            <div class="navigate-card" class:selected={$page.url.pathname === '/base64/image'}>
-                <div style="margin: auto">{$_('module.base64/image.title')}</div>
-            </div>
-        </a>
-        <a href="/external/software" style="width: 90%">
-            <div class="navigate-card" class:selected={$page.url.pathname === '/external/software'}>
-                <div style="margin: auto">{$_('module.external/software.title')}</div>
-            </div>
-        </a>
-
+        {#each routers as router}
+            <a class="navigate-card" class:selected={$page.url.pathname === router.path} href={router.path}>
+                {router.title}
+            </a>
+        {/each}
     </nav>
     <main>
         <slot/>
     </main>
 </div>
+
+<script lang="ts">
+    import './styles.css';
+    import {page} from '$app/stores';
+    import {_} from 'svelte-i18n';
+
+    let routers: Array<{ path: string, title: string }> = [
+        {path: '/', title: $_('page.home.title')},
+        {path: '/substitution/caesar', title: $_('module.substitution/caesar.title')},
+        {path: '/substitution/a1z26', title: $_('module.substitution/a1z26.title')},
+        {path: '/substitution/custom', title: $_('module.substitution/custom.title')},
+        {path: '/base64/image', title: $_('module.base64/image.title')},
+        {path: '/external/software', title: $_('module.external/software.title')},
+    ];
+</script>
 
 <style>
     .app {
@@ -54,56 +37,54 @@
     nav {
         display: flex;
         flex-direction: column;
-        flex: 0 0 12%;
+        flex: 0 0 8%;
         min-width: 12rem;
         place-items: center;
         gap: 0.3rem 0;
-        padding: 2rem 0;
-    }
-
-    main {
-        padding: 2rem;
-        flex: 1;
+        padding: 2rem 0.75rem;
         overflow: scroll;
         overflow-x: hidden;
+        overflow-y: auto;
     }
 
-    a {
+    a.navigate-card {
+        width: 100%;
         text-decoration: none;
         color: black;
-    }
-
-    a.selected {
-        font-weight: bold;
-    }
-
-    div.navigate-card {
         min-height: 2.2rem;
         display: flex;
-        align-items: center;
-        border-radius: 5px;
+        border-radius: 3px;
         position: relative;
+        align-items: center;
+        justify-content: center;
     }
 
-    div.navigate-card.selected {
+    a.navigate-card.selected {
         background: #E8EAF0;
     }
 
-    div.navigate-card:hover {
+    a.navigate-card:hover {
         background: #E8EAF0;
     }
 
-    div.navigate-card:active {
+    a.navigate-card:active {
         background: #EBEDF3;
     }
 
-    div.navigate-card.selected::before {
+    a.navigate-card.selected::before {
         content: "";
         position: absolute;
+        left: 0;
         width: 4px;
         height: 66%;
         background: #0067C0;
         border-radius: 5px;
     }
 
+    main {
+        padding: 2rem 0.75rem;
+        flex: 1;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
 </style>
