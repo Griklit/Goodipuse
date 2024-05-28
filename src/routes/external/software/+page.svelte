@@ -4,18 +4,32 @@
 </svelte:head>
 
 <section>
-    <a href="/external-software/Stegsolve.jar">Stegsolve.jar</a>
-    <a href="/external-software/斯托夫文件格式分析器.zip">斯托夫文件格式分析器.7z</a>
+    <Card filename="Stegsolve.jar" description="图片隐写工具" url="http://www.caesum.com/handbook/stego.htm"/>
+    <Card filename="斯托夫文件格式分析器.7z"/>
+    <Card filename="Test.null"/>
+    <Card filename="Test.null"/>
+    <Card filename="Test.null"/>
+    <Card filename="Test.null"/>
+    <Card filename="Test.null"/>
+    <Card filename="Test.null"/>
+    <Card filename="Test.null"/>
+    <Card filename="Test.null"/>
+    <Card filename="Test.null"/>
+    <Card filename="Test.null"/>
+    <Card filename="Test.null"/>
 </section>
 
 <script>
     import {_} from "svelte-i18n";
+
+    import Card from "./Card.svelte";
 </script>
 
 <style>
     section {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        grid-gap: 0.5rem 2.5rem;
     }
 </style>
