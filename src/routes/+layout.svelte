@@ -23,6 +23,7 @@
         {path: '/substitution/custom', title: $_('module.substitution/custom.title')},
         {path: '/base64/image', title: $_('module.base64/image.title')},
         {path: '/external/software', title: $_('module.external/software.title')},
+        {path: '/playground', title: 'playground'},
     ];
 </script>
 
