@@ -43,7 +43,7 @@
         flex: 0 0 8%;
         min-width: 12rem;
         place-items: center;
-        gap: 0.3rem 0;
+        gap: 4px 0;
         padding: 2rem 0.75rem;
         overflow: scroll;
         overflow-x: hidden;
@@ -54,7 +54,8 @@
         width: 100%;
         text-decoration: none;
         color: black;
-        min-height: 2.2rem;
+        height: 34px;
+        border: 1px solid #FAFAFA;
         display: flex;
         border-radius: 3px;
         position: relative;
@@ -63,25 +64,36 @@
     }
 
     a.navigate-card.selected {
-        background: #E8EAF0;
+        background: #F0F0F0;
     }
 
     a.navigate-card:hover {
-        background: #E8EAF0;
+        background: #F0F0F0;
     }
 
     a.navigate-card:active {
-        background: #EBEDF3;
+        background: #F4F4F4;
+        color: #606060;
+    }
+
+    a.navigate-card::before {
+        content: "";
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        width: 3px;
+        height: 16px;
+        background: #0067C0;
+        border-radius: 100px;
     }
 
     a.navigate-card.selected::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        width: 4px;
-        height: 66%;
-        background: #0067C0;
-        border-radius: 5px;
+        opacity: 1;
+    }
+
+    a.navigate-card:active::before {
+        opacity: 1;
+        height: 10px;
     }
 
     main {
