@@ -10,8 +10,6 @@
 </section>
 
 <script lang="ts">
-    import '../../styles.css';
-
     import {_} from "svelte-i18n";
 
     import Card from "./Card.svelte";
