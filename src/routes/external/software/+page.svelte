@@ -14,6 +14,8 @@
 
     import Card from "./Card.svelte";
 
+    export const hydrate = true;
+
     const files: Array<{
         filename: string;
         title?: string;
