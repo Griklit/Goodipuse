@@ -1,5 +1,5 @@
 <a class="card" href={"/external-software/" + filename}>
-    <h1>{title}</h1>
+    <h1>{title !== null ? title : filename}</h1>
     {#if url !== null}
         <a class="url" href={url} target="_blank">⇱</a>
     {/if}
@@ -8,7 +8,7 @@
 
 <script lang="ts">
     export let filename: string;
-    export let title: string = filename;
+    export let title: string | null = null;
     export let description: string = "";
     export let url: string | null = null;
 </script>
