@@ -5,7 +5,7 @@
                 {router.title}
             </a>
         {/each}
-        <a href="https://github.com/Griklit/Goodipuse" target="_blank" style="align-self: flex-start;margin-top: auto;"><Icon style="font-size: 36px;" icon="logos:github-icon" /></a>
+        <a href="https://github.com/Griklit/Goodipuse" title="github" target="_blank" style="align-self: flex-start;margin-top: auto;"><Icon style="font-size: 36px;" icon="logos:github-icon" /></a>
     </nav>
     <main>
         <slot/>
