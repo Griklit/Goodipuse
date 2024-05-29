@@ -9,7 +9,7 @@
     {/each}
 </section>
 
-<script lang="ts">
+<script lang="ts" context="module">
     import {_} from "svelte-i18n";
 
     import Card from "./Card.svelte";
