@@ -38,6 +38,7 @@
     }
 
     nav {
+        background-color: #F3F3F3;
         display: flex;
         flex-direction: column;
         flex: 0 0 8%;
@@ -55,7 +56,7 @@
         text-decoration: none;
         color: black;
         height: 34px;
-        border: 1px solid #FAFAFA;
+        border: 1px solid #F3F3F3;
         display: flex;
         border-radius: 3px;
         position: relative;
@@ -64,16 +65,16 @@
     }
 
     a.navigate-card.selected {
-        background: #F0F0F0;
+        background: #E9E9E9;
     }
 
     a.navigate-card:hover {
-        background: #F0F0F0;
+        background: #E9E9E9;
     }
 
     a.navigate-card:active {
-        background: #F4F4F4;
-        color: #606060;
+        background: #EDEDED;
+        color: #5D5D5D;
     }
 
     a.navigate-card::before {
@@ -89,11 +90,8 @@
 
     a.navigate-card.selected::before {
         opacity: 1;
-    }
-
-    a.navigate-card:active::before {
-        opacity: 1;
-        height: 10px;
+        animation: active 0.2s ease;
+        animation-fill-mode: both;
     }
 
     main {
@@ -101,5 +99,14 @@
         flex: 1;
         overflow: scroll;
         overflow-x: hidden;
+    }
+
+    @keyframes active {
+        0% {
+            transform: scaleY(80%);
+        }
+        100% {
+            transform: scaleY(100%);
+        }
     }
 </style>
