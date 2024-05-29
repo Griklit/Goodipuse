@@ -5,6 +5,7 @@
                 {router.title}
             </a>
         {/each}
+        <a href="https://github.com/Griklit/Goodipusesection" target="_blank" style="align-self: flex-start;margin-top: auto;"><Icon style="font-size: 36px;" icon="logos:github-icon" /></a>
     </nav>
     <main>
         <slot/>
@@ -17,6 +18,7 @@
 
     import {page} from '$app/stores';
     import {_} from 'svelte-i18n';
+    import Icon from "@iconify/svelte";
 
     let routers: Array<{ path: string, title: string }> = [
         {path: '/', title: $_('page.home.title')},
