@@ -4,16 +4,21 @@
 </svelte:head>
 
 <section>
-    <textarea class="cipher-text" rows="12" bind:value={cipherText} on:input={updateResults} placeholder="密文"/>
-    <textarea class="plain-text" rows="12" disabled bind:value={plainText} placeholder="明文"/>
     <div class="key">
-        {#each map as [key, value]}
-            <div class="map">
-                <input class="letter" type="text" maxlength="1" bind:value={key} on:input={updateMap}/>
-                <span>↓</span>
-                <input class="letter" type="text" maxlength="1" bind:value={value} on:input={updateMap}/>
-            </div>
-        {/each}
+        <textarea class="key"/>
+        <div class="map-list">
+            {#each map as [key, value]}
+                <div class="map">
+                    <input class="letter" type="text" maxlength="1" bind:value={key} on:input={updateMap}/>
+                    <span>→</span>
+                    <input class="letter" type="text" maxlength="1" bind:value={value} on:input={updateMap}/>
+                </div>
+            {/each}
+        </div>
+    </div>
+    <div class="text">
+        <textarea class="cipher-text" rows="12" bind:value={cipherText} on:input={updateResults} placeholder="密文"/>
+        <textarea class="plain-text" rows="12" disabled bind:value={plainText} placeholder="明文"/>
     </div>
 </section>
 
@@ -69,32 +74,50 @@
 </script>
 
 <style>
-    section {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
     textarea {
         padding: 0.25rem 0.5rem;
         font-family: var(--font-mono), monospace;
-        resize: vertical;
-        min-width: 32rem;
-        flex-grow: 1;
+        resize: none;
+        border: none;
+        border-radius: 4px;
+        background-color: white;
+    }
+
+    section {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        width: 100%;
+        height: 100%;
     }
 
     div.key {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
-        width: 100%;
         gap: 1rem 0.5rem;
+        align-items: start;
+    }
+
+    textarea.key {
+        text-align: center;
+        width: 3rem;
+        min-width: 3rem;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    div.map-list {
+        padding: 0.5rem;
+        height: 100%;
+        background-color: #0000000a;
+        border-radius: 4px;
     }
 
     div.map {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         gap: 0.5rem;
     }
@@ -102,8 +125,20 @@
     input.letter {
         padding: 0.25rem;
         width: 1rem;
-        border-radius: 0.25rem;
         text-align: center;
     }
+
+    div.text {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        flex-grow: 1;
+    }
+
+    textarea.cipher-text, textarea.plain-text {
+        min-width: 32rem;
+        flex-grow: 1;
+    }
+
 
 </style>
