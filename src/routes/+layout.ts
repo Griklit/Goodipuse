@@ -1,7 +1,7 @@
-import { browser } from '$app/environment'
+import {browser} from '$app/environment'
 import '$lib/i18n' // Import to initialize. Important :)
-import { locale, waitLocale } from 'svelte-i18n'
-import type { LayoutLoad } from './$types'
+import {locale, waitLocale} from 'svelte-i18n'
+import type {LayoutLoad} from './$types'
 
 export const load: LayoutLoad = async () => {
     if (browser) {
@@ -9,3 +9,4 @@ export const load: LayoutLoad = async () => {
     }
     await waitLocale()
 }
+export const prerender = true;
