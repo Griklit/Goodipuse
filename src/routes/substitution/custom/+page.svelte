@@ -5,7 +5,7 @@
 
 <section>
     <div class="key">
-        <textarea class="key"/>
+        <textarea class="key scrollbar"/>
         <div class="map-list">
             {#each map as [key, value]}
                 <div class="map">
@@ -17,12 +17,14 @@
         </div>
     </div>
     <div class="text">
-        <textarea class="cipher-text" rows="12" bind:value={cipherText} on:input={updateResults} placeholder="密文"/>
-        <textarea class="plain-text" rows="12" disabled bind:value={plainText} placeholder="明文"/>
+        <textarea class="cipher-text scrollbar" rows="12" bind:value={cipherText} on:input={updateResults}
+                  placeholder="密文"/>
+        <textarea class="plain-text scrollbar" rows="12" disabled bind:value={plainText} placeholder="明文"/>
     </div>
 </section>
 
 <script lang="ts">
+    import '$lib/styles/scrollbar.css'
     import {_} from 'svelte-i18n';
 
     let cipherText: string = "";
@@ -75,11 +77,12 @@
 
 <style>
     textarea {
+        outline: none;
         padding: 0.25rem 0.5rem;
         font-family: var(--font-mono), monospace;
         resize: none;
         border: none;
-        border-radius: 4px;
+        border-radius: 8px;
         background-color: white;
     }
 
@@ -108,11 +111,12 @@
         overflow-y: scroll;
     }
 
+
     div.map-list {
         padding: 0.5rem;
         height: 100%;
         background-color: #0000000a;
-        border-radius: 4px;
+        border-radius: 8px;
     }
 
     div.map {

@@ -13,6 +13,8 @@
 
 <script lang="ts">
     import './styles.css';
+    import '$lib/styles/scrollbar.css'
+
     import {page} from '$app/stores';
     import {_} from 'svelte-i18n';
 
