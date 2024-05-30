@@ -4,22 +4,24 @@
 </svelte:head>
 
 <section>
-    <div class="key">
-        <textarea class="key scrollbar"/>
-        <div class="map-list">
-            {#each map as [key, value]}
-                <div class="map">
-                    <input class="letter" type="text" maxlength="1" bind:value={key} on:input={updateMap}/>
-                    <span>→</span>
-                    <input class="letter" type="text" maxlength="1" bind:value={value} on:input={updateMap}/>
-                </div>
-            {/each}
-        </div>
+    <textarea class="map map-text scrollbar" bind:value={mapText} on:input={updateMapText}/>
+    <div class="map map-list scrollbar">
+        {#each mapList as [key, value]}
+            <div class="map">
+                <input class="letter" type="text" maxlength="1" bind:value={key} on:input={updateMapList}/>
+                <span>→</span>
+                <input class="letter" type="text" maxlength="1" bind:value={value} on:input={updateMapList}/>
+            </div>
+        {/each}
     </div>
     <div class="text">
-        <textarea class="cipher-text scrollbar" rows="12" bind:value={cipherText} on:input={updateResults}
-                  placeholder="密文"/>
-        <textarea class="plain-text scrollbar" rows="12" disabled bind:value={plainText} placeholder="明文"/>
+        <textarea class="cipher-text scrollbar" rows="12" placeholder="密文"
+                  bind:value={cipherText} on:input={updateResults}/>
+        <div class="option">
+            忽略大小写：<input type="checkbox" bind:checked={caseSensitive} on:input={updateResults}/>
+        </div>
+        <textarea class="plain-text scrollbar" rows="12" disabled placeholder="明文"
+                  bind:value={plainText}/>
     </div>
 </section>
 
@@ -27,12 +29,16 @@
     import '$lib/styles/scrollbar.css'
     import {_} from 'svelte-i18n';
 
+
+    let caseSensitive: boolean = false;
+
     let cipherText: string = "";
     let plainText: string = "";
 
-    let caseSensitive: boolean = false;
     let map = new Map<string, string>();
     map.set("s", "");
+    let mapText: string = "";
+    let mapList: Array<[string, string]> = [];
 
     function updateResults() {
         let newText = [];
@@ -66,10 +72,26 @@
         plainText = newText.join("");
     }
 
-    function updateMap() {
-        if (!map.has("")) {
-            map.set("", "");
+    function updateMapText() {
+        console.log(mapText);
+        let new_map = new Map<string, string>();
+        let lines = mapText.split("\n");
+        for (let line of lines) {
+            if (line.length < 3) {
+                continue;
+            }
+            let src = line[0];
+            let dst = line[line.length - 1];
+            console.log(src, dst);
+            new_map.set(src, dst);
         }
+        map = new_map;
+        console.log(map)
+        updateResults();
+    }
+
+    function updateMapList() {
+
         updateResults()
     }
 
@@ -78,7 +100,6 @@
 <style>
     textarea {
         outline: none;
-        padding: 0.25rem 0.5rem;
         font-family: var(--font-mono), monospace;
         resize: none;
         border: none;
@@ -89,32 +110,27 @@
     section {
         display: flex;
         flex-direction: row;
-        gap: 1rem;
+        gap: 0 1rem;
         width: 100%;
         height: 100%;
     }
 
-    div.key {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        gap: 1rem 0.5rem;
-        align-items: start;
+    .map {
+        width: 6%;
     }
 
-    textarea.key {
+
+    textarea.map-text {
+        padding: 0.5rem;
         text-align: center;
-        width: 3rem;
-        min-width: 3rem;
-        height: 100%;
+        white-space: pre;
         overflow-x: hidden;
         overflow-y: scroll;
     }
 
 
     div.map-list {
-        padding: 0.5rem;
-        height: 100%;
+        padding: 0.25rem;
         background-color: #0000000a;
         border-radius: 8px;
     }
@@ -133,15 +149,24 @@
     }
 
     div.text {
+        flex-grow: 1;
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-        flex-grow: 1;
+        height: 100%;
+        align-content: stretch;
     }
 
     textarea.cipher-text, textarea.plain-text {
-        min-width: 32rem;
+        padding: 0.5rem;
+        width: 100%;
         flex-grow: 1;
+    }
+
+    div.option {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0.75rem 0;
     }
 
 
