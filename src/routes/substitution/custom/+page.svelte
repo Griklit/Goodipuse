@@ -4,23 +4,27 @@
 </svelte:head>
 
 <section>
-    <textarea class="map map-text scrollbar" bind:value={mapText} on:input={updateMapText}/>
-    <div class="map map-list scrollbar">
-        {#each mapList as [key, value]}
-            <div class="map">
-                <input class="letter" type="text" maxlength="1" bind:value={key} on:input={updateMapList}/>
-                <span>→</span>
-                <input class="letter" type="text" maxlength="1" bind:value={value} on:input={updateMapList}/>
-            </div>
-        {/each}
-    </div>
+    {#if mapType === "text"}
+    <textarea class="map map-text scrollbar" placeholder={mapTextHolder}
+              bind:value={mapText} on:input={updateMapText}/>
+    {:else if mapType === "list"}
+        <div class="map map-list scrollbar">
+            {#each mapList as [key, value]}
+                <div class="map">
+                    <input class="letter" type="text" maxlength="1" bind:value={key} on:input={updateMapList}/>
+                    <span>→</span>
+                    <input class="letter" type="text" maxlength="1" bind:value={value} on:input={updateMapList}/>
+                </div>
+            {/each}
+        </div>
+    {/if}
     <div class="text">
-        <textarea class="cipher-text scrollbar" rows="12" placeholder="密文"
+        <textarea class="cipher-text scrollbar" rows="12" placeholder={cipherTextHolder}
                   bind:value={cipherText} on:input={updateResults}/>
         <div class="option">
             忽略大小写：<input type="checkbox" bind:checked={caseSensitive} on:input={updateResults}/>
         </div>
-        <textarea class="plain-text scrollbar" rows="12" disabled placeholder="明文"
+        <textarea class="plain-text scrollbar" rows="12" disabled placeholder={plainTextHolder}
                   bind:value={plainText}/>
     </div>
 </section>
@@ -29,15 +33,19 @@
     import '$lib/styles/scrollbar.css'
     import {_} from 'svelte-i18n';
 
+    let mapType: string = "text";
 
     let caseSensitive: boolean = false;
 
     let cipherText: string = "";
+    let cipherTextHolder: string = "Hello, World!";
     let plainText: string = "";
+    let plainTextHolder: string = "Aexxn, Wnrxd!";
 
     let map = new Map<string, string>();
     map.set("s", "");
     let mapText: string = "";
+    let mapTextHolder: string = "h->a\nl->x\no->n";
     let mapList: Array<[string, string]> = [];
 
     function updateResults() {
