@@ -107,12 +107,8 @@
 
 <style>
     textarea {
-        outline: none;
         font-family: var(--font-mono), monospace;
         resize: none;
-        border: none;
-        border-radius: 8px;
-        background-color: white;
     }
 
     section {
@@ -125,11 +121,12 @@
 
     .map {
         width: 6%;
+        min-width: 4rem;
     }
 
 
     textarea.map-text {
-        padding: 0.5rem;
+        padding: 1rem 0;
         text-align: center;
         white-space: pre;
         overflow-x: hidden;
@@ -138,7 +135,7 @@
 
 
     div.map-list {
-        padding: 0.5rem;
+        padding: 1rem 0.25rem;
         background-color: #0000000a;
         border-radius: 8px;
     }
