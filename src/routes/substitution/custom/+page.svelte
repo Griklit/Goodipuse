@@ -130,7 +130,7 @@
 
 
     div.map-list {
-        padding: 0.25rem;
+        padding: 0.5rem;
         background-color: #0000000a;
         border-radius: 8px;
     }
@@ -157,7 +157,7 @@
     }
 
     textarea.cipher-text, textarea.plain-text {
-        padding: 0.5rem;
+        padding: 1rem;
         width: 100%;
         flex-grow: 1;
     }
