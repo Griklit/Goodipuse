@@ -1,7 +1,7 @@
 <div class="app">
     <nav>
-        {#each routers as router}
-            <a class="navigate-card" class:selected={$page.url.pathname === router.path} href={router.path}>
+        {#each routers as [path, router]}
+            <a class="navigate-card" class:selected={$page.url.pathname === path} href={path}>
                 {router.title}
             </a>
         {/each}
@@ -11,6 +11,9 @@
         </a>
     </nav>
     <main>
+        {#if $page.url.pathname !== "/"}
+            <a class="main-page" href="/">主页</a>
+        {/if}
         <slot/>
     </main>
 </div>
@@ -23,15 +26,14 @@
     import {_} from 'svelte-i18n';
     import Icon from "@iconify/svelte";
 
-    let routers: Array<{ path: string, title: string }> = [
-        {path: '/', title: $_('page.home.title')},
-        {path: '/substitution/caesar', title: $_('module.substitution/caesar.title')},
-        {path: '/substitution/a1z26', title: $_('module.substitution/a1z26.title')},
-        {path: '/substitution/custom', title: $_('module.substitution/custom.title')},
-        {path: '/base64/image', title: $_('module.base64/image.title')},
-        {path: '/external/software', title: $_('module.external/software.title')},
-        {path: '/playground', title: 'playground'},
-    ];
+    let routers = new Map<string, { title: string }>();
+    routers.set('/', {title: $_('page.home.title')});
+    routers.set('/substitution/caesar', {title: $_('module.substitution/caesar.title')});
+    routers.set('/substitution/a1z26', {title: $_('module.substitution/a1z26.title')});
+    routers.set('/substitution/custom', {title: $_('module.substitution/custom.title')});
+    routers.set('/base64/image', {title: $_('module.base64/image.title')});
+    routers.set('/external/software', {title: $_('module.external/software.title')});
+    routers.set('/playground', {title: 'playground'});
 </script>
 
 <style>
@@ -49,9 +51,8 @@
         flex: 0 0 8%;
         min-width: 12rem;
         place-items: center;
-        gap: 4px 0;
+        gap: 0.25rem 0;
         padding: 2rem 0.75rem;
-        overflow: scroll;
         overflow-x: hidden;
         overflow-y: auto;
     }
@@ -99,19 +100,33 @@
         animation-fill-mode: both;
     }
 
-    main {
-        padding: 2rem 0.75rem;
-        flex: 1;
-        overflow: scroll;
-        overflow-x: hidden;
-    }
-
     @keyframes active {
         0% {
             transform: scaleY(80%);
         }
         100% {
             transform: scaleY(100%);
+        }
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 0.75rem;
+        flex: 1;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+
+    @media all and (orientation: portrait) {
+        nav {
+            display: none;
+        }
+    }
+
+    @media all and (orientation: landscape) {
+        a.main-page {
+            display: none;
         }
     }
 </style>
