@@ -31,5 +31,7 @@
     nav {
         display: flex;
         flex-direction: column;
+        padding: 1rem 0;
+        gap: 1rem;
     }
 </style>

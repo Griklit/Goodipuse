@@ -7,12 +7,15 @@
         {/each}
         <a href="https://github.com/Griklit/Goodipuse" title="github" target="_blank"
            style="align-self: flex-start;margin-top: auto;">
-            <Icon style="font-size: 2.5rem;" icon="logos:github-icon"/>
+            <Icon style="font-size: 2rem;" icon="logos:github-icon"/>
         </a>
     </nav>
     <main>
         {#if $page.url.pathname !== "/"}
-            <a class="main-page" href="/">主页</a>
+            <div class="title">
+                <h1 class="title">{routers.get($page.url.pathname)?.title}</h1>
+                <a class="main-page" href="/">返回</a>
+            </div>
         {/if}
         <slot/>
     </main>
@@ -32,6 +35,7 @@
     routers.set('/substitution/a1z26', {title: $_('module.substitution/a1z26.title')});
     routers.set('/substitution/custom', {title: $_('module.substitution/custom.title')});
     routers.set('/base64/image', {title: $_('module.base64/image.title')});
+    routers.set('/image/steganography', {title: "图片隐写"});
     routers.set('/external/software', {title: $_('module.external/software.title')});
     routers.set('/playground', {title: 'playground'});
 </script>
@@ -116,6 +120,27 @@
         flex: 1;
         overflow: scroll;
         overflow-x: hidden;
+        gap: 0.75rem 0;
+    }
+
+    div.title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: end;
+    }
+
+    h1.title {
+        font-size: 1.5rem;
+    }
+
+    a.main-page {
+        padding: 0.25rem 0.4rem;
+        font-size: 0.875rem;
+        background-color: #0067C0;
+        border-radius: 0.25rem;
+        color: #ffffff;
+        text-decoration: none;
     }
 
     @media all and (orientation: portrait) {
@@ -125,7 +150,7 @@
     }
 
     @media all and (orientation: landscape) {
-        a.main-page {
+        div.title {
             display: none;
         }
     }

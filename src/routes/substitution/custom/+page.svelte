@@ -5,8 +5,8 @@
 
 <section>
     {#if mapType === "text"}
-    <textarea class="map map-text scrollbar" placeholder={mapTextHolder}
-              bind:value={mapText} on:input={updateMapText}/>
+        <textarea class="map map-text scrollbar" placeholder={mapTextHolder}
+                  bind:value={mapText} on:input={updateMapText}/>
     {:else if mapType === "list"}
         <div class="map map-list scrollbar">
             {#each mapList as [key, value]}
