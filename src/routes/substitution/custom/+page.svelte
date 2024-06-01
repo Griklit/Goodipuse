@@ -5,11 +5,11 @@
 
 <section>
     {#if mapType === "text"}
-        <div class="win11-ui-textarea map">
-            <p class="win11-ui-textarea">{$_('module.substitution-custom.key')}</p>
+        <label class="win11-ui-textarea map">
+            <span class="win11-ui-textarea">{$_('module.substitution-custom.key')}</span>
             <textarea class="win11-ui-textarea scrollbar" placeholder={mapTextHolder}
                       bind:value={mapText} on:input={updateMapText}/>
-        </div>
+        </label>
     {:else if mapType === "list"}
         <div class="map map-list scrollbar">
             {#each mapList as [key, value]}
@@ -28,7 +28,12 @@
                       bind:value={cipherText} on:input={updateResults}/>
         </label>
         <div class="option">
-            忽略大小写：<input type="checkbox" bind:checked={caseSensitive} on:input={updateResults}/>
+            <label class="win11-ui-checkbox">
+                <input class="win11-ui-checkbox" type="checkbox" bind:checked={caseSensitive} on:input={updateResults}/>
+                <span class="win11-ui-checkbox"/>
+                忽略大小写
+            </label>
+<!--            忽略大小写：<input type="checkbox" bind:checked={caseSensitive} on:input={updateResults}/>-->
         </div>
         <label class="win11-ui-textarea plain-text">
             <span class="win11-ui-textarea">{$_('module.substitution-custom.plain_text')}</span>
@@ -42,6 +47,7 @@
     import {_} from 'svelte-i18n';
     import '$lib/styles/scrollbar.css'
     import '$lib/styles/win11-ui/textarea.css'
+    import '$lib/styles/win11-ui/checkbox.css'
 
     let mapType: string = "text";
 
