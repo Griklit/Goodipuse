@@ -8,23 +8,26 @@
     }
   },
   "module": {
-    "substitution/custom": {
+    "substitution-custom": {
       "title": "自定义替换密码",
-      "description": "经典替换密码"
+      "description": "经典替换密码",
+      "key": "秘钥",
+      "cipher_text": "密文",
+      "plain_text": "译文"
     },
-    "substitution/caesar": {
+    "substitution-caesar": {
       "title": "凯撒密码",
       "description": "凯撒密码是一种古典加密技术，它是一种替换加密的技术，明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。"
     },
-    "substitution/a1z26": {
+    "substitution-a1z26": {
       "title": "A1Z26",
       "description": "A1Z26是一种古典加密技术，它是一种替换加密的技术，明文中的所有字母都被替换成它们在字母表中的位置。"
     },
-    "base64/image": {
+    "base64-image": {
       "title": "Base64图片",
       "description": "Base64是一种基于64个可打印字符来表示二进制数据的方法。"
     },
-    "external/software": {
+    "external-software": {
       "title": "外部软件",
       "description": "不在本网站上运行的第三方工具程序。"
     }

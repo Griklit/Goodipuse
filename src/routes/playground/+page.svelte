@@ -5,6 +5,7 @@
 
 <section>
     <h1>Hello, World!</h1>
+    <h1>{$_("nmsl.nmsl.nmsl")}</h1>
     <!--    <input style="width: 300px;" placeholder="你好世界"/>-->
     <!--    <br>-->
     <!--    <input style="width: 300px;" placeholder="你好世界"/>-->
@@ -18,6 +19,7 @@
 </section>
 
 <script lang="ts">
+    import {_} from 'svelte-i18n';
     import MyInput from './MyInput.svelte'
 
     let a = true

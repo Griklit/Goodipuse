@@ -1,6 +1,6 @@
 <svelte:head>
-    <title>{$_('title') + ' | ' + $_('module.substitution/a1z26.title')}</title>
-    <meta name="description" content={$_('module.substitution/a1z26.description')}/>
+    <title>{$_('title') + ' | ' + $_('module.substitution-a1z26.title')}</title>
+    <meta name="description" content={$_('module.substitution-a1z26.description')}/>
 </svelte:head>
 
 <section>

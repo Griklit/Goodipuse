@@ -1,0 +1,59 @@
+div.win11-ui-textarea {
+    position: relative;
+    border-radius: 0.1875rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-size: 0;
+}
+
+div.win11-ui-textarea::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0.0625rem;
+    left: 0;
+    bottom: 0;
+    background: #8A8A8A;
+}
+
+div.win11-ui-textarea:has(textarea:focus)::after {
+    height: 0.125rem;
+    background: #005FB8;
+}
+
+
+textarea.win11-ui-textarea {
+    border: 0.0625rem solid #ECECEC;
+    border-radius: 0.1875rem;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding: 0.3125rem 0.6875rem;
+    box-sizing: border-box;
+    background: #FDFDFD;
+    resize: none;
+    line-height: 1.5;
+}
+
+textarea.win11-ui-textarea:hover {
+    background: #F9F9F9;
+}
+
+textarea.win11-ui-textarea:active {
+    background: #FFFFFF;
+}
+
+textarea.win11-ui-textarea:focus {
+    background: #FFFFFF;
+}
+
+textarea.win11-ui-textarea::placeholder {
+    color: #646464;
+    opacity: 1;
+}
+
+label.win11-ui-textarea, p.win11-ui-textarea {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}

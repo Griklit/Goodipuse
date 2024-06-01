@@ -1,0 +1,56 @@
+div.win11-ui-input {
+    position: relative;
+    border-radius: 0.1875rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+div.win11-ui-input::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0.0625rem;
+    left: 0;
+    bottom: 0;
+    background: #8A8A8A;
+}
+
+div.win11-ui-input:has(input:focus)::after {
+    height: 0.125rem;
+    background: #005FB8;
+}
+
+
+input.win11-ui-input {
+    border: 0.0625rem solid #ECECEC;
+    border-radius: 0.1875rem;
+    height: 1.875rem;
+    outline: none;
+    width: 100%;
+    padding: 0 0.6875rem;
+    box-sizing: border-box;
+    background: #FDFDFD;
+}
+
+input.win11-ui-input:hover {
+    background: #F9F9F9;
+}
+
+input.win11-ui-input:active {
+    background: #FFFFFF;
+}
+
+input.win11-ui-input:focus {
+    background: #FFFFFF;
+}
+
+input.win11-ui-input::placeholder {
+    color: #646464;
+    opacity: 1;
+}
+
+label.win11-ui-input, p.win11-ui-input {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}

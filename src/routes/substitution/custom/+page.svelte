@@ -1,12 +1,15 @@
 <svelte:head>
-    <title>{$_('title') + ' | ' + $_('module.substitution/custom.title')}</title>
-    <meta name="description" content={$_('module.substitution/custom.description')}/>
+    <title>{$_('title') + ' | ' + $_('module.substitution-custom.title')}</title>
+    <meta name="description" content={$_('module.substitution-custom.description')}/>
 </svelte:head>
 
 <section>
     {#if mapType === "text"}
-        <textarea class="map map-text scrollbar" placeholder={mapTextHolder}
-                  bind:value={mapText} on:input={updateMapText}/>
+        <div class="win11-ui-textarea map">
+            <p class="win11-ui-textarea">{$_('module.substitution-custom.key')}</p>
+            <textarea class="win11-ui-textarea scrollbar" placeholder={mapTextHolder}
+                      bind:value={mapText} on:input={updateMapText}/>
+        </div>
     {:else if mapType === "list"}
         <div class="map map-list scrollbar">
             {#each mapList as [key, value]}
@@ -19,19 +22,26 @@
         </div>
     {/if}
     <div class="text">
-        <textarea class="cipher-text scrollbar" rows="12" placeholder={cipherTextHolder}
-                  bind:value={cipherText} on:input={updateResults}/>
+        <div class="win11-ui-textarea cipher-text">
+            <p class="win11-ui-textarea">{$_('module.substitution-custom.cipher_text')}</p>
+            <textarea class="win11-ui-textarea scrollbar" rows="12" placeholder={cipherTextHolder}
+                      bind:value={cipherText} on:input={updateResults}/>
+        </div>
         <div class="option">
             忽略大小写：<input type="checkbox" bind:checked={caseSensitive} on:input={updateResults}/>
         </div>
-        <textarea class="plain-text scrollbar" rows="12" disabled placeholder={plainTextHolder}
-                  bind:value={plainText}/>
+        <div class="win11-ui-textarea plain-text">
+            <p class="win11-ui-textarea">{$_('module.substitution-custom.plain_text')}</p>
+            <textarea class="win11-ui-textarea scrollbar" rows="12" disabled placeholder={plainTextHolder}
+                      bind:value={plainText}/>
+        </div>
     </div>
 </section>
 
 <script lang="ts">
-    import '$lib/styles/scrollbar.css'
     import {_} from 'svelte-i18n';
+    import '$lib/styles/scrollbar.css'
+    import '$lib/styles/win11-ui/textarea.css'
 
     let mapType: string = "text";
 
@@ -125,26 +135,10 @@
     }
 
 
-    textarea.map-text {
-        padding: 1rem 0;
-        text-align: center;
-        white-space: pre;
-        overflow-x: hidden;
-        overflow-y: scroll;
-    }
-
-
     div.map-list {
         padding: 1rem 0.25rem;
         background-color: #0000000a;
         border-radius: 8px;
-    }
-
-    div.map {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 0.5rem;
     }
 
     input.letter {
@@ -161,9 +155,7 @@
         align-content: stretch;
     }
 
-    textarea.cipher-text, textarea.plain-text {
-        padding: 1rem;
-        width: 100%;
+    div.cipher-text, div.plain-text {
         flex-grow: 1;
     }
 

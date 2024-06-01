@@ -1,6 +1,6 @@
 <svelte:head>
-    <title>{$_('title') + ' | ' + $_('module.external/software.title')}</title>
-    <meta name="description" content={$_('module.external/software.description')}/>
+    <title>{$_('title') + ' | ' + $_('module.external-software.title')}</title>
+    <meta name="description" content={$_('module.external-software.description')}/>
 </svelte:head>
 
 <section>
