@@ -4,16 +4,23 @@
 </svelte:head>
 
 <section>
-    <h1>Hello, World!</h1>
+    <div class="ui-board">
+        <h1>Hello, World!</h1>
+        <label class="win11-ui-input">
+            <span class="win11-ui-input">Header</span>
+            <input id="nmsl" class="win11-ui-input" placeholder="Hello, World!"/>
+        </label>
 
-    <div class="win11-ui-input">
-        <label class="win11-ui-input" for="nmsl">test</label>
-        <input id="nmsl" class="win11-ui-input" placeholder="你好世界"/>
-    </div>
+        <label class="win11-ui-textarea">
+            <span class="win11-ui-input">Header</span>
+            <textarea class="win11-ui-textarea" placeholder="Hello, World!"/>
+        </label>
 
-    <div class="win11-ui-textarea">
-        <p class="win11-ui-input">test</p>
-        <textarea class="win11-ui-textarea" placeholder="你好世界" style="height: 100px"/>
+        <label class="win11-ui-checkbox">
+            <input class="win11-ui-checkbox" type="checkbox"/>
+            <span class="win11-ui-checkbox"/>
+            Text
+        </label>
     </div>
 
 
@@ -22,9 +29,16 @@
 <script lang="ts">
     import '$lib/styles/win11-ui/input.css'
     import '$lib/styles/win11-ui/textarea.css'
+    import '$lib/styles/win11-ui/checkbox.css'
+
 </script>
 
 <style>
-
+    div.ui-board {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        /*padding: 1.25rem;*/
+    }
 
 </style>

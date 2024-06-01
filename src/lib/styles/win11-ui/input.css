@@ -1,22 +1,23 @@
-div.win11-ui-input {
+label.win11-ui-input {
     position: relative;
     border-radius: 0.1875rem;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    height: max-content;
 }
 
-div.win11-ui-input::after {
+label.win11-ui-input::after {
     position: absolute;
     content: "";
     width: 100%;
-    height: 0.0625rem;
+    height: 0.1rem;
     left: 0;
     bottom: 0;
     background: #8A8A8A;
 }
 
-div.win11-ui-input:has(input:focus)::after {
+label.win11-ui-input:has(input:focus)::after {
     height: 0.125rem;
     background: #005FB8;
 }
@@ -50,7 +51,7 @@ input.win11-ui-input::placeholder {
     opacity: 1;
 }
 
-label.win11-ui-input, p.win11-ui-input {
+span.win11-ui-input {
     display: inline-block;
     margin-bottom: 0.5rem;
 }

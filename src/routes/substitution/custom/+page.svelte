@@ -22,19 +22,19 @@
         </div>
     {/if}
     <div class="text">
-        <div class="win11-ui-textarea cipher-text">
-            <p class="win11-ui-textarea">{$_('module.substitution-custom.cipher_text')}</p>
+        <label class="win11-ui-textarea cipher-text">
+            <span class="win11-ui-textarea">{$_('module.substitution-custom.cipher_text')}</span>
             <textarea class="win11-ui-textarea scrollbar" rows="12" placeholder={cipherTextHolder}
                       bind:value={cipherText} on:input={updateResults}/>
-        </div>
+        </label>
         <div class="option">
             忽略大小写：<input type="checkbox" bind:checked={caseSensitive} on:input={updateResults}/>
         </div>
-        <div class="win11-ui-textarea plain-text">
-            <p class="win11-ui-textarea">{$_('module.substitution-custom.plain_text')}</p>
+        <label class="win11-ui-textarea plain-text">
+            <span class="win11-ui-textarea">{$_('module.substitution-custom.plain_text')}</span>
             <textarea class="win11-ui-textarea scrollbar" rows="12" disabled placeholder={plainTextHolder}
                       bind:value={plainText}/>
-        </div>
+        </label>
     </div>
 </section>
 
@@ -155,7 +155,7 @@
         align-content: stretch;
     }
 
-    div.cipher-text, div.plain-text {
+    label.cipher-text, label.plain-text {
         flex-grow: 1;
     }
 
