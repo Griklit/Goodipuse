@@ -1,6 +1,59 @@
 @import '@fontsource/jetbrains-mono';
 
 :root {
+    --color-fill-accent-default: rgba(0, 95, 184, 100%);
+    --color-fill-accent-secondary: rgba(25, 110, 191, 90%);
+    --color-fill-accent-tertiary: rgba(25, 110, 191, 80%);
+    --color-fill-text-on-accent-primary: rgba(255, 255, 255, 100%);
+
+    --color-fill-text-primary: rgba(0, 0, 0, 89.56%);
+    --color-fill-text-secondary: rgba(0, 0, 0, 60.63%);
+
+    --color-fill-control-default: rgba(255, 255, 255, 70%);
+    --color-fill-control-secondary: rgba(249, 249, 249, 50%);
+    --color-fill-control-input-active: rgba(255, 255, 255, 100%);
+
+    --color-fill-control-alt-secondary: rgba(0, 0, 0, 2.41%);
+    --color-fill-control-alt-tertiary: rgba(0, 0, 0, 5.78%);
+    --color-fill-control-alt-quarternary: rgba(0, 0, 0, 9.24%);
+
+    --color-elevation-text-control-border: rgba(0, 0, 0, 6%);
+    --color-elevation-text-control-after: rgba(0, 0, 0, 45%);
+
+    --color-strock-control-strong-default: rgba(0, 0, 0, 60.63%);
+    --color-strock-control-strong-disabled: rgba(0, 0, 0, 21.69%);
+
+    --is-dark: 0;
+}
+
+/*:root {*/
+/*    --color-fill-accent-default: rgba(96, 205, 255, 100%);*/
+/*    --color-fill-accent-secondary: rgba(113, 211, 255, 90%);*/
+/*    --color-fill-accent-tertiary: rgba(113, 211, 255, 80%);*/
+/*    --color-fill-text-on-accent-primary: rgba(0, 0, 0, 100%);*/
+
+/*    --color-fill-text-primary: rgba(255, 255, 255, 100%);*/
+/*    --color-fill-text-secondary: rgba(255, 255, 255, 78.6%);*/
+
+/*    --color-fill-control-default: rgba(255, 255, 255, 6.05%);*/
+/*    --color-fill-control-secondary: rgba(249, 249, 249, 8.37%);*/
+/*    --color-fill-control-input-active: rgba(30, 30, 30, 70%);*/
+
+/*    --color-fill-control-alt-secondary: rgba(0, 0, 0, 10%);*/
+/*    --color-fill-control-alt-tertiary: rgba(255, 255, 255, 4.19%);*/
+/*    --color-fill-control-alt-quarternary: rgba(255, 255, 255, 6.98%);*/
+
+/*    --color-elevation-text-control-border: rgba(255, 255, 255, 8%);*/
+/*    --color-elevation-text-control-after: rgba(255, 255, 255, 54%);*/
+
+/*    --color-strock-control-strong-default: rgba(255, 255, 255, 60.47%);*/
+/*    --color-strock-control-strong-disabled: rgba(255, 255, 255, 15.81%);*/
+
+/*    --is-dark: 1;*/
+/*}*/
+
+
+:root {
     --font-text: -apple-system, "Microsoft YaHei UI", "Microsoft YaHei", BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, var(--font-text);
     font-size: 16px;
@@ -18,7 +71,8 @@
 
 body {
     place-items: center;
-    background-color: #F9F9F9;
+    /*background-color: #F9F9F9;*/
+    background-color: #FFFFFF;
 }
 
 a, b, i, p, span, input, h1, h2, h3, h4, h5, h6 {

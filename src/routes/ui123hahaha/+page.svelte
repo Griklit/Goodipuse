@@ -38,6 +38,7 @@
         display: flex;
         flex-direction: column;
         gap: 1.25rem;
+        /*background-color: black;*/
         /*padding: 1.25rem;*/
     }
 

@@ -15,46 +15,48 @@ label.win11-ui-textarea::after {
     height: 0.1rem;
     left: 0;
     bottom: 0;
-    background: #8A8A8A;
+    background-color: var(--color-elevation-text-control-after);
 }
 
 label.win11-ui-textarea:has(textarea:focus)::after {
     height: 0.125rem;
-    background: #005FB8;
+    background-color: var(--color-fill-accent-default);
 }
 
 
 textarea.win11-ui-textarea {
-    border: 0.0625rem solid #ECECEC;
+    border: 0.0625rem solid var(--color-elevation-text-control-border);
     border-radius: 0.1875rem;
     width: 100%;
     height: 100%;
     outline: none;
     padding: 0.3125rem 0.6875rem;
     box-sizing: border-box;
-    background: #FDFDFD;
+    color: var(--color-fill-text-primary);
+    background-color: var(--color-fill-control-default);
     resize: none;
     line-height: 1.5;
 }
 
 textarea.win11-ui-textarea:hover {
-    background: #F9F9F9;
+    background-color: var(--color-fill-control-secondary);;
 }
 
 textarea.win11-ui-textarea:active {
-    background: #FFFFFF;
+    background-color: var(--color-fill-control-input-active);
 }
 
 textarea.win11-ui-textarea:focus {
-    background: #FFFFFF;
+    background-color: var(--color-fill-control-input-active);
 }
 
 textarea.win11-ui-textarea::placeholder {
-    color: #646464;
+    color: var(--color-fill-text-secondary);
     opacity: 1;
 }
 
 span.win11-ui-textarea {
     display: inline-block;
     margin-bottom: 0.5rem;
+    color: var(--color-fill-text-primary);
 }

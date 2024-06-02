@@ -7,6 +7,7 @@ label.win11-ui-checkbox {
     padding-left: 1.75rem;
     user-select: none;
     height: 1.25rem;
+    color: var(--color-fill-text-primary);
 }
 
 input.win11-ui-checkbox {
@@ -23,33 +24,33 @@ span.win11-ui-checkbox {
     left: 0;
     width: 1.25rem;
     height: 1.25rem;
-    background-color: #F4F4F4;
-    border: #626262 solid 0.1rem;
+    background-color: var(--color-fill-control-alt-secondary);
+    border: var(--color-strock-control-strong-default) solid 0.1rem;
     border-radius: 0.25rem;
 }
 
 label.win11-ui-checkbox:hover span.win11-ui-checkbox {
-    background-color: #EBEBEB;
+    background-color: var(--color-fill-control-alt-tertiary);
 }
 
-label.win11-ui-checkbox:active span.win11-ui-checkbox{
-    background-color: #E2E2E2;
-    border-color: #C4C4C4;
+label.win11-ui-checkbox:active span.win11-ui-checkbox {
+    background-color: var(--color-fill-control-alt-quarternary);
+    border-color: var(--color-strock-control-strong-disabled);
 }
 
-label.win11-ui-checkbox:hover input.win11-ui-checkbox:checked ~ span.win11-ui-checkbox{
-    background-color: #196EBF;
-    border-color: #196EBF;
+label.win11-ui-checkbox:hover input.win11-ui-checkbox:checked ~ span.win11-ui-checkbox {
+    background-color: var(--color-fill-accent-secondary);
+    border-color: #00000000;
 }
 
-label.win11-ui-checkbox:active input.win11-ui-checkbox:checked ~ span.win11-ui-checkbox{
-    background-color: #327EC5;
-    border-color: #327EC5;
+label.win11-ui-checkbox:active input.win11-ui-checkbox:checked ~ span.win11-ui-checkbox {
+    background-color: var(--color-fill-accent-tertiary);
+    border-color: #00000000;
 }
 
 label.win11-ui-checkbox input.win11-ui-checkbox:checked ~ span.win11-ui-checkbox {
-    background-color: #005FB8;
-    border: #005FB8 solid 0.1rem;
+    background-color: var(--color-fill-accent-default);
+    border-color: #00000000;
 }
 
 span.win11-ui-checkbox:after {
@@ -64,7 +65,7 @@ span.win11-ui-checkbox:after {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-
+    filter: invert(var(--is-dark));
 }
 
 label.win11-ui-checkbox input.win11-ui-checkbox:checked ~ span.win11-ui-checkbox:after {
