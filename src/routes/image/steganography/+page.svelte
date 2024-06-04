@@ -21,7 +21,7 @@
         return [null, handler];
     });
 
-    async function redChannel() {
+    async function render() {
         canvasList.map(async ([canvas, handler]) => {
             if (!canvas) return;
             canvas.width = image_width;
@@ -51,7 +51,7 @@
             }
             image_width = image.width;
             image_height = image.height;
-            await redChannel();
+            await render();
         }
     }
 
