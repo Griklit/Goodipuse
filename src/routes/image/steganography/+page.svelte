@@ -11,7 +11,7 @@
 </section>
 
 <script lang="ts">
-    import {type handler, type handlerWithInfo, handlers} from "./handlers";
+    import {type handlerWithInfo, handlers} from "./handlers";
 
     let file: File | null = null;
     let image: HTMLImageElement | null = null;
