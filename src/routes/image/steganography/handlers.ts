@@ -125,6 +125,37 @@ export const notAlpha: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
+export const redOdd: handlerFunc = async (data: Uint8ClampedArray) => {
+    for (let i = 0; i < data.length; i += 4) {
+        if (data[i] % 2 === 1) {
+            data[i + 1] = data[i + 2] = data[i] = 255;
+        } else {
+            data[i] = data[i + 1] = data[i + 2] = 0;
+        }
+        data[i + 3] = 255;
+    }
+}
+export const greenOdd: handlerFunc = async (data: Uint8ClampedArray) => {
+    for (let i = 0; i < data.length; i += 4) {
+        if (data[i + 1] % 2 === 1) {
+            data[i + 1] = data[i + 2] = data[i] = 255;
+        } else {
+            data[i] = data[i + 1] = data[i + 2] = 0;
+        }
+        data[i + 3] = 255;
+    }
+}
+export const blueOdd: handlerFunc = async (data: Uint8ClampedArray) => {
+    for (let i = 0; i < data.length; i += 4) {
+        if (data[+2] % 2 === 1) {
+            data[i + 1] = data[i + 2] = data[i] = 255;
+        } else {
+            data[i] = data[i + 1] = data[i + 2] = 0;
+        }
+        data[i + 3] = 255;
+    }
+}
+
 export const grayPixel: handlerFunc = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i] === data[i + 1] && data[i + 1] === data[i + 2]) {
@@ -243,6 +274,18 @@ export const handlers: Array<handler> = [
     {
         name: 'notAlpha',
         func: notAlpha,
+    },
+    {
+        name: 'redOdd',
+        func: redOdd,
+    },
+    {
+        name: 'greenOdd',
+        func: greenOdd,
+    },
+    {
+        name: 'blueOdd',
+        func: blueOdd,
     },
     {
         name: 'grayPixel',
