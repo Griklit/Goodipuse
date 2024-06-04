@@ -11,11 +11,12 @@ async function contrastStretching(data: Uint8ClampedArray, le: number, gt: numbe
 
 export const autoContrastStretching: handlerFunc = async (data: Uint8ClampedArray) => {
     let min = 255, max = 0;
-    for (let i = 0; i < data.length; i += 4) {
+    for (let i = 0; i < data.length; i += 1) {
         if (i % 4 === 3) continue;
         min = Math.min(min, data[i]);
         max = Math.max(max, data[i]);
     }
+    console.log(min, max)
     await contrastStretching(data, min, max);
 }
 

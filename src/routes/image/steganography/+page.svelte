@@ -41,7 +41,6 @@
         if (input.files && input.files.length > 0) {
             file = input.files[0];
         }
-        console.log(file?.size)
         if (!file) return;
         image = new Image();
         image.src = URL.createObjectURL(file);
