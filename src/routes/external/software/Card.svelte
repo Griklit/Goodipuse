@@ -1,4 +1,4 @@
-<a class="card" href={"/external-software/" + filename}>
+<a class="win11-ui-card-surface-can-press card" href={"/external-software/" + filename}>
     <h1>{title !== null ? title : filename}</h1>
     {#if url !== null}
         <a class="url" href={url} target="_blank">⇱</a>
@@ -7,6 +7,8 @@
 </a>
 
 <script lang="ts">
+    import '$lib/styles/win11-ui/card.css';
+
     export let filename: string;
     export let title: string | null = null;
     export let description: string = "";
@@ -20,18 +22,16 @@
     }
 
     a.card {
-        padding: 1rem 1.6rem;
         display: flex;
-        max-width: 32rem;
+        max-width: 24rem;
         flex-direction: row;
         flex-wrap: wrap;
-        background-color: white;
-        border-radius: 1rem;
-        gap: 0.75rem 0.624rem;
+        gap: 0.5rem 0.624rem;
+        padding: 0.75rem 1rem;
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.2rem;
     }
 
     a.card:hover {

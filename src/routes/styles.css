@@ -26,11 +26,13 @@
     --color-strock-card-default: rgba(0, 0, 0, 5.78%);
 
     --color-background-fill-card-default: rgba(255, 255, 255, 70%);
-    --color-background-fill-card-secondary: rgba(246,246,246, 50%);
+    --color-background-fill-card-secondary: rgba(246, 246, 246, 50%);
     --color-background-fill-card-tertiary: rgba(255, 255, 255, 100%);
 
     --shadows-card-rest: 0 2px 4px 0 rgba(0, 0, 0, 4%);
     --shadows-card-hover: 0 2px 4px 0 rgba(0, 0, 0, 10%);
+
+    --elevation-accent-control-border: linear-gradient(to bottom, rgba(255, 255, 255, 8%) 91%, rgba(0, 0, 0, 40%) 100%);;
 
     --is-dark: 0;
 }

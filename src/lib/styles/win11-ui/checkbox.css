@@ -6,6 +6,7 @@ label.win11-ui-checkbox {
     width: max-content;
     padding-left: 1.75rem;
     user-select: none;
+    -webkit-user-select: none;
     height: 1.25rem;
     color: var(--color-fill-text-primary);
 }
