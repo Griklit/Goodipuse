@@ -4,20 +4,20 @@
         {#each canvasList as [canvas, handler]}
             <div class="card">
                 <p>{handler.name}</p>
-                <canvas style="width: {image_width}px;" bind:this={canvas}/>
+                <canvas style="width: {Math.max(image_width,200)}px;" bind:this={canvas}/>
             </div>
         {/each}
     </div>
 </section>
 
 <script lang="ts">
-    import {type handlerWithInfo, handlers} from "./handlers";
+    import {type handler, handlers} from "./handlers";
 
     let file: File | null = null;
     let image: HTMLImageElement | null = null;
     let image_width: number = 0;
     let image_height: number = 0;
-    let canvasList: Array<[HTMLCanvasElement | null, handlerWithInfo]> = handlers.map(handler => {
+    let canvasList: Array<[HTMLCanvasElement | null, handler]> = handlers.map(handler => {
         return [null, handler];
     });
 
@@ -30,7 +30,7 @@
             if (!ctx || !image) return;
             ctx.drawImage(image, 0, 0);
             let imageData = ctx.getImageData(0, 0, image.width, image.height);
-            await handler.handler(imageData.data);
+            await handler.func(imageData.data);
             ctx.putImageData(imageData, 0, 0);
         })
     }
@@ -69,6 +69,13 @@
         flex-direction: row;
         flex-wrap: wrap;
         gap: 1rem;
+
+    }
+
+    div.card {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        background-color: var(--color-fill-control-alt-secondary);
     }
 
     canvas {

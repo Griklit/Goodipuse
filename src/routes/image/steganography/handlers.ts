@@ -1,4 +1,4 @@
-export type handler = (data: Uint8ClampedArray) => Promise<void>;
+export type handlerFunc = (data: Uint8ClampedArray) => Promise<void>;
 
 
 async function contrastStretching(data: Uint8ClampedArray, le: number, gt: number) {
@@ -9,65 +9,65 @@ async function contrastStretching(data: Uint8ClampedArray, le: number, gt: numbe
     }
 }
 
-export const redChannel: handler = async (data: Uint8ClampedArray) => {
+export const redChannel: handlerFunc = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         data[i + 1] = data[i + 2] = data[i];
         data[i + 3] = 255;
     }
 }
 
-export const greenChannel: handler = async (data: Uint8ClampedArray) => {
+export const greenChannel: handlerFunc = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         data[i] = data[i + 2] = data[i + 1];
         data[i + 3] = 255;
     }
 }
 
-export const blueChannel: handler = async (data: Uint8ClampedArray) => {
+export const blueChannel: handlerFunc = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         data[i] = data[i + 1] = data[i + 2];
         data[i + 3] = 255;
     }
 }
 
-export const alphaChannel: handler = async (data: Uint8ClampedArray) => {
+export const alphaChannel: handlerFunc = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         data[i] = data[i + 1] = data[i + 2] = data[i + 3];
         data[i + 3] = 255;
     }
 }
 
-export type handlerWithInfo = {
+export type handler = {
     name: string,
-    handler: handler
+    func: handlerFunc
 }
 
-export const handlers: Array<handlerWithInfo> = [
+export const handlers: Array<handler> = [
     {
         name: 'raw',
-        handler: async (data: Uint8ClampedArray) => {
+        func: async (data: Uint8ClampedArray) => {
         }
     },
     {
-        name: 'contrastStretching',
-        handler: async (data: Uint8ClampedArray) => {
+        name: 'contrastStretching 0~63',
+        func: async (data: Uint8ClampedArray) => {
             await contrastStretching(data, 0, 64)
         }
     },
     {
         name: 'redChannel',
-        handler: redChannel,
+        func: redChannel,
     },
     {
         name: 'greenChannel',
-        handler: greenChannel,
+        func: greenChannel,
     },
     {
         name: 'blueChannel',
-        handler: blueChannel,
+        func: blueChannel,
     },
     {
         name: 'alphaChannel',
-        handler: alphaChannel,
+        func: alphaChannel,
     }
 ]
