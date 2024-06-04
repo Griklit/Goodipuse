@@ -4,7 +4,7 @@
         {#each canvasList as [canvas, handler]}
             <div class="card">
                 <p>{handler.name}</p>
-                <canvas style="width: {Math.max(image_width,200)}px;" bind:this={canvas}/>
+                <canvas style="width: {Math.max(image_width,192)}px;" bind:this={canvas}/>
             </div>
         {/each}
     </div>
