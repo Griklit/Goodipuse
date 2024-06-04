@@ -128,7 +128,9 @@ export const notAlpha: handlerFunc = async (data: Uint8ClampedArray) => {
 export const grayPixel: handlerFunc = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i] === data[i + 1] && data[i + 1] === data[i + 2]) {
-            data[i] = data[i + 1] = data[i + 2] = data[i];
+            data[i] = data[i + 1] = data[i + 2] = 255;
+        } else {
+            data[i] = data[i + 1] = data[i + 2] = 0;
         }
         data[i + 3] = 255;
     }
@@ -147,27 +149,51 @@ export const handlers: Array<handler> = [
         }
     },
     {
-        name: 'contrastStretching 0~63',
+        name: 'contrastStretching 0~31',
         func: async (data: Uint8ClampedArray) => {
-            await contrastStretching(data, 0, 64)
+            await contrastStretching(data, 0, 32)
         }
     },
     {
-        name: 'contrastStretching 64~127',
+        name: 'contrastStretching 32~63',
         func: async (data: Uint8ClampedArray) => {
-            await contrastStretching(data, 64, 128)
+            await contrastStretching(data, 32, 64)
         }
     },
     {
-        name: 'contrastStretching 128~191',
+        name: 'contrastStretching 64~95',
         func: async (data: Uint8ClampedArray) => {
-            await contrastStretching(data, 128, 192)
+            await contrastStretching(data, 64, 96)
         }
     },
     {
-        name: 'contrastStretching 192~255',
+        name: 'contrastStretching 96~127',
         func: async (data: Uint8ClampedArray) => {
-            await contrastStretching(data, 192, 256)
+            await contrastStretching(data, 96, 128)
+        }
+    },
+    {
+        name: 'contrastStretching 128~159',
+        func: async (data: Uint8ClampedArray) => {
+            await contrastStretching(data, 128, 160)
+        }
+    },
+    {
+        name: 'contrastStretching 160~191',
+        func: async (data: Uint8ClampedArray) => {
+            await contrastStretching(data, 160, 192)
+        }
+    },
+    {
+        name: 'contrastStretching 192~223',
+        func: async (data: Uint8ClampedArray) => {
+            await contrastStretching(data, 192, 224)
+        }
+    },
+    {
+        name: 'contrastStretching 224~255',
+        func: async (data: Uint8ClampedArray) => {
+            await contrastStretching(data, 224, 256)
         }
     },
     {
