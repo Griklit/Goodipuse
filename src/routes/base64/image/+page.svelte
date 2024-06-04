@@ -1,6 +1,6 @@
 <svelte:head>
-    <title>{$_('title') + ' | ' + $_('module.base64-image.title')}</title>
-    <meta name="description" content={$_('module.base64-image.description')}/>
+    <title>{$_('title') + ' | ' + $_('module.base64.image.title')}</title>
+    <meta name="description" content={$_('module.base64.image.description')}/>
 </svelte:head>
 
 <section style="height: 100%">

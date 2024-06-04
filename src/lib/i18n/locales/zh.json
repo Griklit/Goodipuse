@@ -8,28 +8,66 @@
     }
   },
   "module": {
-    "substitution-custom": {
-      "title": "自定义替换密码",
-      "description": "经典替换密码",
-      "key": "秘钥",
-      "cipher_text": "密文",
-      "plain_text": "译文"
+    "image": {
+      "steganography": {
+        "title": "图像隐写术",
+        "raw": "原图",
+        "upload_file_alt": "上传图片",
+        "contrast_stretching_0_31": "对比度拉伸 0~31",
+        "contrast_stretching_auto": "对比度拉伸 自动",
+        "contrast_stretching_32_63": "对比度拉伸 32~63",
+        "contrast_stretching_64_95": "对比度拉伸 64~95",
+        "contrast_stretching_96_127": "对比度拉伸 96~127",
+        "contrast_stretching_128_159": "对比度拉伸 128~159",
+        "contrast_stretching_160_191": "对比度拉伸 160~191",
+        "contrast_stretching_192_223": "对比度拉伸 192~223",
+        "contrast_stretching_224_255": "对比度拉伸 224~255",
+        "red_channel": "红色通道",
+        "green_channel": "绿色通道",
+        "blue_channel": "蓝色通道",
+        "alpha_channel": "透明度通道",
+        "without_red": "无红色",
+        "pure_red": "纯红色",
+        "pure_green": "纯绿色",
+        "without_green": "无绿色",
+        "pure_blue": "纯蓝色",
+        "without_blue": "无蓝色",
+        "pure_alpha": "纯透明",
+        "without_alpha": "不透明",
+        "red_odd": "红色奇数",
+        "green_odd": "绿色奇数",
+        "blue_odd": "蓝色奇数",
+        "gray_pixel": "灰色像素"
+      }
     },
-    "substitution-caesar": {
-      "title": "凯撒密码",
-      "description": "凯撒密码是一种古典加密技术，它是一种替换加密的技术，明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。"
+    "base64": {
+      "image": {
+        "title": "Base64图片",
+        "description": "Base64是一种基于64个可打印字符来表示二进制数据的方法。"
+      }
     },
-    "substitution-a1z26": {
-      "title": "A1Z26",
-      "description": "A1Z26是一种古典加密技术，它是一种替换加密的技术，明文中的所有字母都被替换成它们在字母表中的位置。"
+    "substitution": {
+      "a1z26": {
+        "title": "A1Z26",
+        "description": "A1Z26是一种古典加密技术，它是一种替换加密的技术，明文中的所有字母都被替换成它们在字母表中的位置。"
+      },
+      "caesar": {
+        "title": "凯撒密码",
+        "description": "凯撒密码是一种古典加密技术，它是一种替换加密的技术，明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。"
+      },
+      "custom": {
+        "title": "自定义替换密码",
+        "description": "经典替换密码",
+        "cipher_text": "密文",
+        "key": "秘钥",
+        "plain_text": "译文"
+      }
     },
-    "base64-image": {
-      "title": "Base64图片",
-      "description": "Base64是一种基于64个可打印字符来表示二进制数据的方法。"
-    },
-    "external-software": {
-      "title": "外部软件",
-      "description": "不在本网站上运行的第三方工具程序。"
+    "external": {
+      "software": {
+        "title": "外部软件",
+        "description": "不在本网站上运行的第三方工具程序。"
+      }
     }
   }
 }

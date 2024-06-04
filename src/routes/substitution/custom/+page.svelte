@@ -1,12 +1,12 @@
 <svelte:head>
-    <title>{$_('title') + ' | ' + $_('module.substitution-custom.title')}</title>
-    <meta name="description" content={$_('module.substitution-custom.description')}/>
+    <title>{$_('title') + ' | ' + $_('module.substitution.custom.title')}</title>
+    <meta name="description" content={$_('module.substitution.custom.description')}/>
 </svelte:head>
 
 <section>
     {#if mapType === "text"}
         <label class="win11-ui-textarea map">
-            <span class="win11-ui-textarea">{$_('module.substitution-custom.key')}</span>
+            <span class="win11-ui-textarea">{$_('module.substitution.custom.key')}</span>
             <textarea class="win11-ui-textarea scrollbar" placeholder={mapTextHolder}
                       bind:value={mapText} on:input={updateMapText}/>
         </label>
@@ -23,7 +23,7 @@
     {/if}
     <div class="text">
         <label class="win11-ui-textarea cipher-text">
-            <span class="win11-ui-textarea">{$_('module.substitution-custom.cipher_text')}</span>
+            <span class="win11-ui-textarea">{$_('module.substitution.custom.cipher_text')}</span>
             <textarea class="win11-ui-textarea scrollbar" rows="12" placeholder={cipherTextHolder}
                       bind:value={cipherText} on:input={updateResults}/>
         </label>
@@ -36,7 +36,7 @@
 <!--            忽略大小写：<input type="checkbox" bind:checked={caseSensitive} on:input={updateResults}/>-->
         </div>
         <label class="win11-ui-textarea plain-text">
-            <span class="win11-ui-textarea">{$_('module.substitution-custom.plain_text')}</span>
+            <span class="win11-ui-textarea">{$_('module.substitution.custom.plain_text')}</span>
             <textarea class="win11-ui-textarea scrollbar" rows="12" disabled placeholder={plainTextHolder}
                       bind:value={plainText}/>
         </label>

@@ -8,28 +8,66 @@
     }
   },
   "module": {
-    "substitution-custom": {
-      "title": "Custom Substitution",
-      "description": "",
-      "key": "Key",
-      "cipher_text": "Cipher text",
-      "plain_text": "Plain text"
+    "image": {
+      "steganography": {
+        "title": "Image steganography",
+        "raw": "Raw",
+        "upload_file_alt": "Upload image file",
+        "contrast_stretching_auto": "Contrast stretching Auto",
+        "contrast_stretching_0_31": "Contrast stretching 0~31",
+        "contrast_stretching_32_63": "Contrast stretching 32~63",
+        "contrast_stretching_64_95": "Contrast stretching 64~95",
+        "contrast_stretching_96_127": "Contrast stretching 96~127",
+        "contrast_stretching_128_159": "Contrast stretching 128~159",
+        "contrast_stretching_160_191": "Contrast stretching 160~191",
+        "contrast_stretching_192_223": "Contrast stretching 192~223",
+        "contrast_stretching_224_255": "Contrast stretching 224~255",
+        "red_channel": "Red channel",
+        "green_channel": "Green channel",
+        "blue_channel": "Blue channel",
+        "alpha_channel": "Alpha channel",
+        "without_red": "Without red",
+        "pure_red": "Full red",
+        "pure_green": "Pure green",
+        "without_green": "Without green",
+        "pure_blue": "Pure blue",
+        "without_blue": "Without blue",
+        "pure_alpha": "Pure alpha",
+        "without_alpha": "Without alpha",
+        "red_odd": "Red odd",
+        "green_odd": "Green odd",
+        "blue_odd": "Blue odd",
+        "gray_pixel": "Gray pixel"
+      }
     },
-    "substitution-caesar": {
-      "title": "Caesar",
-      "description": "Caesar cipher is a substitution cipher where each letter in the plaintext is shifted a certain number of places down the alphabet."
+    "base64": {
+      "image": {
+        "title": "Base64 Image",
+        "description": "Base64 is a group of similar binary-to-text encoding schemes that represent binary data in an ASCII string format by translating it into a radix-64 representation."
+      }
     },
-    "substitution-a1z26": {
-      "title": "A1Z26",
-      "description": "A1Z26 is a simple cipher where each letter in the plaintext is replaced by its position in the alphabet."
+    "substitution": {
+      "a1z26": {
+        "title": "A1Z26",
+        "description": "A1Z26 is a simple cipher where each letter in the plaintext is replaced by its position in the alphabet."
+      },
+      "caesar": {
+        "title": "Caesar",
+        "description": "Caesar cipher is a substitution cipher where each letter in the plaintext is shifted a certain number of places down the alphabet."
+      },
+      "custom": {
+        "title": "Custom Substitution",
+        "description": "",
+        "cipher_text": "Cipher text",
+        "key": "Key",
+        "plain_text": "Plain text"
+      }
     },
-    "base64-image": {
-      "title": "Base64 Image",
-      "description": "Base64 is a group of similar binary-to-text encoding schemes that represent binary data in an ASCII string format by translating it into a radix-64 representation."
-    },
-    "external-software": {
-      "title": "External Software",
-      "description": "External software is a software that is not part of the operating system."
+    "external": {
+      "software": {
+        "title": "External Software",
+        "description": "External software is a software that is not part of the operating system."
+      }
     }
   }
 }
