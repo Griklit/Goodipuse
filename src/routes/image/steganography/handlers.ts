@@ -9,6 +9,16 @@ async function contrastStretching(data: Uint8ClampedArray, le: number, gt: numbe
     }
 }
 
+export const autoContrastStretching: handlerFunc = async (data: Uint8ClampedArray) => {
+    let min = 255, max = 0;
+    for (let i = 0; i < data.length; i += 4) {
+        if (i % 4 === 3) continue;
+        min = Math.min(min, data[i]);
+        max = Math.max(max, data[i]);
+    }
+    await contrastStretching(data, min, max);
+}
+
 export const redChannel: handlerFunc = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         data[i + 1] = data[i + 2] = data[i];
@@ -180,13 +190,17 @@ export const handlers: Array<handler> = [
         }
     },
     {
-        name: 'contrastStretching 0~31',
+        name: 'Contrast stretching Auto',
+        func: autoContrastStretching
+    },
+    {
+        name: 'Contrast stretching 0~31',
         func: async (data: Uint8ClampedArray) => {
             await contrastStretching(data, 0, 32)
         }
     },
     {
-        name: 'contrastStretching 32~63',
+        name: 'Contrast stretching 32~63',
         func: async (data: Uint8ClampedArray) => {
             await contrastStretching(data, 32, 64)
         }
