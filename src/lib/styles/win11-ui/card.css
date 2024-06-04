@@ -1,0 +1,17 @@
+div.win11-ui-card-surface-can-press, div.win11-ui-card-surface {
+    border: var(--color-strock-card-default) solid 0.1rem;
+    border-radius: 0.4375rem;
+    padding: 0.75rem;
+    background-color: var(--color-background-fill-card-default);
+    box-shadow: var(--shadows-card-rest);
+}
+
+div.win11-ui-card-surface-can-press:hover {
+    background-color: var(--color-background-fill-card-tertiary);
+    box-shadow: var(--shadows-card-hover);
+}
+
+div.win11-ui-card-surface-can-press:active {
+    background-color: var(--color-background-fill-card-tertiary);
+    box-shadow: none;
+}

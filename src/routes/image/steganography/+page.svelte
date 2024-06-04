@@ -2,7 +2,7 @@
     <input type="file" alt="上传图片" accept="image/*" on:change={uploadFile}>
     <div class="output">
         {#each canvasList as [canvas, handler]}
-            <div class="card">
+            <div class="win11-ui-card-surface-can-press">
                 <p>{handler.name}</p>
                 <canvas style="width: {Math.max(image_width,192)}px;" bind:this={canvas}/>
             </div>
@@ -12,6 +12,7 @@
 
 <script lang="ts">
     import {type handler, handlers} from "./handlers";
+    import '$lib/styles/win11-ui/card.css'
 
     let file: File | null = null;
     let image: HTMLImageElement | null = null;
@@ -69,12 +70,6 @@
         flex-wrap: wrap;
         gap: 1rem;
 
-    }
-
-    div.card {
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        background-color: var(--color-fill-control-alt-secondary);
     }
 
     canvas {

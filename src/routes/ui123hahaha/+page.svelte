@@ -21,6 +21,14 @@
             <span class="win11-ui-checkbox"/>
             Text
         </label>
+
+        <div class="win11-ui-card-surface-can-press">
+            123
+        </div>
+
+        <div class="win11-ui-card-surface">
+            123
+        </div>
     </div>
 
 
@@ -30,6 +38,7 @@
     import '$lib/styles/win11-ui/input.css'
     import '$lib/styles/win11-ui/textarea.css'
     import '$lib/styles/win11-ui/checkbox.css'
+    import '$lib/styles/win11-ui/card.css'
 
 </script>
 
