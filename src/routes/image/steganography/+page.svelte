@@ -3,7 +3,7 @@
     <div class="output">
         {#each canvasList as canvas,i}
             <button class="win11-ui-card-surface-can-press card"
-                    style={canvas[2]? 'width: 100%;' : undefined }
+                    style={canvas[2]? "min-width:32rem;width:max-content;" : undefined }
                     on:click={()=>{enlarge(i)}}>
                 {canvas[1].name}
                 <canvas bind:this={canvas[0]}/>
@@ -221,6 +221,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
+        min-width: 16rem;
         width: 16rem;
     }
 
