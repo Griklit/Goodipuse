@@ -6,13 +6,13 @@
 <section>
     <label class="win11-ui-textarea map">
         <span class="win11-ui-textarea">{$_('module.substitution.custom.key')}</span>
-        <textarea class="win11-ui-textarea scrollbar" placeholder={mapTextHolder}
+        <textarea class="win11-ui-textarea scrollbar" placeholder={"v->g\ni->o\nt->p"}
                   bind:value={mapText} on:input={updateMapText}/>
     </label>
     <div class="text">
         <label class="win11-ui-textarea cipher-text">
             <span class="win11-ui-textarea">{$_('module.substitution.custom.cipher_text')}</span>
-            <textarea class="win11-ui-textarea scrollbar" rows="12" placeholder={cipherTextHolder}
+            <textarea class="win11-ui-textarea scrollbar" rows="12" placeholder="Valli, Viidituse!"
                       bind:value={cipherText} on:input={updateResults}/>
         </label>
         <div class="option">
@@ -25,7 +25,7 @@
         </div>
         <label class="win11-ui-textarea plain-text">
             <span class="win11-ui-textarea">{$_('module.substitution.custom.plain_text')}</span>
-            <textarea class="win11-ui-textarea scrollbar" rows="12" disabled placeholder={plainTextHolder}
+            <textarea class="win11-ui-textarea scrollbar" rows="12" disabled placeholder="Gallo, Goodipuse!"
                       bind:value={plainText}/>
         </label>
     </div>
@@ -37,16 +37,13 @@
     import '$lib/styles/win11-ui/textarea.css'
     import '$lib/styles/win11-ui/checkbox.css'
 
-    let ignoreCase: boolean;
+    let ignoreCase: boolean = true;
 
     let cipherText: string = "";
-    let cipherTextHolder: string = "Hello, World!";
     let plainText: string = "";
-    let plainTextHolder: string = "Aexxn, Wnrxd!";
 
     let map = new Map<string, string>();
     let mapText: string = "";
-    let mapTextHolder: string = "h->a\nl->x\no->n";
 
     function updateResults() {
         console.log(ignoreCase);
