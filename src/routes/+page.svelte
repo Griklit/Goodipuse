@@ -4,7 +4,8 @@
 </svelte:head>
 
 <section>
-    <h1>{$_('page.home.description')}</h1>
+    <h1>{$_('title')}</h1>
+    <h2>{$_('page.home.description')}</h2>
     <nav>
         {#each routers as [path, router]}
             <a class="win11-ui-card-surface-can-press" class:selected={$page.url.pathname === path} href={path}>
@@ -15,8 +16,8 @@
 </section>
 
 <script lang="ts">
-    import {_} from 'svelte-i18n';
     import {page} from "$app/stores";
+    import {_} from 'svelte-i18n';
     import '$lib/styles/win11-ui/card.css'
 
     let routers = new Map<string, { title: string }>();
@@ -30,6 +31,21 @@
 </script>
 
 <style>
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        color: var(--color-fill-text-secondary);
+        font-weight: lighter;
+    }
+
     nav {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));

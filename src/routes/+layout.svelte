@@ -40,8 +40,6 @@
     routers.set('/base64/image', {title: $_('module.base64.image.title')});
     routers.set('/image/steganography', {title: $_('module.image.steganography.title')});
     routers.set('/external/software', {title: $_('module.external.software.title')});
-
-    // routers.set('/playground', {title: 'playground'});
 </script>
 
 <style>
@@ -170,7 +168,7 @@
     }
 
     @media all and (orientation: portrait) {
-        nav {
+        div.bar {
             display: none;
         }
     }
