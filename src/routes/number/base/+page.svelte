@@ -9,8 +9,9 @@
 
 
 <script lang="ts">
-    let num: bigint = 0xffn;
-    let baseList: Array<string> = Array.from({length: 61}, (_, i) => BitIntToString(num, i + 2));
+    let num: bigint | null = 0xffn;
+    let isNegative: boolean = false;
+    let baseList: Array<string> = Array.from({length: 61}, (_, i) => num ? bitIntToString(num, i + 2) : '');
 
     function charToNumber(char: string, caseSensitive: boolean = false) {
         let code = char.charCodeAt(0);
@@ -37,55 +38,61 @@
         }
     }
 
-    function BitIntToString(value: bigint, radix: number): string {
+    function bitIntToString(value: bigint, radix: number): string {
         let caseSensitive = radix <= 36;
-        let isNegative = value < 0n;
-        if (isNegative) {
-            value = -value;
-        }
         let result = '';
         while (value > 0n) {
             result = numberToChar(Number(value % BigInt(radix)), caseSensitive) + result;
             value = value / BigInt(radix);
         }
-        if (isNegative) {
-            result = '-' + result;
-        }
         return result;
     }
 
     function parseBigInt(value: string, radix: number): bigint {
-        let isNegative = value[0] === '-';
-        if (isNegative) {
-            value = value.slice(1);
-        }
-        if (value.length === 0) {
-            return -0n;
-        }
         let caseSensitive = radix <= 36;
         let num = BigInt(0);
         for (let i = 0; i < value.length; i++) {
             num = num * BigInt(radix) + BigInt(charToNumber(value[i], caseSensitive));
         }
-        if (isNegative) {
-            num = -num;
-        }
         return num
     }
 
 
-    function updateResults(skipIndex: number | null = null) {
-        baseList.map((_, key) => {
-            if (key === skipIndex) return;
-            baseList[key] = BitIntToString(num, key + 2);
+    function updateResults() {
+        baseList.map((_, index) => {
+            let radix = index + 2;
+            let ret = num ? bitIntToString(num, radix) : '';
+            baseList[index] = isNegative ? '-' + ret : ret;
         });
     }
 
-    function flush(key: number) {
-        let value = baseList[key];
-        if (!value) return;
-        num = parseBigInt(value, key + 2);
-        updateResults(key);
+    function flush(index: number) {
+        let radix = index + 2;
+        let value = baseList[index];
+        if (!value) {
+            num = null;
+            isNegative = false;
+            updateResults();
+            return;
+        }
+        if (value[0] === '-') {
+            isNegative = true;
+            value = value.slice(1);
+        } else {
+            isNegative = false;
+        }
+        if (!value) {
+            num = null;
+            updateResults();
+            return;
+        }
+        if (value !== bitIntToString(parseBigInt(value, radix), radix)) {
+            let backup = num ? bitIntToString(num, radix) : '';
+            baseList[index] = isNegative ? '-' + backup : backup;
+            return;
+        }
+        num = parseBigInt(value, radix);
+        updateResults();
     }
 
 </script>
