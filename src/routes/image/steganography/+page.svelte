@@ -161,7 +161,7 @@
 
     async function enlarge(index: number) {
         canvasList[index][2] = !canvasList[index][2];
-        await new Promise(resolve => setTimeout(resolve, 1));
+        await new Promise(resolve => setTimeout(resolve, 0));
         canvasList[index][0]?.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
     }
 
@@ -178,6 +178,7 @@
             let imageData = ctx.getImageData(0, 0, image.width, image.height);
             await handler.renderer(imageData.data);
             ctx.putImageData(imageData, 0, 0);
+            await new Promise(resolve => setTimeout(resolve, 0));
         }
     }
 
