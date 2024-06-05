@@ -1,11 +1,14 @@
 <section>
     <input type="file" alt={$_('module.image.steganography.upload_file_alt')} accept="image/*" on:change={uploadFile}>
     <div class="output">
-        {#each canvasList as canvas}
-            <div class="win11-ui-card-surface-can-press card">
-                <p>{canvas[1].name}</p>
+        {#each canvasList as canvas,i}
+            <button
+                    class="win11-ui-card-surface-can-press card"
+                    style={canvas[2]? 'width: 100%;' : '' }
+                    on:click={()=>{enlarge(i)}}>
+                {canvas[1].name}
                 <canvas bind:this={canvas[0]}/>
-            </div>
+            </button>
         {/each}
     </div>
 </section>
@@ -153,23 +156,28 @@
     let image: HTMLImageElement | null = null;
     let image_width: number = 0;
     let image_height: number = 0;
-    let canvasList: Array<[HTMLCanvasElement | null, handler]> = handlers.map(handler => {
-        return [null, handler];
+    let canvasList: Array<[HTMLCanvasElement | null, handler, boolean]> = handlers.map(handler => {
+        return [null, handler, false];
     });
+
+    async function enlarge(index: number) {
+        canvasList[index][2] = !canvasList[index][2];
+    }
 
 
     async function render() {
-        canvasList.map(async ([canvas, handler]) => {
-            if (!canvas) return;
+        for (let i = 0; i < canvasList.length; i++) {
+            const [canvas, handler] = canvasList[i];
+            if (!canvas) continue;
             canvas.width = image_width;
             canvas.height = image_height;
             const ctx = canvas.getContext('2d');
-            if (!ctx || !image) return;
+            if (!ctx || !image) continue;
             ctx.drawImage(image, 0, 0);
             let imageData = ctx.getImageData(0, 0, image.width, image.height);
             await handler.renderer(imageData.data);
             ctx.putImageData(imageData, 0, 0);
-        })
+        }
     }
 
 
@@ -205,16 +213,13 @@
         flex-direction: row;
         flex-wrap: wrap;
         gap: 1rem;
-
     }
 
-    div.card {
+    button.card {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
-        min-width: 12rem;
         width: 16rem;
-        max-width: 24rem;
     }
 
     canvas {
