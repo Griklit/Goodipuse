@@ -31,7 +31,7 @@
 <style>
     nav {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
         padding: 1rem 0;
         gap: 1rem;
     }
