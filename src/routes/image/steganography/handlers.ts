@@ -1,4 +1,4 @@
-export type handlerFunc = (data: Uint8ClampedArray) => Promise<void>;
+export type renderer = (data: Uint8ClampedArray) => Promise<void>;
 
 
 export async function contrastStretching(data: Uint8ClampedArray, le: number, gt: number) {
@@ -9,7 +9,7 @@ export async function contrastStretching(data: Uint8ClampedArray, le: number, gt
     }
 }
 
-export const autoContrastStretching: handlerFunc = async (data: Uint8ClampedArray) => {
+export const autoContrastStretching: renderer = async (data: Uint8ClampedArray) => {
     let min = 255, max = 0;
     for (let i = 0; i < data.length; i += 1) {
         if (i % 4 === 3) continue;
@@ -19,35 +19,35 @@ export const autoContrastStretching: handlerFunc = async (data: Uint8ClampedArra
     await contrastStretching(data, min, max);
 }
 
-export const redChannel: handlerFunc = async (data: Uint8ClampedArray) => {
+export const redChannel: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         data[i + 1] = data[i + 2] = data[i];
         data[i + 3] = 255;
     }
 }
 
-export const greenChannel: handlerFunc = async (data: Uint8ClampedArray) => {
+export const greenChannel: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         data[i] = data[i + 2] = data[i + 1];
         data[i + 3] = 255;
     }
 }
 
-export const blueChannel: handlerFunc = async (data: Uint8ClampedArray) => {
+export const blueChannel: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         data[i] = data[i + 1] = data[i + 2];
         data[i + 3] = 255;
     }
 }
 
-export const alphaChannel: handlerFunc = async (data: Uint8ClampedArray) => {
+export const alphaChannel: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         data[i] = data[i + 1] = data[i + 2] = data[i + 3];
         data[i + 3] = 255;
     }
 }
 
-export const pureRed: handlerFunc = async (data: Uint8ClampedArray) => {
+export const pureRed: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i] === 255) {
             data[i] = data[i + 1] = data[i + 2] = 255;
@@ -58,7 +58,7 @@ export const pureRed: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
-export const pureGreen: handlerFunc = async (data: Uint8ClampedArray) => {
+export const pureGreen: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i + 1] === 255) {
             data[i] = data[i + 1] = data[i + 2] = 255;
@@ -69,7 +69,7 @@ export const pureGreen: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
-export const pureBlue: handlerFunc = async (data: Uint8ClampedArray) => {
+export const pureBlue: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i + 2] === 255) {
             data[i] = data[i + 1] = data[i + 2] = 255;
@@ -80,7 +80,7 @@ export const pureBlue: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
-export const pureAlpha: handlerFunc = async (data: Uint8ClampedArray) => {
+export const pureAlpha: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i + 3] === 255) {
             data[i] = data[i + 1] = data[i + 2] = 255;
@@ -91,7 +91,7 @@ export const pureAlpha: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
-export const withoutRed: handlerFunc = async (data: Uint8ClampedArray) => {
+export const withoutRed: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i] === 0) {
             data[i] = data[i + 1] = data[i + 2] = 255;
@@ -102,7 +102,7 @@ export const withoutRed: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
-export const withoutGreen: handlerFunc = async (data: Uint8ClampedArray) => {
+export const withoutGreen: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i + 1] === 0) {
             data[i] = data[i + 1] = data[i + 2] = 255;
@@ -113,7 +113,7 @@ export const withoutGreen: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
-export const withoutBlue: handlerFunc = async (data: Uint8ClampedArray) => {
+export const withoutBlue: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i + 2] === 0) {
             data[i] = data[i + 1] = data[i + 2] = 255;
@@ -124,7 +124,7 @@ export const withoutBlue: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
-export const withoutAlpha: handlerFunc = async (data: Uint8ClampedArray) => {
+export const withoutAlpha: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i + 3] === 0) {
             data[i] = data[i + 1] = data[i + 2] = 255;
@@ -135,7 +135,7 @@ export const withoutAlpha: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
-export const redOdd: handlerFunc = async (data: Uint8ClampedArray) => {
+export const redOdd: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i] % 2 === 1) {
             data[i + 1] = data[i + 2] = data[i] = 255;
@@ -145,7 +145,7 @@ export const redOdd: handlerFunc = async (data: Uint8ClampedArray) => {
         data[i + 3] = 255;
     }
 }
-export const greenOdd: handlerFunc = async (data: Uint8ClampedArray) => {
+export const greenOdd: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i + 1] % 2 === 1) {
             data[i + 1] = data[i + 2] = data[i] = 255;
@@ -155,7 +155,7 @@ export const greenOdd: handlerFunc = async (data: Uint8ClampedArray) => {
         data[i + 3] = 255;
     }
 }
-export const blueOdd: handlerFunc = async (data: Uint8ClampedArray) => {
+export const blueOdd: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[+2] % 2 === 1) {
             data[i + 1] = data[i + 2] = data[i] = 255;
@@ -166,7 +166,7 @@ export const blueOdd: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
-export const alphaOdd: handlerFunc = async (data: Uint8ClampedArray) => {
+export const alphaOdd: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i + 3] % 2 === 1) {
             data[i + 1] = data[i + 2] = data[i] = 255;
@@ -177,7 +177,7 @@ export const alphaOdd: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
-export const grayPixel: handlerFunc = async (data: Uint8ClampedArray) => {
+export const grayPixel: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i] === data[i + 1] && data[i + 1] === data[i + 2]) {
             data[i] = data[i + 1] = data[i + 2] = 255;
@@ -187,3 +187,17 @@ export const grayPixel: handlerFunc = async (data: Uint8ClampedArray) => {
         data[i + 3] = 255;
     }
 }
+
+export async function hash(data: Uint8ClampedArray, a: number, b: number) {
+    for (let i = 0; i < data.length; i += 1) {
+        data[i] = (a * data[i] + b) % 255;
+    }
+}
+
+
+export const noiseBit4: renderer = async (data: Uint8ClampedArray) => {
+    for (let i = 0; i < data.length; i += 1) {
+        data[i] = data[i] % 16 * 16;
+    }
+}
+

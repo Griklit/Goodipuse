@@ -2,9 +2,9 @@
     <input type="file" alt={$_('module.image.steganography.upload_file_alt')} accept="image/*" on:change={uploadFile}>
     <div class="output">
         {#each canvasList as canvas}
-            <div class="win11-ui-card-surface-can-press">
+            <div class="win11-ui-card-surface-can-press card">
                 <p>{canvas[1].name}</p>
-                <canvas style="width: {Math.max(image_width,192)}px;" bind:this={canvas[0]}/>
+                <canvas bind:this={canvas[0]}/>
             </div>
         {/each}
     </div>
@@ -13,121 +13,140 @@
 <script lang="ts">
     import {_} from 'svelte-i18n';
     import {
-        type handlerFunc,
+        type renderer,
         contrastStretching,
         autoContrastStretching,
         redChannel, greenChannel, blueChannel, alphaChannel,
         pureRed, pureGreen, pureBlue, pureAlpha,
         withoutRed, withoutGreen, withoutBlue, withoutAlpha,
         redOdd, greenOdd, blueOdd, alphaOdd,
-        grayPixel,
+        grayPixel, hash, noiseBit4,
     } from "./handlers";
     import '$lib/styles/win11-ui/card.css'
 
     type handler = {
         name: string,
-        func: handlerFunc
+        renderer: renderer
     }
 
     const handlers: Array<handler> = [
         {
             name: $_('module.image.steganography.raw'),
-            func: async (_) => {
+            renderer: async (_) => {
             }
         }, {
             name: $_('module.image.steganography.contrast_stretching_auto'),
-            func: autoContrastStretching
+            renderer: autoContrastStretching
         }, {
             name: $_('module.image.steganography.contrast_stretching_0_31'),
-            func: async (data: Uint8ClampedArray) => {
+            renderer: async (data: Uint8ClampedArray) => {
                 await contrastStretching(data, 0, 32)
             }
         }, {
             name: $_('module.image.steganography.contrast_stretching_32_63'),
-            func: async (data: Uint8ClampedArray) => {
+            renderer: async (data: Uint8ClampedArray) => {
                 await contrastStretching(data, 32, 64)
             }
         }, {
             name: $_('module.image.steganography.contrast_stretching_64_95'),
-            func: async (data: Uint8ClampedArray) => {
+            renderer: async (data: Uint8ClampedArray) => {
                 await contrastStretching(data, 64, 96)
             }
         }, {
             name: $_('module.image.steganography.contrast_stretching_96_127'),
-            func: async (data: Uint8ClampedArray) => {
+            renderer: async (data: Uint8ClampedArray) => {
                 await contrastStretching(data, 96, 128)
             }
         }, {
             name: $_('module.image.steganography.contrast_stretching_128_159'),
-            func: async (data: Uint8ClampedArray) => {
+            renderer: async (data: Uint8ClampedArray) => {
                 await contrastStretching(data, 128, 160)
             }
         }, {
             name: $_('module.image.steganography.contrast_stretching_160_191'),
-            func: async (data: Uint8ClampedArray) => {
+            renderer: async (data: Uint8ClampedArray) => {
                 await contrastStretching(data, 160, 192)
             }
         }, {
             name: $_('module.image.steganography.contrast_stretching_192_223'),
-            func: async (data: Uint8ClampedArray) => {
+            renderer: async (data: Uint8ClampedArray) => {
                 await contrastStretching(data, 192, 224)
             }
         }, {
             name: $_('module.image.steganography.contrast_stretching_224_255'),
-            func: async (data: Uint8ClampedArray) => {
+            renderer: async (data: Uint8ClampedArray) => {
                 await contrastStretching(data, 224, 256)
             }
         }, {
             name: $_('module.image.steganography.red_channel'),
-            func: redChannel,
+            renderer: redChannel,
         }, {
             name: $_('module.image.steganography.green_channel'),
-            func: greenChannel,
+            renderer: greenChannel,
         }, {
             name: $_('module.image.steganography.blue_channel'),
-            func: blueChannel,
+            renderer: blueChannel,
         }, {
             name: $_('module.image.steganography.alpha_channel'),
-            func: alphaChannel,
+            renderer: alphaChannel,
         }, {
             name: $_('module.image.steganography.pure_red'),
-            func: pureRed,
+            renderer: pureRed,
         }, {
             name: $_('module.image.steganography.pure_green'),
-            func: pureGreen,
+            renderer: pureGreen,
         }, {
             name: $_('module.image.steganography.pure_blue'),
-            func: pureBlue,
+            renderer: pureBlue,
         }, {
             name: $_('module.image.steganography.pure_alpha'),
-            func: pureAlpha,
+            renderer: pureAlpha,
         }, {
             name: $_('module.image.steganography.without_red'),
-            func: withoutRed,
+            renderer: withoutRed,
         }, {
             name: $_('module.image.steganography.without_green'),
-            func: withoutGreen,
+            renderer: withoutGreen,
         }, {
             name: $_('module.image.steganography.without_blue'),
-            func: withoutBlue,
+            renderer: withoutBlue,
         }, {
             name: $_('module.image.steganography.without_alpha'),
-            func: withoutAlpha,
+            renderer: withoutAlpha,
         }, {
             name: $_('module.image.steganography.red_odd'),
-            func: redOdd,
+            renderer: redOdd,
         }, {
             name: $_('module.image.steganography.green_odd'),
-            func: greenOdd,
+            renderer: greenOdd,
         }, {
             name: $_('module.image.steganography.blue_odd'),
-            func: blueOdd,
+            renderer: blueOdd,
         }, {
             name: $_('module.image.steganography.alpha_odd'),
-            func: alphaOdd,
+            renderer: alphaOdd,
         }, {
             name: $_('module.image.steganography.gray_pixel'),
-            func: grayPixel,
+            renderer: grayPixel,
+        }, {
+            name: $_('module.image.steganography.hash_1'),
+            renderer: async (data: Uint8ClampedArray) => {
+                await hash(data, 17, 251)
+            },
+        }, {
+            name: $_('module.image.steganography.hash_2'),
+            renderer: async (data: Uint8ClampedArray) => {
+                await hash(data, 227, 127)
+            },
+        }, {
+            name: $_('module.image.steganography.hash_random'),
+            renderer: async (data: Uint8ClampedArray) => {
+                await hash(data, Math.floor(Math.random() * 256), Math.floor(Math.random() * 256))
+            },
+        },
+        {
+            name: $_('module.image.steganography.noise_4bit'),
+            renderer: noiseBit4,
         },
     ]
 
@@ -149,7 +168,7 @@
             if (!ctx || !image) return;
             ctx.drawImage(image, 0, 0);
             let imageData = ctx.getImageData(0, 0, image.width, image.height);
-            await handler.func(imageData.data);
+            await handler.renderer(imageData.data);
             ctx.putImageData(imageData, 0, 0);
         })
     }
@@ -190,7 +209,16 @@
 
     }
 
+    div.card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        min-width: 12rem;
+        width: 16rem;
+        max-width: 24rem;
+    }
+
     canvas {
-        max-width: 16rem;
+        width: 100%;
     }
 </style>
