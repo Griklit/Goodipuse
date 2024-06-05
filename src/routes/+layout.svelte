@@ -1,6 +1,7 @@
 <div class="app">
     <div class="bar">
-        <h1>{$_('title')}</h1>
+        <a class="title" href="/">{$_('title')}</a>
+        <hr/>
         <nav>
             {#each routers as [path, router]}
                 <a class="navigate-card" class:selected={$page.url.pathname === path} href={path}>
@@ -32,7 +33,6 @@
     import Icon from "@iconify/svelte";
 
     let routers = new Map<string, { title: string }>();
-    routers.set('/', {title: $_('page.home.title')});
     routers.set('/substitution/caesar', {title: $_('module.substitution.caesar.title')});
     routers.set('/substitution/a1z26', {title: $_('module.substitution.a1z26.title')});
     routers.set('/substitution/custom', {title: $_('module.substitution.custom.title')});
@@ -54,13 +54,26 @@
 
     div.bar {
         background-color: #F3F3F3;
-        padding: 2rem 0.75rem;
+        padding: 0.5rem 0.75rem 2rem;
         display: flex;
         flex-direction: column;
         flex: 0 0 8%;
         align-items: center;
         min-width: 12rem;
-        gap: 0.25rem 0;
+        gap: 0.5rem 0;
+    }
+
+    a.title {
+        font-size: 1.3rem;
+        text-decoration: none;
+        color: black;
+    }
+
+    hr {
+        border: none;
+        width: 90%;
+        height: 1px;
+        background-color: #ccc;
     }
 
     nav {
