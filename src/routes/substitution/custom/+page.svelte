@@ -4,23 +4,11 @@
 </svelte:head>
 
 <section>
-    {#if mapType === "text"}
-        <label class="win11-ui-textarea map">
-            <span class="win11-ui-textarea">{$_('module.substitution.custom.key')}</span>
-            <textarea class="win11-ui-textarea scrollbar" placeholder={mapTextHolder}
-                      bind:value={mapText} on:input={updateMapText}/>
-        </label>
-    {:else if mapType === "list"}
-        <div class="map map-list scrollbar">
-            {#each mapList as [key, value]}
-                <div class="map">
-                    <input class="letter" type="text" maxlength="1" bind:value={key} on:input={updateMapList}/>
-                    <span>→</span>
-                    <input class="letter" type="text" maxlength="1" bind:value={value} on:input={updateMapList}/>
-                </div>
-            {/each}
-        </div>
-    {/if}
+    <label class="win11-ui-textarea map">
+        <span class="win11-ui-textarea">{$_('module.substitution.custom.key')}</span>
+        <textarea class="win11-ui-textarea scrollbar" placeholder={mapTextHolder}
+                  bind:value={mapText} on:input={updateMapText}/>
+    </label>
     <div class="text">
         <label class="win11-ui-textarea cipher-text">
             <span class="win11-ui-textarea">{$_('module.substitution.custom.cipher_text')}</span>
@@ -29,11 +17,11 @@
         </label>
         <div class="option">
             <label class="win11-ui-checkbox">
-                <input class="win11-ui-checkbox" type="checkbox" bind:checked={caseSensitive} on:input={updateResults}/>
+                <input class="win11-ui-checkbox" type="checkbox" bind:checked={ignoreCase}
+                       on:change={updateResults}/>
                 <span class="win11-ui-checkbox"/>
                 忽略大小写
             </label>
-<!--            忽略大小写：<input type="checkbox" bind:checked={caseSensitive} on:input={updateResults}/>-->
         </div>
         <label class="win11-ui-textarea plain-text">
             <span class="win11-ui-textarea">{$_('module.substitution.custom.plain_text')}</span>
@@ -49,9 +37,7 @@
     import '$lib/styles/win11-ui/textarea.css'
     import '$lib/styles/win11-ui/checkbox.css'
 
-    let mapType: string = "text";
-
-    let caseSensitive: boolean = false;
+    let ignoreCase: boolean;
 
     let cipherText: string = "";
     let cipherTextHolder: string = "Hello, World!";
@@ -59,16 +45,15 @@
     let plainTextHolder: string = "Aexxn, Wnrxd!";
 
     let map = new Map<string, string>();
-    map.set("s", "");
     let mapText: string = "";
     let mapTextHolder: string = "h->a\nl->x\no->n";
-    let mapList: Array<[string, string]> = [];
 
     function updateResults() {
+        console.log(ignoreCase);
         let newText = [];
         for (let i = 0; i < cipherText.length; i++) {
             let char = cipherText[i];
-            if (caseSensitive) {
+            if (!ignoreCase) {
                 let value = map.get(char);
                 if (value) {
                     newText.push(value);
@@ -113,12 +98,6 @@
         console.log(map)
         updateResults();
     }
-
-    function updateMapList() {
-
-        updateResults()
-    }
-
 </script>
 
 <style>
@@ -138,19 +117,6 @@
     .map {
         width: 6%;
         min-width: 4rem;
-    }
-
-
-    div.map-list {
-        padding: 1rem 0.25rem;
-        background-color: #0000000a;
-        border-radius: 8px;
-    }
-
-    input.letter {
-        padding: 0.25rem;
-        width: 1rem;
-        text-align: center;
     }
 
     div.text {
