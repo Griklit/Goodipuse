@@ -1,0 +1,36 @@
+:root {
+    --color-fill-accent-default: rgba(0, 95, 184, 100%);
+    --color-fill-accent-secondary: rgba(25, 110, 191, 90%);
+    --color-fill-accent-tertiary: rgba(25, 110, 191, 80%);
+    --color-fill-text-on-accent-primary: rgba(255, 255, 255, 100%);
+
+    --color-fill-text-primary: rgba(0, 0, 0, 89.56%);
+    --color-fill-text-secondary: rgba(0, 0, 0, 60.63%);
+
+    --color-fill-control-default: rgba(255, 255, 255, 70%);
+    --color-fill-control-secondary: rgba(249, 249, 249, 50%);
+    --color-fill-control-input-active: rgba(255, 255, 255, 100%);
+
+    --color-fill-control-alt-secondary: rgba(0, 0, 0, 2.41%);
+    --color-fill-control-alt-tertiary: rgba(0, 0, 0, 5.78%);
+    --color-fill-control-alt-quarternary: rgba(0, 0, 0, 9.24%);
+
+    --color-elevation-text-control-border: rgba(0, 0, 0, 6%);
+    --color-elevation-text-control-after: rgba(0, 0, 0, 45%);
+
+    --color-strock-control-strong-default: rgba(0, 0, 0, 60.63%);
+    --color-strock-control-strong-disabled: rgba(0, 0, 0, 21.69%);
+
+    --color-strock-card-default: rgba(0, 0, 0, 5.78%);
+
+    --color-background-fill-card-default: rgba(255, 255, 255, 70%);
+    --color-background-fill-card-secondary: rgba(246, 246, 246, 50%);
+    --color-background-fill-card-tertiary: rgba(255, 255, 255, 100%);
+
+    --shadows-card-rest: 0 2px 4px 0 rgba(0, 0, 0, 4%);
+    --shadows-card-hover: 0 2px 4px 0 rgba(0, 0, 0, 10%);
+
+    --elevation-accent-control-border: linear-gradient(to bottom, rgba(255, 255, 255, 8%) 91%, rgba(0, 0, 0, 40%) 100%);;
+
+    --is-dark: 0;
+}

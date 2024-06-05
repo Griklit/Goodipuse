@@ -1,0 +1,25 @@
+:root {
+    --color-fill-accent-default: rgba(96, 205, 255, 100%);
+    --color-fill-accent-secondary: rgba(113, 211, 255, 90%);
+    --color-fill-accent-tertiary: rgba(113, 211, 255, 80%);
+    --color-fill-text-on-accent-primary: rgba(0, 0, 0, 100%);
+
+    --color-fill-text-primary: rgba(255, 255, 255, 100%);
+    --color-fill-text-secondary: rgba(255, 255, 255, 78.6%);
+
+    --color-fill-control-default: rgba(255, 255, 255, 6.05%);
+    --color-fill-control-secondary: rgba(249, 249, 249, 8.37%);
+    --color-fill-control-input-active: rgba(30, 30, 30, 70%);
+
+    --color-fill-control-alt-secondary: rgba(0, 0, 0, 10%);
+    --color-fill-control-alt-tertiary: rgba(255, 255, 255, 4.19%);
+    --color-fill-control-alt-quarternary: rgba(255, 255, 255, 6.98%);
+
+    --color-elevation-text-control-border: rgba(255, 255, 255, 8%);
+    --color-elevation-text-control-after: rgba(255, 255, 255, 54%);
+
+    --color-strock-control-strong-default: rgba(255, 255, 255, 60.47%);
+    --color-strock-control-strong-disabled: rgba(255, 255, 255, 15.81%);
+
+    --is-dark: 1;
+}
