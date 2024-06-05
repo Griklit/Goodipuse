@@ -1,15 +1,17 @@
 <div class="app">
-    <nav>
-        {#each routers as [path, router]}
-            <a class="navigate-card" class:selected={$page.url.pathname === path} href={path}>
-                {router.title}
-            </a>
-        {/each}
-        <a href="https://github.com/Griklit/Goodipuse" title="github" target="_blank"
-           style="align-self: flex-start;margin-top: auto;">
+    <div class="bar">
+        <h1>{$_('title')}</h1>
+        <nav>
+            {#each routers as [path, router]}
+                <a class="navigate-card" class:selected={$page.url.pathname === path} href={path}>
+                    {router.title}
+                </a>
+            {/each}
+        </nav>
+        <a href="https://github.com/Griklit/Goodipuse" title="github" target="_blank">
             <Icon style="font-size: 2rem;" icon="logos:github-icon"/>
         </a>
-    </nav>
+    </div>
     <main>
         {#if $page.url.pathname !== "/"}
             <div class="title">
@@ -50,17 +52,26 @@
         width: 100vw;
     }
 
-    nav {
+    div.bar {
         background-color: #F3F3F3;
+        padding: 2rem 0.75rem;
         display: flex;
         flex-direction: column;
         flex: 0 0 8%;
+        align-items: center;
         min-width: 12rem;
+        gap: 0.25rem 0;
+    }
+
+    nav {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
         place-items: center;
         gap: 0.25rem 0;
-        padding: 2rem 0.75rem;
         overflow-x: hidden;
         overflow-y: auto;
+        width: 100%;
     }
 
     a.navigate-card {
