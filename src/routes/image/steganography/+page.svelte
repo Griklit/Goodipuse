@@ -226,6 +226,6 @@
 
     canvas {
         width: 100%;
-        scroll-margin-top: 2.5rem;
+        scroll-margin-top: 3rem;
     }
 </style>

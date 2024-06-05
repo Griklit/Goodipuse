@@ -38,7 +38,11 @@
         "green_odd": "Green odd",
         "blue_odd": "Blue odd",
         "alpha_odd": "Alpha odd",
-        "gray_pixel": "Gray pixel"
+        "gray_pixel": "Gray pixel",
+        "hash_1": "Hash-1",
+        "hash_2": "Hash-2",
+        "hash_random": "Hash random",
+        "noise_4bit": "Noise 4bit"
       }
     },
     "base64": {

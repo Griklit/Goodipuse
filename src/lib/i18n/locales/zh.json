@@ -38,7 +38,11 @@
         "green_odd": "绿色奇数",
         "blue_odd": "蓝色奇数",
         "alpha_odd": "透明度奇数",
-        "gray_pixel": "灰色像素"
+        "gray_pixel": "灰色像素",
+        "hash_1": "哈希-1",
+        "hash_2": "哈希-2",
+        "hash_random": "哈希 随机",
+        "noise_4bit": "噪声 4Bit"
       }
     },
     "base64": {
