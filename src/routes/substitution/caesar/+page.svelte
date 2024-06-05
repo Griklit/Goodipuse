@@ -4,7 +4,7 @@
 </svelte:head>
 
 <section>
-    <input class="text" type="text" bind:value={text} on:input={updateResults} placeholder={holder}/>
+    <input class="text" type="text" bind:value={text} on:input={updateResults} placeholder={defaultValue}/>
     <div class="option">
         <p>转换数字：</p>
         <input class="number" type="checkbox" bind:checked={rotateNumber} on:change={updateResults}>
@@ -22,10 +22,10 @@
 <script lang="ts">
     import {_} from 'svelte-i18n';
 
-    let holder = 'Hello, World!'
+    let defaultValue = 'Hello, World!'
     let rotateNumber: boolean = false;
     let text: string | null = null;
-    let shiftResults: Array<string> = caesarAll(holder);
+    let shiftResults: Array<string> = caesarAll(defaultValue);
 
     function caesar(text: string, shift: number) {
         return text.split('').map((char) => {
@@ -50,7 +50,7 @@
         if (text) {
             shiftResults = caesarAll(text);
         } else {
-            shiftResults = caesarAll(holder);
+            shiftResults = caesarAll(defaultValue);
         }
     }
 </script>

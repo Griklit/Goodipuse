@@ -1,18 +1,25 @@
 <a class="win11-ui-card-surface-can-press card" href={"/external-software/" + filename}>
     <h1>{title !== null ? title : filename}</h1>
     {#if url !== null}
-        <a class="url" href={url} target="_blank">⇱</a>
+        <Icon icon="material-symbols:link" style="font-size: 1.5rem;align-self: end;" on:click={link}/>
     {/if}
     <p class="desc">{description}</p>
 </a>
 
 <script lang="ts">
+    import Icon from "@iconify/svelte";
     import '$lib/styles/win11-ui/card.css';
 
     export let filename: string;
     export let title: string | null = null;
     export let description: string = "";
     export let url: string | null = null;
+
+    function link() {
+        if (url !== null) {
+            window.open(url);
+        }
+    }
 </script>
 
 <style>
@@ -38,15 +45,6 @@
         background-color: #efefef;
     }
 
-
-    a.url {
-        align-self: end;
-    }
-
-    a.url:hover {
-        color: blue;
-        text-decoration: underline;
-    }
 
     p.desc {
         text-indent: 2em;

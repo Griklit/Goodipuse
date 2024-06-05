@@ -45,6 +45,11 @@
         "noise_4bit": "噪声 4Bit"
       }
     },
+    "number": {
+      "base": {
+        "title": "进制转换"
+      }
+    },
     "base64": {
       "image": {
         "title": "Base64图片",

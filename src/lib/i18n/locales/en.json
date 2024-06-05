@@ -45,6 +45,11 @@
         "noise_4bit": "Noise 4bit"
       }
     },
+    "number": {
+      "base": {
+        "title": "Base conversion"
+      }
+    },
     "base64": {
       "image": {
         "title": "Base64 Image",
