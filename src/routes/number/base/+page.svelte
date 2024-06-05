@@ -2,7 +2,7 @@
     {#each baseList as base,i}
         <div>
             <h1>{(i + 2).toString()}</h1>
-            <input bind:value={base} on:input={()=>aaa(i)}/>
+            <input bind:value={base} on:input={()=>flush(i)}/>
         </div>
     {/each}
 </section>
@@ -39,35 +39,53 @@
 
     function BitIntToString(value: bigint, radix: number): string {
         let caseSensitive = radix <= 36;
+        let isNegative = value < 0n;
+        if (isNegative) {
+            value = -value;
+        }
         let result = '';
         while (value > 0n) {
             result = numberToChar(Number(value % BigInt(radix)), caseSensitive) + result;
             value = value / BigInt(radix);
         }
+        if (isNegative) {
+            result = '-' + result;
+        }
         return result;
     }
 
     function parseBigInt(value: string, radix: number): bigint {
+        let isNegative = value[0] === '-';
+        if (isNegative) {
+            value = value.slice(1);
+        }
+        if (value.length === 0) {
+            return -0n;
+        }
         let caseSensitive = radix <= 36;
         let num = BigInt(0);
         for (let i = 0; i < value.length; i++) {
             num = num * BigInt(radix) + BigInt(charToNumber(value[i], caseSensitive));
         }
+        if (isNegative) {
+            num = -num;
+        }
         return num
     }
 
 
-    function updateResults() {
+    function updateResults(skipIndex: number | null = null) {
         baseList.map((_, key) => {
+            if (key === skipIndex) return;
             baseList[key] = BitIntToString(num, key + 2);
         });
     }
 
-    function aaa(key: number) {
+    function flush(key: number) {
         let value = baseList[key];
         if (!value) return;
         num = parseBigInt(value, key + 2);
-        updateResults();
+        updateResults(key);
     }
 
 </script>
