@@ -26,6 +26,7 @@ Vervel：[https://goodipuse.vercel.app](https://goodipuse.vercel.app)
  - [ ] 摩斯电吗
  - [ ] 字符编码
  - [ ] 条形码、二维码
+ - [ ] 九键输入
 - [ ] 外部/第三方内容
  - [x] 外部软件
  - [ ] 外部网站
