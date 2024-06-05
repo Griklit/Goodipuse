@@ -14,14 +14,13 @@
     import {_} from 'svelte-i18n';
     import {
         type renderer,
-        contrastStretching,
-        autoContrastStretching,
+        contrastStretching, autoContrastStretching,
         redChannel, greenChannel, blueChannel, alphaChannel,
         pureRed, pureGreen, pureBlue, pureAlpha,
         withoutRed, withoutGreen, withoutBlue, withoutAlpha,
         redOdd, greenOdd, blueOdd, alphaOdd,
         grayPixel, hash, noiseBit4,
-    } from "./handlers";
+    } from "./renderers";
     import '$lib/styles/win11-ui/card.css'
 
     type handler = {
