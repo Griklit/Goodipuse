@@ -13,7 +13,7 @@
 - [ ] base64文本解码
 - [ ] base64媒体文件解码
 - [ ] 化学元素周期表
-- [x] 图像隐写术 
+- [x] 图像隐写术
 
 ## 开发
 
@@ -29,3 +29,5 @@ npm run dev -- --open
 ```bash
 npm run build
 ```
+
+![goodipuse](static/favicon.svg)
