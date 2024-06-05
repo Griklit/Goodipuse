@@ -115,7 +115,7 @@
     }
 
     .map {
-        width: 6%;
+        width: 5%;
         min-width: 4rem;
     }
 
