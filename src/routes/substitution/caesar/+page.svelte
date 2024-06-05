@@ -47,9 +47,10 @@
     }
 
     function updateResults() {
-        if (text !== null) {
-            holder = '';
+        if (text) {
             shiftResults = caesarAll(text);
+        } else {
+            shiftResults = caesarAll(holder);
         }
     }
 </script>
