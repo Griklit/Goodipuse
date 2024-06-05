@@ -2,6 +2,10 @@
 
 鹅狄浦斯
 
+Vervel：[https://goodipuse.vercel.app](https://goodipuse.vercel.app)
+
+国内可访问：[https://🪿.countercur.rent](https://🪿.countercur.rent)
+
 ## 功能
 
 - [x] 自定义替换密码
