@@ -16,7 +16,6 @@ export const autoContrastStretching: handlerFunc = async (data: Uint8ClampedArra
         min = Math.min(min, data[i]);
         max = Math.max(max, data[i]);
     }
-    console.log(min, max)
     await contrastStretching(data, min, max);
 }
 
@@ -48,7 +47,7 @@ export const alphaChannel: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
-export const fullRed: handlerFunc = async (data: Uint8ClampedArray) => {
+export const pureRed: handlerFunc = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i] === 255) {
             data[i] = data[i + 1] = data[i + 2] = 255;
@@ -59,18 +58,7 @@ export const fullRed: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
-export const notRed: handlerFunc = async (data: Uint8ClampedArray) => {
-    for (let i = 0; i < data.length; i += 4) {
-        if (data[i] === 0) {
-            data[i] = data[i + 1] = data[i + 2] = 255;
-        } else {
-            data[i] = data[i + 1] = data[i + 2] = 0;
-        }
-        data[i + 3] = 255;
-    }
-}
-
-export const fullGreen: handlerFunc = async (data: Uint8ClampedArray) => {
+export const pureGreen: handlerFunc = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i + 1] === 255) {
             data[i] = data[i + 1] = data[i + 2] = 255;
@@ -81,18 +69,7 @@ export const fullGreen: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
-export const notGreen: handlerFunc = async (data: Uint8ClampedArray) => {
-    for (let i = 0; i < data.length; i += 4) {
-        if (data[i + 1] === 0) {
-            data[i] = data[i + 1] = data[i + 2] = 255;
-        } else {
-            data[i] = data[i + 1] = data[i + 2] = 0;
-        }
-        data[i + 3] = 255;
-    }
-}
-
-export const fullBlue: handlerFunc = async (data: Uint8ClampedArray) => {
+export const pureBlue: handlerFunc = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i + 2] === 255) {
             data[i] = data[i + 1] = data[i + 2] = 255;
@@ -103,18 +80,7 @@ export const fullBlue: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
-export const notBlue: handlerFunc = async (data: Uint8ClampedArray) => {
-    for (let i = 0; i < data.length; i += 4) {
-        if (data[i + 2] === 0) {
-            data[i] = data[i + 1] = data[i + 2] = 255;
-        } else {
-            data[i] = data[i + 1] = data[i + 2] = 0;
-        }
-        data[i + 3] = 255;
-    }
-}
-
-export const fullAlpha: handlerFunc = async (data: Uint8ClampedArray) => {
+export const pureAlpha: handlerFunc = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i + 3] === 255) {
             data[i] = data[i + 1] = data[i + 2] = 255;
@@ -125,7 +91,40 @@ export const fullAlpha: handlerFunc = async (data: Uint8ClampedArray) => {
     }
 }
 
-export const notAlpha: handlerFunc = async (data: Uint8ClampedArray) => {
+export const withoutRed: handlerFunc = async (data: Uint8ClampedArray) => {
+    for (let i = 0; i < data.length; i += 4) {
+        if (data[i] === 0) {
+            data[i] = data[i + 1] = data[i + 2] = 255;
+        } else {
+            data[i] = data[i + 1] = data[i + 2] = 0;
+        }
+        data[i + 3] = 255;
+    }
+}
+
+export const withoutGreen: handlerFunc = async (data: Uint8ClampedArray) => {
+    for (let i = 0; i < data.length; i += 4) {
+        if (data[i + 1] === 0) {
+            data[i] = data[i + 1] = data[i + 2] = 255;
+        } else {
+            data[i] = data[i + 1] = data[i + 2] = 0;
+        }
+        data[i + 3] = 255;
+    }
+}
+
+export const withoutBlue: handlerFunc = async (data: Uint8ClampedArray) => {
+    for (let i = 0; i < data.length; i += 4) {
+        if (data[i + 2] === 0) {
+            data[i] = data[i + 1] = data[i + 2] = 255;
+        } else {
+            data[i] = data[i + 1] = data[i + 2] = 0;
+        }
+        data[i + 3] = 255;
+    }
+}
+
+export const withoutAlpha: handlerFunc = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[i + 3] === 0) {
             data[i] = data[i + 1] = data[i + 2] = 255;
@@ -159,6 +158,17 @@ export const greenOdd: handlerFunc = async (data: Uint8ClampedArray) => {
 export const blueOdd: handlerFunc = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {
         if (data[+2] % 2 === 1) {
+            data[i + 1] = data[i + 2] = data[i] = 255;
+        } else {
+            data[i] = data[i + 1] = data[i + 2] = 0;
+        }
+        data[i + 3] = 255;
+    }
+}
+
+export const alphaOdd: handlerFunc = async (data: Uint8ClampedArray) => {
+    for (let i = 0; i < data.length; i += 4) {
+        if (data[i + 3] % 2 === 1) {
             data[i + 1] = data[i + 2] = data[i] = 255;
         } else {
             data[i] = data[i + 1] = data[i + 2] = 0;

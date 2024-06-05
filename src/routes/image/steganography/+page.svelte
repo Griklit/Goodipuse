@@ -17,9 +17,9 @@
         contrastStretching,
         autoContrastStretching,
         redChannel, greenChannel, blueChannel, alphaChannel,
-        fullRed, fullGreen, fullBlue, fullAlpha,
-        notRed, notGreen, notBlue, notAlpha,
-        redOdd, greenOdd, blueOdd,
+        pureRed, pureGreen, pureBlue, pureAlpha,
+        withoutRed, withoutGreen, withoutBlue, withoutAlpha,
+        redOdd, greenOdd, blueOdd, alphaOdd,
         grayPixel,
     } from "./handlers";
     import '$lib/styles/win11-ui/card.css'
@@ -91,28 +91,28 @@
             func: alphaChannel,
         }, {
             name: $_('module.image.steganography.pure_red'),
-            func: fullRed,
-        }, {
-            name: $_('module.image.steganography.without_red'),
-            func: notRed,
+            func: pureRed,
         }, {
             name: $_('module.image.steganography.pure_green'),
-            func: fullGreen,
-        }, {
-            name: $_('module.image.steganography.without_green'),
-            func: notGreen,
+            func: pureGreen,
         }, {
             name: $_('module.image.steganography.pure_blue'),
-            func: fullBlue,
-        }, {
-            name: $_('module.image.steganography.without_blue'),
-            func: notBlue,
+            func: pureBlue,
         }, {
             name: $_('module.image.steganography.pure_alpha'),
-            func: fullAlpha,
+            func: pureAlpha,
+        }, {
+            name: $_('module.image.steganography.without_red'),
+            func: withoutRed,
+        }, {
+            name: $_('module.image.steganography.without_green'),
+            func: withoutGreen,
+        }, {
+            name: $_('module.image.steganography.without_blue'),
+            func: withoutBlue,
         }, {
             name: $_('module.image.steganography.without_alpha'),
-            func: notAlpha,
+            func: withoutAlpha,
         }, {
             name: $_('module.image.steganography.red_odd'),
             func: redOdd,
@@ -122,6 +122,9 @@
         }, {
             name: $_('module.image.steganography.blue_odd'),
             func: blueOdd,
+        }, {
+            name: $_('module.image.steganography.alpha_odd'),
+            func: alphaOdd,
         }, {
             name: $_('module.image.steganography.gray_pixel'),
             func: grayPixel,
