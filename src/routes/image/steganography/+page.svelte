@@ -2,9 +2,8 @@
     <input type="file" alt={$_('module.image.steganography.upload_file_alt')} accept="image/*" on:change={uploadFile}>
     <div class="output">
         {#each canvasList as canvas,i}
-            <button
-                    class="win11-ui-card-surface-can-press card"
-                    style={canvas[2]? 'width: 100%;' : '' }
+            <button class="win11-ui-card-surface-can-press card"
+                    style={canvas[2]? 'width: 100%;' : undefined }
                     on:click={()=>{enlarge(i)}}>
                 {canvas[1].name}
                 <canvas bind:this={canvas[0]}/>
@@ -162,6 +161,8 @@
 
     async function enlarge(index: number) {
         canvasList[index][2] = !canvasList[index][2];
+        await new Promise(resolve => setTimeout(resolve, 1));
+        canvasList[index][0]?.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
     }
 
 
@@ -224,5 +225,6 @@
 
     canvas {
         width: 100%;
+        scroll-margin-top: 2.5rem;
     }
 </style>
