@@ -1,17 +1,23 @@
 <section>
     {#each baseList as base,i}
-        <div>
-            <h1>{(i + 2).toString()}</h1>
-            <input bind:value={base} on:input={()=>flush(i)}/>
+        <div class="line">
+            <label class="radix" style={commonRadix.has(i+2)?"font-weight: bold;":undefined}
+                   for="radix">{(i + 2).toString()}</label>
+            <div class="win11-ui-input" style="flex-grow: 1">
+                <input class="win11-ui-input" bind:value={base} on:input={()=>flush(i)}/>
+            </div>
         </div>
     {/each}
 </section>
 
 
 <script lang="ts">
+    import "$lib/styles/win11-ui/input.css"
+
     let num: bigint | null = 0xffn;
     let isNegative: boolean = false;
     let baseList: Array<string> = Array.from({length: 61}, (_, i) => num ? bitIntToString(num, i + 2) : '');
+    let commonRadix: Set<number> = new Set([2, 8, 10, 16]);
 
     function charToNumber(char: string, caseSensitive: boolean = false) {
         let code = char.charCodeAt(0);
@@ -105,20 +111,20 @@
         gap: 0.5rem;
     }
 
-    div {
+    div.line {
         display: flex;
         flex-direction: row;
-        gap: 0.5rem;
+        gap: 0 0.875rem;
+        align-items: baseline;
+        width: 100%;
     }
 
-    h1 {
+    label.radix {
+        text-align: end;
         width: 1.5rem;
-        text-align: right;
-        align-content: center;
     }
 
     input {
         font-family: var(--font-mono), monospace;
-        flex-grow: 1;
     }
 </style>

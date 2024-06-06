@@ -1,4 +1,4 @@
-label.win11-ui-input {
+div.win11-ui-input {
     position: relative;
     border-radius: 0.1875rem;
     overflow: hidden;
@@ -7,7 +7,7 @@ label.win11-ui-input {
     height: max-content;
 }
 
-label.win11-ui-input::after {
+div.win11-ui-input::after {
     position: absolute;
     content: "";
     width: 100%;
@@ -17,7 +17,7 @@ label.win11-ui-input::after {
     background-color: var(--color-elevation-text-control-after);
 }
 
-label.win11-ui-input:has(input:focus)::after {
+div.win11-ui-input:has(input:focus)::after {
     height: 0.125rem;
     background-color: var(--color-fill-accent-default);
 }
@@ -52,7 +52,7 @@ input.win11-ui-input::placeholder {
     opacity: 1;
 }
 
-span.win11-ui-input {
+label.win11-ui-input {
     display: inline-block;
     margin-bottom: 0.5rem;
     color: var(--color-fill-text-primary);
