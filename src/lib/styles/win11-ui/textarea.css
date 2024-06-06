@@ -1,4 +1,4 @@
-label.win11-ui-textarea {
+div.win11-ui-textarea {
     position: relative;
     border-radius: 0.1875rem;
     overflow: hidden;
@@ -8,7 +8,7 @@ label.win11-ui-textarea {
     /*height: max-content;*/
 }
 
-label.win11-ui-textarea::after {
+div.win11-ui-textarea::after {
     position: absolute;
     content: "";
     width: 100%;
@@ -18,7 +18,7 @@ label.win11-ui-textarea::after {
     background-color: var(--color-elevation-text-control-after);
 }
 
-label.win11-ui-textarea:has(textarea:focus)::after {
+div.win11-ui-textarea:has(textarea:focus)::after {
     height: 0.125rem;
     background-color: var(--color-fill-accent-default);
 }
@@ -55,7 +55,7 @@ textarea.win11-ui-textarea::placeholder {
     opacity: 1;
 }
 
-span.win11-ui-textarea {
+label.win11-ui-textarea {
     display: inline-block;
     margin-bottom: 0.5rem;
     color: var(--color-fill-text-primary);

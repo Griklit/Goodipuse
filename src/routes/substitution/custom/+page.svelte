@@ -4,17 +4,17 @@
 </svelte:head>
 
 <section>
-    <label class="win11-ui-textarea map">
-        <span class="win11-ui-textarea">{$_('module.substitution.custom.key')}</span>
+    <div class="win11-ui-textarea map">
+        <label class="win11-ui-textarea" for="map">{$_('module.substitution.custom.key')}</label>
         <textarea class="win11-ui-textarea scrollbar" placeholder={"v->g\ni->o\nt->p"}
                   bind:value={mapText} on:input={updateMapText}/>
-    </label>
+    </div>
     <div class="text">
-        <label class="win11-ui-textarea cipher-text">
-            <span class="win11-ui-textarea">{$_('module.substitution.custom.cipher_text')}</span>
+        <div class="win11-ui-textarea cipher-text">
+            <label class="win11-ui-textarea" for="cipher-text">{$_('module.substitution.custom.cipher_text')}</label>
             <textarea class="win11-ui-textarea scrollbar" rows="12" placeholder="Valli, Viidituse!"
                       bind:value={cipherText} on:input={updateResults}/>
-        </label>
+        </div>
         <div class="option">
             <label class="win11-ui-checkbox">
                 <input class="win11-ui-checkbox" type="checkbox" bind:checked={ignoreCase}
@@ -23,11 +23,11 @@
                 忽略大小写
             </label>
         </div>
-        <label class="win11-ui-textarea plain-text">
-            <span class="win11-ui-textarea">{$_('module.substitution.custom.plain_text')}</span>
+        <div class="win11-ui-textarea plain-text">
+            <label class="win11-ui-textarea" for="plain-text">{$_('module.substitution.custom.plain_text')}</label>
             <textarea class="win11-ui-textarea scrollbar" rows="12" disabled placeholder="Gallo, Goodipuse!"
                       bind:value={plainText}/>
-        </label>
+        </div>
     </div>
 </section>
 
@@ -124,7 +124,7 @@
         align-content: stretch;
     }
 
-    label.cipher-text, label.plain-text {
+    div.cipher-text, div.plain-text {
         flex-grow: 1;
     }
 
