@@ -11,10 +11,10 @@
             <input id="nmsl" class="win11-ui-input" placeholder="Hello, World!"/>
         </div>
 
-        <div class="win11-ui-textarea">
-            <label for="nmsl" class="win11-ui-input">Header</label>
+        <label class="win11-ui-textarea">
+            <span class="win11-ui-input">Header</span>
             <textarea class="win11-ui-textarea" placeholder="Hello, World!"/>
-        </div>
+        </label>
 
         <label class="win11-ui-checkbox">
             <input class="win11-ui-checkbox" type="checkbox"/>
