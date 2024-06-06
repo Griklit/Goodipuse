@@ -63,7 +63,9 @@
       },
       "caesar": {
         "title": "Caesar",
-        "description": "Caesar cipher is a substitution cipher where each letter in the plaintext is shifted a certain number of places down the alphabet."
+        "description": "Caesar cipher is a substitution cipher where each letter in the plaintext is shifted a certain number of places down the alphabet.",
+        "cipher_text": "Cipher text",
+        "rotate_number": "Rotate number"
       },
       "custom": {
         "title": "Custom Substitution",

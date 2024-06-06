@@ -71,6 +71,7 @@
         gap: 0.75rem 0;
     }
 
+
     input.text {
         font-family: var(--font-mono), monospace;
         width: 100%;
