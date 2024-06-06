@@ -8,12 +8,13 @@ Vervel：[https://goodipuse.vercel.app](https://goodipuse.vercel.app)
 
 ## 功能
 
-- [ ] 替换密码
+- [ ] 替换加密
   - [x] 自定义替换密码
   - [x] 凯撒加密
   - [x] A1Z26
-  - [ ] 栅栏加密
   - [ ] 维吉尼亚加密
+- [ ] 置换加密 
+ - [ ] 栅栏加密
 - [x] 62以内任意进制转换
 - [ ] base64媒体文件解码
 - [ ] 化学元素周期表
