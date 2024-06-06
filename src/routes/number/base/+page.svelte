@@ -1,10 +1,12 @@
 <section>
     {#each baseList as base,i}
         <div class="line">
-            <label class="radix" style={commonRadix.has(i+2)?"font-weight: bold;":undefined}
-                   for="radix">{(i + 2).toString()}</label>
-            <label class="win11-ui-input" style="flex-grow: 1">
-                <input class="win11-ui-input" bind:value={base} on:input={()=>flush(i)}/>
+            <label class="radix" for="radix" style={commonRadix.has(i+2)?"font-weight: bold;":undefined}>
+                {(i + 2).toString()}
+            </label>
+            <label class="win11-ui-input" id="radix" style="flex-grow: 1">
+                <input class="win11-ui-input" placeholder={placeholderList[i]}
+                       bind:value={base} on:input={()=>flush(i)}/>
             </label>
         </div>
     {/each}
@@ -14,9 +16,10 @@
 <script lang="ts">
     import "$lib/styles/win11-ui/input.css"
 
-    let num: bigint | null = 0xffn;
+    let num: bigint | null = null;
     let isNegative: boolean = false;
-    let baseList: Array<string> = Array.from({length: 61}, (_, i) => num ? bitIntToString(num, i + 2) : '');
+    let baseList: Array<string> = Array.from({length: 61}, (_) => '');
+    let placeholderList: Array<string> = Array.from({length: 61}, (_, i) => bitIntToString(4294967295n, i + 2));
     let commonRadix: Set<number> = new Set([2, 8, 10, 16]);
 
     function charToNumber(char: string, caseSensitive: boolean = false) {
