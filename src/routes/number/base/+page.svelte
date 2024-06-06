@@ -1,3 +1,8 @@
+<svelte:head>
+    <title>{$_('title') + ' | ' + $_('module.number.base.title')}</title>
+    <meta name="description" content={$_('module.number.base.description')}/>
+</svelte:head>
+
 <section>
     {#each baseList as base,i}
         <div class="line">
@@ -15,6 +20,7 @@
 
 <script lang="ts">
     import "$lib/styles/win11-ui/input.css"
+    import {_} from "svelte-i18n";
 
     let num: bigint | null = null;
     let isNegative: boolean = false;

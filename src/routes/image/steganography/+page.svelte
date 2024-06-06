@@ -1,3 +1,8 @@
+<svelte:head>
+    <title>{$_('title') + ' | ' + $_('module.image.steganography.title')}</title>
+    <meta name="description" content={$_('module.image.steganography.description')}/>
+</svelte:head>
+
 <section>
     <input type="file" alt={$_('module.image.steganography.upload_file_alt')} accept="image/*" on:change={uploadFile}>
     <div class="output">
