@@ -6,6 +6,10 @@
     box-shadow: var(--shadows-card-rest);
 }
 
+.win11-ui-card-surface-can-press {
+    cursor: pointer;
+}
+
 .win11-ui-card-surface-can-press:hover {
     background-color: var(--color-background-fill-card-tertiary);
     box-shadow: var(--shadows-card-hover);
