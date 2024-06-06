@@ -4,10 +4,17 @@
 </svelte:head>
 
 <section>
-    <input class="text" type="text" bind:value={text} on:input={updateResults} placeholder={defaultValue}/>
+    <label class="win11-ui-input">
+        <span class="win11-ui-input">{$_('module.substitution.caesar.cipher_text')}</span>
+        <input class="win11-ui-input text" type="text" bind:value={text} on:input={updateResults}
+               placeholder={defaultValue}/>
+    </label>
     <div class="option">
-        <p>转换数字：</p>
-        <input class="number" type="checkbox" bind:checked={rotateNumber} on:change={updateResults}>
+        <label class="win11-ui-checkbox">
+            <input class="win11-ui-checkbox" type="checkbox" bind:checked={rotateNumber} on:change={updateResults}/>
+            <span class="win11-ui-checkbox"/>
+            {$_('module.substitution.caesar.rotate_number')}
+        </label>
     </div>
     <div class="shifts">
         {#each shiftResults as result,i}
@@ -21,6 +28,8 @@
 
 <script lang="ts">
     import {_} from 'svelte-i18n';
+    import '$lib/styles/win11-ui/input.css'
+    import '$lib/styles/win11-ui/checkbox.css'
 
     let defaultValue = 'Hello, World!'
     let rotateNumber: boolean = false;
@@ -56,6 +65,12 @@
 </script>
 
 <style>
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem 0;
+    }
+
     input.text {
         font-family: var(--font-mono), monospace;
         width: 100%;
@@ -65,7 +80,6 @@
         display: flex;
         flex-direction: column;
         gap: 0.6rem 0;
-        margin-top: 1rem;
     }
 
     div.option {

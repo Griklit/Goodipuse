@@ -3,9 +3,9 @@
         <div class="line">
             <label class="radix" style={commonRadix.has(i+2)?"font-weight: bold;":undefined}
                    for="radix">{(i + 2).toString()}</label>
-            <div class="win11-ui-input" style="flex-grow: 1">
+            <label class="win11-ui-input" style="flex-grow: 1">
                 <input class="win11-ui-input" bind:value={base} on:input={()=>flush(i)}/>
-            </div>
+            </label>
         </div>
     {/each}
 </section>
@@ -108,7 +108,7 @@
     section {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.75rem 0;
     }
 
     div.line {

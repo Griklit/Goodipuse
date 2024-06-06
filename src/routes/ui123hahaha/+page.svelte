@@ -6,10 +6,10 @@
 <section>
     <div class="ui-board">
         <h1>Hello, World!</h1>
-        <div class="win11-ui-input">
-            <label for="nmsl" class="win11-ui-input">Header</label>
+        <label class="win11-ui-input">
+            <span class="win11-ui-input">Header</span>
             <input id="nmsl" class="win11-ui-input" placeholder="Hello, World!"/>
-        </div>
+        </label>
 
         <label class="win11-ui-textarea">
             <span class="win11-ui-input">Header</span>
