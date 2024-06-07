@@ -19,33 +19,81 @@ export const autoContrastStretching: renderer = async (data: Uint8ClampedArray) 
     await contrastStretching(data, min, max);
 }
 
-export const redChannel: renderer = async (data: Uint8ClampedArray) => {
+export const redChannelAutoContrastStretching: renderer = async (data: Uint8ClampedArray) => {
+    let redMin = 255, redMax = 0;
     for (let i = 0; i < data.length; i += 4) {
-        data[i + 1] = data[i + 2] = data[i];
+        let red = data[i];
+        data[i + 1] = data[i + 2] = red;
+        redMin = Math.min(redMin, red);
+        redMax = Math.max(redMax, red);
         data[i + 3] = 255;
     }
+    await contrastStretching(data, redMin, redMax);
 }
 
-export const greenChannel: renderer = async (data: Uint8ClampedArray) => {
+export const greenChannelAutoContrastStretching: renderer = async (data: Uint8ClampedArray) => {
+    let greenMin = 255, greenMax = 0;
     for (let i = 0; i < data.length; i += 4) {
-        data[i] = data[i + 2] = data[i + 1];
+        let green = data[i + 1];
+        data[i] = data[i + 2] = green;
+        greenMin = Math.min(greenMin, green);
+        greenMax = Math.max(greenMax, green);
         data[i + 3] = 255;
     }
+    await contrastStretching(data, greenMin, greenMax);
 }
 
-export const blueChannel: renderer = async (data: Uint8ClampedArray) => {
+export const blueChannelAutoContrastStretching: renderer = async (data: Uint8ClampedArray) => {
+    let blueMin = 255, blueMax = 0;
     for (let i = 0; i < data.length; i += 4) {
-        data[i] = data[i + 1] = data[i + 2];
+        let blue = data[i + 2];
+        data[i] = data[i + 1] = blue;
+        blueMin = Math.min(blueMin, blue);
+        blueMax = Math.max(blueMax, blue);
         data[i + 3] = 255;
     }
+    await contrastStretching(data, blueMin, blueMax);
 }
 
-export const alphaChannel: renderer = async (data: Uint8ClampedArray) => {
+export const alphaChannelAutoContrastStretching: renderer = async (data: Uint8ClampedArray) => {
+    let alphaMin = 255, alphaMax = 0;
     for (let i = 0; i < data.length; i += 4) {
-        data[i] = data[i + 1] = data[i + 2] = data[i + 3];
+        let alpha = data[i + 3];
+        data[i] = data[i + 1] = data[i + 2] = alpha;
+        alphaMin = Math.min(alphaMin, alpha);
+        alphaMax = Math.max(alphaMax, alpha);
         data[i + 3] = 255;
     }
+    await contrastStretching(data, alphaMin, alphaMax);
 }
+
+// export const redChannel: renderer = async (data: Uint8ClampedArray) => {
+//     for (let i = 0; i < data.length; i += 4) {
+//         data[i + 1] = data[i + 2] = data[i];
+//         data[i + 3] = 255;
+//     }
+// }
+//
+// export const greenChannel: renderer = async (data: Uint8ClampedArray) => {
+//     for (let i = 0; i < data.length; i += 4) {
+//         data[i] = data[i + 2] = data[i + 1];
+//         data[i + 3] = 255;
+//     }
+// }
+//
+// export const blueChannel: renderer = async (data: Uint8ClampedArray) => {
+//     for (let i = 0; i < data.length; i += 4) {
+//         data[i] = data[i + 1] = data[i + 2];
+//         data[i + 3] = 255;
+//     }
+// }
+//
+// export const alphaChannel: renderer = async (data: Uint8ClampedArray) => {
+//     for (let i = 0; i < data.length; i += 4) {
+//         data[i] = data[i + 1] = data[i + 2] = data[i + 3];
+//         data[i + 3] = 255;
+//     }
+// }
 
 export const pureRed: renderer = async (data: Uint8ClampedArray) => {
     for (let i = 0; i < data.length; i += 4) {

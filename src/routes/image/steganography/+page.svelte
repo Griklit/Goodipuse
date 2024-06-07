@@ -22,7 +22,9 @@
     import {
         type renderer,
         contrastStretching, autoContrastStretching,
-        redChannel, greenChannel, blueChannel, alphaChannel,
+        // redChannel, greenChannel, blueChannel, alphaChannel,
+        redChannelAutoContrastStretching, greenChannelAutoContrastStretching,
+        blueChannelAutoContrastStretching, alphaChannelAutoContrastStretching,
         pureRed, pureGreen, pureBlue, pureAlpha,
         withoutRed, withoutGreen, withoutBlue, withoutAlpha,
         redOdd, greenOdd, blueOdd, alphaOdd,
@@ -39,62 +41,22 @@
         {
             name: $_('module.image.steganography.raw'),
             renderer: async (_) => {
-            }
+            },
         }, {
             name: $_('module.image.steganography.contrast_stretching_auto'),
             renderer: autoContrastStretching
         }, {
-            name: $_('module.image.steganography.contrast_stretching_0_31'),
-            renderer: async (data: Uint8ClampedArray) => {
-                await contrastStretching(data, 0, 32)
-            }
+            name: $_('module.image.steganography.red_channel_contrast_stretching_auto'),
+            renderer: redChannelAutoContrastStretching,
         }, {
-            name: $_('module.image.steganography.contrast_stretching_32_63'),
-            renderer: async (data: Uint8ClampedArray) => {
-                await contrastStretching(data, 32, 64)
-            }
+            name: $_('module.image.steganography.green_channel_contrast_stretching_auto'),
+            renderer: greenChannelAutoContrastStretching,
         }, {
-            name: $_('module.image.steganography.contrast_stretching_64_95'),
-            renderer: async (data: Uint8ClampedArray) => {
-                await contrastStretching(data, 64, 96)
-            }
+            name: $_('module.image.steganography.blue_channel_contrast_stretching_auto'),
+            renderer: blueChannelAutoContrastStretching,
         }, {
-            name: $_('module.image.steganography.contrast_stretching_96_127'),
-            renderer: async (data: Uint8ClampedArray) => {
-                await contrastStretching(data, 96, 128)
-            }
-        }, {
-            name: $_('module.image.steganography.contrast_stretching_128_159'),
-            renderer: async (data: Uint8ClampedArray) => {
-                await contrastStretching(data, 128, 160)
-            }
-        }, {
-            name: $_('module.image.steganography.contrast_stretching_160_191'),
-            renderer: async (data: Uint8ClampedArray) => {
-                await contrastStretching(data, 160, 192)
-            }
-        }, {
-            name: $_('module.image.steganography.contrast_stretching_192_223'),
-            renderer: async (data: Uint8ClampedArray) => {
-                await contrastStretching(data, 192, 224)
-            }
-        }, {
-            name: $_('module.image.steganography.contrast_stretching_224_255'),
-            renderer: async (data: Uint8ClampedArray) => {
-                await contrastStretching(data, 224, 256)
-            }
-        }, {
-            name: $_('module.image.steganography.red_channel'),
-            renderer: redChannel,
-        }, {
-            name: $_('module.image.steganography.green_channel'),
-            renderer: greenChannel,
-        }, {
-            name: $_('module.image.steganography.blue_channel'),
-            renderer: blueChannel,
-        }, {
-            name: $_('module.image.steganography.alpha_channel'),
-            renderer: alphaChannel,
+            name: $_('module.image.steganography.alpha_channel_contrast_stretching_auto'),
+            renderer: alphaChannelAutoContrastStretching,
         }, {
             name: $_('module.image.steganography.pure_red'),
             renderer: pureRed,
@@ -149,10 +111,49 @@
             renderer: async (data: Uint8ClampedArray) => {
                 await hash(data, Math.floor(Math.random() * 256), Math.floor(Math.random() * 256))
             },
-        },
-        {
+        }, {
             name: $_('module.image.steganography.noise_4bit'),
             renderer: noiseBit4,
+        }, {
+            name: $_('module.image.steganography.contrast_stretching_0_31'),
+            renderer: async (data: Uint8ClampedArray) => {
+                await contrastStretching(data, 0, 32)
+            },
+        }, {
+            name: $_('module.image.steganography.contrast_stretching_32_63'),
+            renderer: async (data: Uint8ClampedArray) => {
+                await contrastStretching(data, 32, 64)
+            }
+        }, {
+            name: $_('module.image.steganography.contrast_stretching_64_95'),
+            renderer: async (data: Uint8ClampedArray) => {
+                await contrastStretching(data, 64, 96)
+            }
+        }, {
+            name: $_('module.image.steganography.contrast_stretching_96_127'),
+            renderer: async (data: Uint8ClampedArray) => {
+                await contrastStretching(data, 96, 128)
+            }
+        }, {
+            name: $_('module.image.steganography.contrast_stretching_128_159'),
+            renderer: async (data: Uint8ClampedArray) => {
+                await contrastStretching(data, 128, 160)
+            }
+        }, {
+            name: $_('module.image.steganography.contrast_stretching_160_191'),
+            renderer: async (data: Uint8ClampedArray) => {
+                await contrastStretching(data, 160, 192)
+            }
+        }, {
+            name: $_('module.image.steganography.contrast_stretching_192_223'),
+            renderer: async (data: Uint8ClampedArray) => {
+                await contrastStretching(data, 192, 224)
+            }
+        }, {
+            name: $_('module.image.steganography.contrast_stretching_224_255'),
+            renderer: async (data: Uint8ClampedArray) => {
+                await contrastStretching(data, 224, 256)
+            }
         },
     ]
 
