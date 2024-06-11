@@ -79,6 +79,18 @@
         "plain_text": "译文"
       }
     },
+    "encoding": {
+      "morse": {
+        "title": "摩尔斯电码",
+        "description": "摩尔斯电码是一种用于传输文本信息的电码，它使用点、短划线和长划线来表示字母、数字和标点符号。",
+        "plain_text": "明文",
+        "cipher_text": "密文",
+        "dit": "滴",
+        "dah": "哒",
+        "letter_space": "字符间隔",
+        "word_space": "单词间隔"
+      }
+    },
     "external": {
       "software": {
         "title": "外部软件",
