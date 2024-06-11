@@ -31,7 +31,7 @@
     import '$lib/styles/win11-ui/input.css'
     import '$lib/styles/win11-ui/checkbox.css'
 
-    let defaultValue = 'Hello, World!'
+    let defaultValue = 'Gallo, Goodipuse!'
     let rotateNumber: boolean = false;
     let text: string | null = null;
     let shiftResults: Array<string> = caesarAll(defaultValue);
