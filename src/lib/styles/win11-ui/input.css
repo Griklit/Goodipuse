@@ -57,3 +57,35 @@ span.win11-ui-input {
     margin-bottom: 0.5rem;
     color: var(--color-fill-text-primary);
 }
+
+span.win11-ui-input.inline {
+    margin-bottom: 0;
+}
+
+div.win11-ui-input.inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem
+}
+
+div.win11-ui-input.inline {
+    gap: 0.25rem
+}
+
+span.win11-ui-input.inline.mini {
+    font-size: 0.75rem;
+}
+
+input.win11-ui-input.inline.mini {
+    font-size: 0.75rem;
+    height: auto;
+    /*border: 0.0625rem solid var(--color-elevation-text-control-border);*/
+    /*border-radius: 0.1875rem;*/
+    /*height: 1.875rem;*/
+    /*outline: none;*/
+    /*width: 100%;*/
+    padding: 0.125rem 0.25rem;
+    /*box-sizing: border-box;*/
+    /*color: var(--color-fill-text-primary);*/
+    /*background-color: var(--color-fill-control-default);*/
+}

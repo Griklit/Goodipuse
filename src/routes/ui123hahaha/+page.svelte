@@ -8,11 +8,25 @@
         <h1>Hello, World!</h1>
         <label class="win11-ui-input">
             <span class="win11-ui-input">Header</span>
-            <input id="nmsl" class="win11-ui-input" placeholder="Hello, World!"/>
+            <input class="win11-ui-input" placeholder="Hello, World!"/>
         </label>
 
+        <div class="win11-ui-input inline">
+            <span class="win11-ui-input inline">Header</span>
+            <label class="win11-ui-input inline">
+                <input class="win11-ui-input inline" placeholder="Hello, World!"/>
+            </label>
+        </div>
+
+        <div class="win11-ui-input inline mini">
+            <span class="win11-ui-input inline mini">Header</span>
+            <label class="win11-ui-input inline mini">
+                <input class="win11-ui-input inline mini" placeholder="Hello, World!"/>
+            </label>
+        </div>
+
         <label class="win11-ui-textarea">
-            <span class="win11-ui-input">Header</span>
+            <span class="win11-ui-textarea">Header</span>
             <textarea class="win11-ui-textarea" placeholder="Hello, World!"/>
         </label>
 

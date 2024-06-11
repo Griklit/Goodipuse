@@ -4,26 +4,63 @@
 </svelte:head>
 
 <section>
-    {$_('module.encoding.morse.cipher_text')}
-    <textarea class="text" bind:value={cipherText} on:input={decode}
-              placeholder="--· ·- ·-·· ·-·· --- --··--   --· --- --- -·· ·· ·--· ··- ··· · -·-·--"/>
+    <label class="win11-ui-textarea text">
+        <span class="win11-ui-input">{$_('module.encoding.morse.cipher_text')}</span>
+        <textarea class="win11-ui-textarea" bind:value={cipherText} on:input={decode}
+                  placeholder="--· ·- ·-·· ·-·· --- --··--   --· --- --- -·· ·· ·--· ··- ··· · -·-·--"/>
+    </label>
+    <!--{$_('module.encoding.morse.cipher_text')}-->
+    <!--<textarea class="text" bind:value={cipherText} on:input={decode}-->
+    <!--          placeholder="&#45;&#45;· ·- ·-·· ·-·· -&#45;&#45; &#45;&#45;··&#45;&#45;   &#45;&#45;· -&#45;&#45; -&#45;&#45; -·· ·· ·&#45;&#45;· ··- ··· · -·-·&#45;&#45;"/>-->
     <div class="option">
-        {$_('module.encoding.morse.dit')}
-        <input bind:value={dit}/>
-        {$_('module.encoding.morse.dah')}
-        <input bind:value={dah}/>
-        {$_('module.encoding.morse.letter_space')}
-        <input bind:value={letterSpace}/>
-        {$_('module.encoding.morse.word_space')}
-        <input bind:value={wordSpace}/>
+        <div class="win11-ui-input inline mini">
+            <span class="win11-ui-input inline mini">{$_('module.encoding.morse.dit')}</span>
+            <label class="win11-ui-input inline mini">
+                <input class="win11-ui-input inline mini" bind:value={dit}/>
+            </label>
+        </div>
+        <div class="win11-ui-input inline mini">
+            <span class="win11-ui-input inline mini">{$_('module.encoding.morse.dah')}</span>
+            <label class="win11-ui-input inline mini">
+                <input class="win11-ui-input inline mini" bind:value={dah}/>
+            </label>
+        </div>
+        <div class="win11-ui-input inline mini">
+            <span class="win11-ui-input inline mini">{$_('module.encoding.morse.letter_space')}</span>
+            <label class="win11-ui-input inline mini">
+                <input class="win11-ui-input inline mini" bind:value={letterSpace}/>
+            </label>
+        </div>
+        <div class="win11-ui-input inline mini">
+            <span class="win11-ui-input inline mini">{$_('module.encoding.morse.word_space')}</span>
+            <label class="win11-ui-input inline mini">
+                <input class="win11-ui-input inline mini" bind:value={wordSpace}/>
+            </label>
+        </div>
+        <!--{$_('module.encoding.morse.dit')}-->
+        <!--<input bind:value={dit}/>-->
+        <!--{$_('module.encoding.morse.dah')}-->
+        <!--<input bind:value={dah}/>-->
+        <!--{$_('module.encoding.morse.letter_space')}-->
+        <!--<input bind:value={letterSpace}/>-->
+        <!--{$_('module.encoding.morse.word_space')}-->
+        <!--<input bind:value={wordSpace}/>-->
     </div>
-    {$_('module.encoding.morse.plain_text')}
-    <textarea class="text" bind:value={plainText} on:input={encode}
-              placeholder="GALLO, GOODIPUSE!"/>
+    <label class="win11-ui-textarea text">
+        <span class="win11-ui-input">{$_('module.encoding.morse.plain_text')}</span>
+        <textarea class="win11-ui-textarea" bind:value={plainText} on:input={encode}
+                  placeholder="GALLO, GOODIPUSE!"/>
+    </label>
+    <!--{$_('module.encoding.morse.plain_text')}-->
+    <!--<textarea class="text" bind:value={plainText} on:input={encode}-->
+    <!--          placeholder="GALLO, GOODIPUSE!"/>-->
 </section>
 
 <script lang="ts">
     import {_} from "svelte-i18n";
+
+    import '$lib/styles/win11-ui/input.css'
+    import '$lib/styles/win11-ui/textarea.css'
 
     let morseMap = new Map<string, string>([
         [".-", "A"], ["-...", "B"], ["-.-.", "C"], ["-..", "D"], [".", "E"], ["..-.", "F"], ["--.", "G"],
@@ -92,7 +129,7 @@
         height: 100%;
     }
 
-    textarea.text {
+    label.text {
         width: 100%;
         flex-grow: 1;
     }
