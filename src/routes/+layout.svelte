@@ -38,6 +38,7 @@
     routers.set('/substitution/custom', {title: $_('module.substitution.custom.title')});
     routers.set('/number/base', {title: $_('module.number.base.title')});
     routers.set('/base64/image', {title: $_('module.base64.image.title')});
+    routers.set('/encoding/morse', {title: $_('module.encoding.morse.title')});
     routers.set('/image/steganography', {title: $_('module.image.steganography.title')});
     routers.set('/external/software', {title: $_('module.external.software.title')});
 </script>
