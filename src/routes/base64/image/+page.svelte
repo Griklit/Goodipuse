@@ -3,10 +3,20 @@
     <meta name="description" content={$_('module.base64.image.description')}/>
 </svelte:head>
 
-<section style="height: 100%">
-    <div style="display: flex; height: 100%; gap: 2%">
-        <textarea placeholder="Base64" bind:value={encodedText} on:input={decode}/>
-        <img src="data:image/png;base64,{encodedText}" alt="base64"/>
+<section>
+    <textarea placeholder="Base64 encoded text" bind:value={encodedText} on:input={decode}/>
+    <div>
+        {#if mediaType.startsWith('text/')}
+            <p>{decodedText}</p>
+        {:else if mediaType.startsWith('image/')}
+            <img src={encodedText} alt="base64"/>
+        {:else if mediaType.startsWith('audio/')}
+            <audio src={encodedText}/>
+        {:else if mediaType.startsWith('video/')}
+            <video src={encodedText}/>
+        {:else}
+            <p>{$_('module.base64.image.invalid')}</p>
+        {/if}
     </div>
 </section>
 
@@ -14,22 +24,32 @@
     import {_} from 'svelte-i18n';
 
     let encodedText: string = '';
+    let mediaType: string = '';
+    let decodedText: string = '';
 
     function decode() {
-
+        if (!encodedText.startsWith('data:')) {
+            mediaType = 'text/plain';
+        } else {
+            mediaType = encodedText.split(';')[0].split(':')[1];
+        }
+        if (mediaType.startsWith('text/')) {
+            console.log(encodedText);
+            decodedText = atob(encodedText.split(',')[1]);
+        }
     }
 </script>
 <style>
-    textarea {
-        flex: 1;
+    section {
         height: 100%;
-        width: 9%;
-        resize: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 
-    img {
-        height: 100%;
-        max-width: 89%;
-        object-fit: contain;
+    textarea {
+        min-width: 16rem;
+        width: 64rem;
     }
 </style>
