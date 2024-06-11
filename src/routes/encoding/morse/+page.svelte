@@ -4,18 +4,20 @@
 </svelte:head>
 
 <section>
+    {$_('module.encoding.morse.cipher_text')}
     <textarea class="text" bind:value={cipherText} on:input={decode}
               placeholder="--· ·- ·-·· ·-·· --- --··--   --· --- --- -·· ·· ·--· ··- ··· · -·-·--"/>
     <div class="option">
-        点：
+        {$_('module.encoding.morse.dit')}
         <input bind:value={dit}/>
-        线：
+        {$_('module.encoding.morse.dah')}
         <input bind:value={dah}/>
-        字符间隔：
+        {$_('module.encoding.morse.letter_space')}
         <input bind:value={letterSpace}/>
-        字母间隔：
+        {$_('module.encoding.morse.word_space')}
         <input bind:value={wordSpace}/>
     </div>
+    {$_('module.encoding.morse.plain_text')}
     <textarea class="text" bind:value={plainText} on:input={encode}
               placeholder="GALLO, GOODIPUSE!"/>
 </section>
