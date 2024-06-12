@@ -236,6 +236,7 @@
         transform: translate(-50%, -50%);
         max-width: 95%;
         max-height: 95%;
+        background-color: white;
     }
 
     canvas {
