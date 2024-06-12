@@ -7,7 +7,7 @@
     <label class="win11-ui-textarea text">
         <span class="win11-ui-input">{$_('module.encoding.morse.cipher_text')}</span>
         <textarea class="win11-ui-textarea" bind:value={cipherText} on:input={decode}
-                  placeholder="--· ·- ·-·· ·-·· --- --··--   --· --- --- -·· ·· ·--· ··- ··· · -·-·--"/>
+                  placeholder="--. .- .-.. .-.. --- --..--   --. --- --- -.. .. .--. ..- ... . -.-.--"/>
     </label>
     <!--{$_('module.encoding.morse.cipher_text')}-->
     <!--<textarea class="text" bind:value={cipherText} on:input={decode}-->
