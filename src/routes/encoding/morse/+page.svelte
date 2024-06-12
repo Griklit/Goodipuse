@@ -7,11 +7,8 @@
     <label class="win11-ui-textarea text">
         <span class="win11-ui-input">{$_('module.encoding.morse.cipher_text')}</span>
         <textarea class="win11-ui-textarea" bind:value={cipherText} on:input={decode}
-                  placeholder="--. .- .-.. .-.. --- --..--   --. --- --- -.. .. .--. ..- ... . -.-.--"/>
+                  placeholder={replace(replace(cipherPlaceholder,'.',dit),'-',dah)}/>
     </label>
-    <!--{$_('module.encoding.morse.cipher_text')}-->
-    <!--<textarea class="text" bind:value={cipherText} on:input={decode}-->
-    <!--          placeholder="&#45;&#45;· ·- ·-·· ·-·· -&#45;&#45; &#45;&#45;··&#45;&#45;   &#45;&#45;· -&#45;&#45; -&#45;&#45; -·· ·· ·&#45;&#45;· ··- ··· · -·-·&#45;&#45;"/>-->
     <div class="option">
         <div class="win11-ui-input inline mini">
             <span class="win11-ui-input inline mini">{$_('module.encoding.morse.dit')}</span>
@@ -37,23 +34,12 @@
                 <input class="win11-ui-input inline mini" bind:value={wordSpace}/>
             </label>
         </div>
-        <!--{$_('module.encoding.morse.dit')}-->
-        <!--<input bind:value={dit}/>-->
-        <!--{$_('module.encoding.morse.dah')}-->
-        <!--<input bind:value={dah}/>-->
-        <!--{$_('module.encoding.morse.letter_space')}-->
-        <!--<input bind:value={letterSpace}/>-->
-        <!--{$_('module.encoding.morse.word_space')}-->
-        <!--<input bind:value={wordSpace}/>-->
     </div>
     <label class="win11-ui-textarea text">
         <span class="win11-ui-input">{$_('module.encoding.morse.plain_text')}</span>
         <textarea class="win11-ui-textarea" bind:value={plainText} on:input={encode}
                   placeholder="GALLO, GOODIPUSE!"/>
     </label>
-    <!--{$_('module.encoding.morse.plain_text')}-->
-    <!--<textarea class="text" bind:value={plainText} on:input={encode}-->
-    <!--          placeholder="GALLO, GOODIPUSE!"/>-->
 </section>
 
 <script lang="ts">
@@ -93,29 +79,33 @@
     let letterSpace = " ";
     let wordSpace = "   ";
 
+    let cipherPlaceholder = "--. .- .-.. .-.. --- --..--   --. --- --- -.. .. .--. ..- ... . -.-.--";
+
 
     function replace(str: string, search: string, replace: string) {
         return str.split(search).join(replace);
     }
 
     function decode() {
-        let words = cipherText.split(wordSpace);
-        plainText = words.map((word) => {
-            return word.split(letterSpace).map((letter) => {
-                let letterR = replace(replace(letter, dit, '.'), dah, '-');
-                return morseMap.get(letterR) || letter;
-            }).join('');
-        }).join(' ');
+        plainText = cipherText.split('\n').map((line) => {
+            return line.split(wordSpace).map((word) => {
+                return word.split(letterSpace).map((letter) => {
+                    let letterR = replace(replace(letter, dit, '.'), dah, '-');
+                    return morseMap.get(letterR) || letter;
+                }).join('');
+            }).join(' ');
+        }).join('\n');
     }
 
     function encode() {
-        let words = plainText.split(' ');
-        cipherText = words.map((word) => {
-            return word.split('').map((letter) => {
-                let result = morseMapReverse.get(letter.toUpperCase()) || letter;
-                return replace(replace(result, '.', dit), '-', dah);
-            }).join(letterSpace);
-        }).join(wordSpace);
+        cipherText = plainText.split('\n').map((line) => {
+            return line.split(' ').map((word) => {
+                return word.split('').map((letter) => {
+                    let result = morseMapReverse.get(letter.toUpperCase()) || letter;
+                    return replace(replace(result, '.', dit), '-', dah);
+                }).join(letterSpace);
+            }).join(wordSpace);
+        }).join('\n');
     }
 
 
