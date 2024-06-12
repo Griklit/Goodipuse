@@ -10,28 +10,28 @@
                   placeholder={replace(replace(cipherPlaceholder,'.',dit),'-',dah)}/>
     </label>
     <div class="option">
-        <div class="win11-ui-input inline mini">
-            <span class="win11-ui-input inline mini">{$_('module.encoding.morse.dit')}</span>
-            <label class="win11-ui-input inline mini">
-                <input class="win11-ui-input inline mini" bind:value={dit}/>
+        <div class="win11-ui-input inline">
+            <span class="win11-ui-input inline">{$_('module.encoding.morse.dit')}</span>
+            <label class="win11-ui-input inline">
+                <input class="win11-ui-input inline" bind:value={dit}/>
             </label>
         </div>
-        <div class="win11-ui-input inline mini">
-            <span class="win11-ui-input inline mini">{$_('module.encoding.morse.dah')}</span>
-            <label class="win11-ui-input inline mini">
-                <input class="win11-ui-input inline mini" bind:value={dah}/>
+        <div class="win11-ui-input inline">
+            <span class="win11-ui-input inline">{$_('module.encoding.morse.dah')}</span>
+            <label class="win11-ui-input inline">
+                <input class="win11-ui-input inline" bind:value={dah}/>
             </label>
         </div>
-        <div class="win11-ui-input inline mini">
-            <span class="win11-ui-input inline mini">{$_('module.encoding.morse.letter_space')}</span>
-            <label class="win11-ui-input inline mini">
-                <input class="win11-ui-input inline mini" bind:value={letterSpace}/>
+        <div class="win11-ui-input inline">
+            <span class="win11-ui-input inline">{$_('module.encoding.morse.letter_space')}</span>
+            <label class="win11-ui-input inline">
+                <input class="win11-ui-input inline" bind:value={letterSpace}/>
             </label>
         </div>
-        <div class="win11-ui-input inline mini">
-            <span class="win11-ui-input inline mini">{$_('module.encoding.morse.word_space')}</span>
-            <label class="win11-ui-input inline mini">
-                <input class="win11-ui-input inline mini" bind:value={wordSpace}/>
+        <div class="win11-ui-input inline">
+            <span class="win11-ui-input inline">{$_('module.encoding.morse.word_space')}</span>
+            <label class="win11-ui-input inline">
+                <input class="win11-ui-input inline" bind:value={wordSpace}/>
             </label>
         </div>
     </div>
@@ -122,5 +122,12 @@
     label.text {
         width: 100%;
         flex-grow: 1;
+    }
+
+    div.option {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2rem;
     }
 </style>
