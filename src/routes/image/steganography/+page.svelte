@@ -8,8 +8,8 @@
     <div class="output">
         {#each canvasList as canvas,i}
             <button class="win11-ui-card-surface-can-press card"
-                    style={canvas[2]? "min-width:32rem;width:max-content;" : undefined }
-                    on:click={()=>{enlarge(i)}}>
+                    class:card-enlarged={canvas[2]}
+                    on:click={()=>enlarge(i)}>
                 {canvas[1].name}
                 <canvas bind:this={canvas[0]}/>
             </button>
@@ -166,11 +166,14 @@
     });
 
     async function enlarge(index: number) {
-        canvasList[index][2] = !canvasList[index][2];
-        await new Promise(resolve => setTimeout(resolve, 10));
-        canvasList[index][0]?.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
+        for (let i = 0; i < canvasList.length; i++) {
+            if (i === index) {
+                canvasList[i][2] = !canvasList[i][2];
+            } else {
+                canvasList[i][2] = false;
+            }
+        }
     }
-
 
     async function render() {
         for (let i = 0; i < canvasList.length; i++) {
@@ -187,7 +190,6 @@
             await new Promise(resolve => setTimeout(resolve, 10));
         }
     }
-
 
     async function uploadFile(event: Event) {
         const input = event.target as HTMLInputElement;
@@ -206,7 +208,6 @@
             await render();
         }
     }
-
 </script>
 
 <style>
@@ -217,9 +218,8 @@
     }
 
     div.output {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
         gap: 1rem;
     }
 
@@ -227,8 +227,15 @@
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
-        min-width: 16rem;
-        width: 16rem;
+    }
+
+    button.card-enlarged {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 95%;
+        max-height: 95%;
     }
 
     canvas {
