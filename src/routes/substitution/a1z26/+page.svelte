@@ -6,38 +6,36 @@
 <section>
     <label class="win11-ui-textarea text">
         <span class="win11-ui-input">{$_('module.substitution.a1z26.cipher_text')}</span>
-        <textarea class="win11-ui-textarea" bind:value={encodedText} on:input={decode}
-                  placeholder={encodeHolder}/>
+        <textarea class="win11-ui-textarea" bind:value={cipherText} on:input={decode}
+                  placeholder={cipherHolder.replace(cipherHolderRegex, separator)}/>
     </label>
     <div class="option">
         <div class="win11-ui-input inline">
             <span class="win11-ui-input inline">{$_('module.substitution.a1z26.separator')}</span>
             <label class="win11-ui-input inline">
-                <input class="win11-ui-input inline" bind:value={separator}/>
+                <input class="win11-ui-input inline" bind:value={separator} on:input={encode}/>
             </label>
         </div>
     </div>
     <label class="win11-ui-textarea text">
         <span class="win11-ui-input">{$_('module.substitution.a1z26.plain_text')}</span>
-        <textarea class="win11-ui-textarea" bind:value={decodedText} on:input={encode}
-                  placeholder={holder}/>
+        <textarea class="win11-ui-textarea" bind:value={plainText} on:input={encode}
+                  placeholder={plainHolder}/>
     </label>
-    <!--    <input class="text" type="text" bind:value={decodedText} on:input={encode} placeholder={holder}/>-->
-    <!--    <input class="text" type="text" bind:value={split} on:input={encode}/>-->
-    <!--    <input class="text" type="text" bind:value={encodedText} on:input={decode} placeholder={encodeHolder}/>-->
 </section>
 
 <script lang="ts">
     import {_} from 'svelte-i18n';
 
-    let holder = 'Gallo, Goodipuse!'
-    let encodeHolder = '7-1-12-12-15-,- -7-15-15-4-9-16-21-19-5-!';
-    let decodedText: string = '';
+    let plainHolder = 'Gallo, Goodipuse!'
+    let cipherHolder = '7-1-12-12-15-,- -7-15-15-4-9-16-21-19-5-!';
+    let cipherHolderRegex = new RegExp('-', 'g');
+    let plainText: string = '';
     let separator: string = '-';
-    let encodedText: string = '';
+    let cipherText: string = '';
 
     function encode() {
-        encodedText = decodedText.split('').map((char) => {
+        cipherText = plainText.split('').map((char) => {
             const code = char.charCodeAt(0);
             if (code >= 65 && code <= 90) {
                 return (code - 65 + 1).toString();
@@ -50,7 +48,7 @@
     }
 
     function decode() {
-        decodedText = encodedText.split(separator).map((char) => {
+        plainText = cipherText.split(separator).map((char) => {
             if (char.length === 0) {
                 return '';
             }
@@ -78,5 +76,12 @@
         font-family: var(--font-mono), monospace;
         flex-grow: 1;
         width: 100%;
+    }
+
+    div.option {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2rem;
     }
 </style>
