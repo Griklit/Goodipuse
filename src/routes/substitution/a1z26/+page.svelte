@@ -4,18 +4,36 @@
 </svelte:head>
 
 <section>
-    <input class="text" type="text" bind:value={decodedText} on:input={encode} placeholder={holder}/>
-    <input class="text" type="text" bind:value={split} on:input={encode}/>
-    <input class="text" type="text" bind:value={encodedText} on:input={decode} placeholder={encodeHolder}/>
+    <label class="win11-ui-textarea text">
+        <span class="win11-ui-input">{$_('module.substitution.a1z26.cipher_text')}</span>
+        <textarea class="win11-ui-textarea" bind:value={decodedText} on:input={encode}
+                  placeholder={holder}/>
+    </label>
+    <div class="option">
+        <div class="win11-ui-input inline">
+            <span class="win11-ui-input inline">{$_('module.substitution.a1z26.separator')}</span>
+            <label class="win11-ui-input inline">
+                <input class="win11-ui-input inline" bind:value={separator}/>
+            </label>
+        </div>
+    </div>
+    <label class="win11-ui-textarea text">
+        <span class="win11-ui-input">{$_('module.substitution.a1z26.plain_text')}</span>
+        <textarea class="win11-ui-textarea" bind:value={encodedText} on:input={decode}
+                  placeholder={encodeHolder}/>
+    </label>
+    <!--    <input class="text" type="text" bind:value={decodedText} on:input={encode} placeholder={holder}/>-->
+    <!--    <input class="text" type="text" bind:value={split} on:input={encode}/>-->
+    <!--    <input class="text" type="text" bind:value={encodedText} on:input={decode} placeholder={encodeHolder}/>-->
 </section>
 
 <script lang="ts">
     import {_} from 'svelte-i18n';
 
-    let holder = 'Hello, World!'
-    let encodeHolder = '8-5-12-12-15-,- -23-15-18-12-4-!';
+    let holder = 'Gallo, Goodipuse!'
+    let encodeHolder = '7-1-12-12-15-,- -7-15-15-4-9-16-21-19-5-!';
     let decodedText: string = '';
-    let split: string = '-';
+    let separator: string = '-';
     let encodedText: string = '';
 
     function encode() {
@@ -28,11 +46,11 @@
             } else {
                 return char;
             }
-        }).join(split);
+        }).join(separator);
     }
 
     function decode() {
-        decodedText = encodedText.split(split).map((char) => {
+        decodedText = encodedText.split(separator).map((char) => {
             if (char.length === 0) {
                 return '';
             }
@@ -49,8 +67,16 @@
 </script>
 
 <style>
-    input.text {
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        height: 100%;
+    }
+
+    label.text {
         font-family: var(--font-mono), monospace;
+        flex-grow: 1;
         width: 100%;
     }
 </style>

@@ -63,7 +63,10 @@
     "substitution": {
       "a1z26": {
         "title": "A1Z26",
-        "description": "A1Z26是一种古典加密技术，它是一种替换加密的技术，明文中的所有字母都被替换成它们在字母表中的位置。"
+        "description": "A1Z26是一种古典加密技术，它是一种替换加密的技术，明文中的所有字母都被替换成它们在字母表中的位置。",
+        "plain_text": "明文",
+        "cipher_text": "密文",
+        "separator": "分隔符"
       },
       "caesar": {
         "title": "凯撒密码",
