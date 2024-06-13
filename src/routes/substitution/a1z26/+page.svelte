@@ -6,8 +6,8 @@
 <section>
     <label class="win11-ui-textarea text">
         <span class="win11-ui-input">{$_('module.substitution.a1z26.cipher_text')}</span>
-        <textarea class="win11-ui-textarea" bind:value={decodedText} on:input={encode}
-                  placeholder={holder}/>
+        <textarea class="win11-ui-textarea" bind:value={encodedText} on:input={decode}
+                  placeholder={encodeHolder}/>
     </label>
     <div class="option">
         <div class="win11-ui-input inline">
@@ -19,8 +19,8 @@
     </div>
     <label class="win11-ui-textarea text">
         <span class="win11-ui-input">{$_('module.substitution.a1z26.plain_text')}</span>
-        <textarea class="win11-ui-textarea" bind:value={encodedText} on:input={decode}
-                  placeholder={encodeHolder}/>
+        <textarea class="win11-ui-textarea" bind:value={decodedText} on:input={encode}
+                  placeholder={holder}/>
     </label>
     <!--    <input class="text" type="text" bind:value={decodedText} on:input={encode} placeholder={holder}/>-->
     <!--    <input class="text" type="text" bind:value={split} on:input={encode}/>-->
