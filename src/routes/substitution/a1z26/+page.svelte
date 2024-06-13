@@ -13,7 +13,7 @@
         <div class="win11-ui-input inline">
             <span class="win11-ui-input inline">{$_('module.substitution.a1z26.separator')}</span>
             <label class="win11-ui-input inline">
-                <input class="win11-ui-input inline" bind:value={separator} on:input={encode}/>
+                <input class="win11-ui-input inline" bind:value={separator} on:input={decode}/>
             </label>
         </div>
     </div>

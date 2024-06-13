@@ -13,25 +13,25 @@
         <div class="win11-ui-input inline">
             <span class="win11-ui-input inline">{$_('module.encoding.morse.dit')}</span>
             <label class="win11-ui-input inline">
-                <input class="win11-ui-input inline" bind:value={dit}/>
+                <input class="win11-ui-input inline" bind:value={dit} on:input={decode}/>
             </label>
         </div>
         <div class="win11-ui-input inline">
             <span class="win11-ui-input inline">{$_('module.encoding.morse.dah')}</span>
             <label class="win11-ui-input inline">
-                <input class="win11-ui-input inline" bind:value={dah}/>
+                <input class="win11-ui-input inline" bind:value={dah} on:input={decode}/>
             </label>
         </div>
         <div class="win11-ui-input inline">
             <span class="win11-ui-input inline">{$_('module.encoding.morse.letter_space')}</span>
             <label class="win11-ui-input inline">
-                <input class="win11-ui-input inline" bind:value={letterSpace}/>
+                <input class="win11-ui-input inline" bind:value={letterSpace} on:input={decode}/>
             </label>
         </div>
         <div class="win11-ui-input inline">
             <span class="win11-ui-input inline">{$_('module.encoding.morse.word_space')}</span>
             <label class="win11-ui-input inline">
-                <input class="win11-ui-input inline" bind:value={wordSpace}/>
+                <input class="win11-ui-input inline" bind:value={wordSpace} on:input={decode}/>
             </label>
         </div>
     </div>
