@@ -6,7 +6,7 @@
 <section>
     {#each websites as website}
         <div>
-            <a href={website.url}>{website.name}</a>
+            <a href={website.url} target="_blank">{website.name}</a>
             {website.description}
         </div>
     {/each}
