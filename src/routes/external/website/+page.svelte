@@ -5,7 +5,10 @@
 
 <section>
     {#each websites as website}
-        <a href={website.url}>{website.name}</a>
+        <div>
+            <a href={website.url}>{website.name}</a>
+            {website.description}
+        </div>
     {/each}
 </section>
 
@@ -24,3 +27,11 @@
         }
     ]
 </script>
+
+<style>
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+</style>
