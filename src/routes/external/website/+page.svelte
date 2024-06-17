@@ -7,7 +7,6 @@
     {#each websites as website}
         <a href={website.url}>{website.name}</a>
     {/each}
-
 </section>
 
 <script lang="ts">

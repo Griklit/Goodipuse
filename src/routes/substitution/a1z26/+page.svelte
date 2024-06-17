@@ -35,33 +35,36 @@
     let cipherText: string = '';
 
     function encode() {
-        cipherText = plainText.split('').map((char) => {
-            const code = char.charCodeAt(0);
-            if (code >= 65 && code <= 90) {
-                return (code - 65 + 1).toString();
-            } else if (code >= 97 && code <= 122) {
-                return (code - 97 + 1).toString();
-            } else {
-                return char;
-            }
-        }).join(separator);
+        cipherText = plainText.split('\n').map((line) => {
+            return line.split('').map((char) => {
+                const code = char.charCodeAt(0);
+                if (code >= 65 && code <= 90) {
+                    return (code - 65 + 1).toString();
+                } else if (code >= 97 && code <= 122) {
+                    return (code - 97 + 1).toString();
+                } else {
+                    return char;
+                }
+            }).join(separator);
+        }).join('\n');
     }
 
     function decode() {
-        plainText = cipherText.split(separator).map((char) => {
-            if (char.length === 0) {
-                return '';
-            }
-            let code = parseInt(char);
-            if (code >= 1 && code <= 26) {
-                return String.fromCharCode(code + 64);
-            } else {
-                return char;
-            }
-        }).join('');
+        plainText = cipherText.split('\n').map((line) => {
+            return line.split(separator).map((char) => {
+                console.log(char);
+                if (char.length === 0) {
+                    return '';
+                }
+                let code = parseInt(char);
+                if (code >= 1 && code <= 26) {
+                    return String.fromCharCode(code + 64);
+                } else {
+                    return char;
+                }
+            }).join('');
+        }).join('\n');
     }
-
-
 </script>
 
 <style>
