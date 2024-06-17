@@ -98,6 +98,10 @@
       "software": {
         "title": "外部软件",
         "description": "不在本网站上运行的第三方工具程序。"
+      },
+      "website": {
+        "title": "外部网站",
+        "description": "不在本网站上运行的第三方网站。"
       }
     }
   }
