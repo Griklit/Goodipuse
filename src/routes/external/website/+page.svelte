@@ -28,7 +28,11 @@
             name: "Regex101",
             url: "https://regex101.com/",
             description: "构建，测试以及调试正则表达式"
-        },
+        }, {
+            name: 'FactorDB',
+            url: 'http://factordb.com/',
+            description: '因式分解网站。'
+        }
     ]
 </script>
 
