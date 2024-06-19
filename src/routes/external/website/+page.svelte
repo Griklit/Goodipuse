@@ -23,8 +23,12 @@
         {
             name: "Hashes",
             url: "https://hashes.com/",
-            description: "哈希原始值搜索"
-        }
+            description: "一个专门用于哈希逆向的网站。"
+        }, {
+            name: "Regex101",
+            url: "https://regex101.com/",
+            description: "构建，测试以及调试正则表达式"
+        },
     ]
 </script>
 
