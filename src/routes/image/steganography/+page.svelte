@@ -245,6 +245,9 @@
         height: 100%;
         max-height: 100%;
         max-width: 100%;
+        background-image: url('/assets/TransparentTextures.svg');
+        background-repeat: repeat;
+        background-size: auto;
     }
 
     div.output {
