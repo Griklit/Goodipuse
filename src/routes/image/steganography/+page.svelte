@@ -170,6 +170,7 @@
     let enlarger: HTMLCanvasElement;
 
     async function enlarge(index: number) {
+        if (file === null) return;
         let cvs = canvasList[index][0];
         if (!cvs) return;
         enlargerVisible = true;
