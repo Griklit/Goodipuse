@@ -3,15 +3,17 @@
     <meta name="description" content={$_('module.image.steganography.description')}/>
 </svelte:head>
 
+
 <section>
+    <button class="enlarger" style={enlargerVisible?"":"display:none"} on:click={closeEnlarger}>
+        <canvas class="enlarger" bind:this={enlarger}/>
+    </button>
     <input type="file" alt={$_('module.image.steganography.upload_file_alt')} accept="image/*" on:change={uploadFile}>
     <div class="output">
         {#each canvasList as canvas,i}
-            <button class="win11-ui-card-surface-can-press card"
-                    class:card-enlarged={canvas[2]}
-                    on:click={()=>enlarge(i)}>
+            <button class="win11-ui-card-surface-can-press card" on:click={()=>enlarge(i)}>
                 {canvas[1].name}
-                <canvas bind:this={canvas[0]}/>
+                <canvas class="card" bind:this={canvas[0]}/>
             </button>
         {/each}
     </div>
@@ -161,18 +163,28 @@
     let image: HTMLImageElement | null = null;
     let image_width: number = 0;
     let image_height: number = 0;
-    let canvasList: Array<[HTMLCanvasElement | null, handler, boolean]> = handlers.map(handler => {
-        return [null, handler, false];
+    let canvasList: Array<[HTMLCanvasElement | null, handler]> = handlers.map(handler => {
+        return [null, handler];
     });
+    let enlargerVisible: boolean = false;
+    let enlarger: HTMLCanvasElement;
 
     async function enlarge(index: number) {
-        for (let i = 0; i < canvasList.length; i++) {
-            if (i === index) {
-                canvasList[i][2] = !canvasList[i][2];
-            } else {
-                canvasList[i][2] = false;
-            }
-        }
+        let cvs = canvasList[index][0];
+        if (!cvs) return;
+        enlargerVisible = true;
+        console.log(enlarger);
+        enlarger.width = cvs.width;
+        enlarger.height = cvs.height;
+        const ctx = enlarger.getContext('2d');
+        if (!ctx) return;
+        ctx.drawImage(cvs, 0, 0);
+        console.log(123456789);
+
+    }
+
+    async function closeEnlarger() {
+        enlargerVisible = false;
     }
 
     async function render() {
@@ -217,6 +229,24 @@
         gap: 1rem;
     }
 
+    button.enlarger {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        padding: 8rem;
+    }
+
+    canvas.enlarger {
+        object-fit: contain;
+        height: 100%;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
     div.output {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
@@ -229,17 +259,7 @@
         gap: 0.25rem;
     }
 
-    button.card-enlarged {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        max-width: 95%;
-        max-height: 95%;
-        background-color: white;
-    }
-
-    canvas {
+    canvas.card {
         width: 100%;
         scroll-margin-top: 3rem;
     }
